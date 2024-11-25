@@ -24,7 +24,7 @@ module tetris(
     input [3:0] keypad_input,
     input reset,
     input clk,
-    output [15:0] board [7:0]
+    output reg [127:0] board
     );
     reg [7:0] current_board [15:0];
     reg [7:0] player_board [15:0];
@@ -47,14 +47,14 @@ module tetris(
     
     integer i, j, k;
     
-    always @(posedge reset) begin 
+    always @(posedge reset or posedge clk) begin 
         if(reset) begin  
             can_move <= 1;
             game_over <= 0;
             lfsr <= 8'hA8;
         end else begin
             bit <= (lfsr >> 0) ^ (lfsr >> 2) ^ (lfsr >> 3) ^ (lfsr >> 5) & 1;
-            lfsr = (lfsr >> 1) | (bit << 15);
+            lfsr = (lfsr >> 1) | (bit << 7);
             for(i = 0; i < 16; i = i + 1) begin
                 current_board[i] <= 8'h0;
                 player_board[i] <= 8'h0;
@@ -102,15 +102,15 @@ module tetris(
                     //missing code
                     //checks if moving is possible
                     for(i = 15; i > 0; i = i - 1) begin
-                        if(player_board[j] & current_board[j-1] != 8'h0) begin
+                        if(player_board[i] & current_board[i-1] != 8'h0) begin
                             can_move = 0;
                         end
                     end
                     //moves the player block down and updates the display
                     if(can_move) begin
                         for(i = 0; i < 15; i = i + 1) begin 
-                            player_board[j] = player_board[j+1];
-                            display[j] = current_board[j] | player_board[j];
+                            player_board[i] = player_board[i+1];
+                            display[i] = current_board[i] | player_board[i];
                         end
                         display[15] = current_board[15] | player_board[15];
                     end
@@ -130,6 +130,12 @@ module tetris(
                             current_board[j] = current_board[j+1];
                         end
                         i = i - 1;
+                    end     
+                end
+                for(i = 0; i < 15; i = i + 1) begin
+                    display[i] = current_board[i];
+                    for(j = 0; j < 8; j = j + 1) begin
+                        board[i * 8 + j] = display[i][j]; 
                     end
                 end
             end
