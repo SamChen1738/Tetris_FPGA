@@ -63,13 +63,15 @@ module tetris(
             while(~game_over) begin
                 //generate new piece
                 rng = lfsr & 3'b111;
+                can_move <= 1;
+                k = 0;
                 case(rng) 
                     8'h00: begin 
                         player_board[15] = t_piece_top; 
                         player_board[14] = t_piece_bottom;
                     end 
                     8'h01: begin
-                        player_board[15] = line_piece;
+                        player_board[14] = line_piece;
                     end
                     8'h02: begin
                         player_board[15] = l_piece_top;
@@ -102,7 +104,10 @@ module tetris(
                     //missing code
                     //checks if moving is possible
                     for(i = 15; i > 0; i = i - 1) begin
-                        if(player_board[i] & current_board[i-1] != 8'h0) begin
+                        if(player_board[i] & current_board[i-1] != 8'h00) begin
+                            can_move = 0;
+                        end
+                        if(k >= 14) begin 
                             can_move = 0;
                         end
                     end
@@ -114,6 +119,7 @@ module tetris(
                         end
                         display[15] = current_board[15] | player_board[15];
                     end
+                    k = k + 1;
                 end
                 //updates the current board, clears the player board, and clears any rows
                 for(i = 0; i < 15; i = i + 1) begin
@@ -124,14 +130,23 @@ module tetris(
                     end
                 end
                 //moves rows down if there are any cleared rows
-                for(i = 0; i < 15; i = i + 1) begin
-                    if(current_board[i] == 8'h0) begin
-                        for(j = i; j < 14; j = j + 1) begin
-                            current_board[j] = current_board[j+1];
-                        end
-                        i = i - 1;
-                    end     
-                end
+//                k = 0;
+//                i = 0;
+//                while (i <= 15) begin
+//                    if (current_board[i] == 8'h0) begin
+//                        for (j = i; j < 15; j = j + 1) begin
+//                            current_board[j] = current_board[j + 1];
+//                        end
+//                        current_board[15] = 8'h0;
+//                        k = k + 1;
+//                        if (k >= 4) begin
+//                            break; 
+//                        end
+//                    end else begin
+//                        i = i + 1;
+//                    end
+//                end
+                
                 for(i = 0; i < 15; i = i + 1) begin
                     display[i] = current_board[i];
                     for(j = 0; j < 8; j = j + 1) begin
