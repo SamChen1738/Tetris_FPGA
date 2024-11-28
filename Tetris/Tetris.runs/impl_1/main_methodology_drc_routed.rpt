@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Thu Nov 28 01:51:37 2024
+| Date         : Thu Nov 28 03:09:46 2024
 | Host         : Sam-PC running 64-bit major release  (build 9200)
 | Command      : report_methodology -file main_methodology_drc_routed.rpt -pb main_methodology_drc_routed.pb -rpx main_methodology_drc_routed.rpx
 | Design       : main
@@ -23,12 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 22
+             Violations found: 23
 +-----------+------------------+-------------------------------+------------+
 | Rule      | Severity         | Description                   | Violations |
 +-----------+------------------+-------------------------------+------------+
 | TIMING-17 | Critical Warning | Non-clocked sequential cell   | 20         |
-| TIMING-18 | Warning          | Missing input or output delay | 2          |
+| TIMING-18 | Warning          | Missing input or output delay | 3          |
 +-----------+------------------+-------------------------------+------------+
 
 2. REPORT DETAILS
@@ -135,10 +135,15 @@ Related violations: <none>
 
 TIMING-18#1 Warning
 Missing input or output delay  
-An output delay is missing on hsync relative to clock(s) sys_clk_pin
+An input delay is missing on reset relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#2 Warning
+Missing input or output delay  
+An output delay is missing on hsync relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#3 Warning
 Missing input or output delay  
 An output delay is missing on vsync relative to clock(s) sys_clk_pin
 Related violations: <none>

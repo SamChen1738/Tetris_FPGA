@@ -26,26 +26,26 @@ module main(
     input [3:0] keypad_input,
     output hsync,
     output vsync,
-    output [2:0] rgb
+    output [11:0] rgb
     );
     
-    wire w_reset, video_on, p_tick;
+    wire video_on, p_tick;
     wire [9:0] x, y;
-    reg [2:0] rgb_reg;
-    wire [2:0] rgb_next;
-    wire [127:0] board;
+    reg [11:0] rgb_reg;
+    wire [11:0] rgb_next;
     
     
-    vga_controller vga (.clk(clk), .reset(w_reset), .video_on(video_on),
+    vga_controller vga (.clk(clk), .reset(reset), .video_on(video_on),
                         .hsync(hsync), .vsync(vsync), .p_tick(p_tick), .x(x), .y(y));
-    tetris tetris(.clk(clk), .reset(w_reset), .keypad_input(keypad_input), .board(board));
-    pixel_gen pixel(.clk(clk), .reset(reset), .board(board), .x(x), .y(y), .rgb(rgb_next));
+    tetris tetris(.clk(clk), .reset(reset), .keypad_input(keypad_input), .x(x), .y(y), .video_on(video_on), .rgb(rgb_next));
     
-    always @(posedge clk) begin 
-        if(p_tick) begin
-            rgb_reg = rgb_next;
-        end
-    end
     
-    assign rgb = rgb_reg;
+//    always @(posedge clk) begin 
+//        if(p_tick) begin
+//            rgb_reg = rgb_next;
+//        end
+//    end
+    
+//    assign rgb = rgb_reg;
+    assign rgb = 12'hF00;
 endmodule

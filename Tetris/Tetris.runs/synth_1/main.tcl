@@ -87,7 +87,6 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  D:/Tetris/Tetris/Tetris.srcs/sources_1/new/pixel_gen.v
   D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v
   D:/Tetris/vga_controller.v
   D:/Tetris/Tetris/Tetris.srcs/sources_1/new/main.v

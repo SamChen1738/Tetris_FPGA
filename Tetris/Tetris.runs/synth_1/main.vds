@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Thu Nov 28 01:50:06 2024
-# Process ID: 14484
+# Start of session at: Thu Nov 28 03:07:57 2024
+# Process ID: 10188
 # Current directory: D:/Tetris/Tetris/Tetris.runs/synth_1
 # Command line: vivado.exe -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
 # Log file: D:/Tetris/Tetris/Tetris.runs/synth_1/main.vds
@@ -17,9 +17,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 14708
+INFO: [Synth 8-7075] Helper process launched with PID 14516
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1107.543 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1109.422 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'main' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/main.v:23]
 INFO: [Synth 8-6157] synthesizing module 'vga_controller' [D:/Tetris/vga_controller.v:21]
@@ -35,114 +35,63 @@ INFO: [Synth 8-6157] synthesizing module 'vga_controller' [D:/Tetris/vga_control
 	Parameter VMAX bound to: 524 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'vga_controller' (1#1) [D:/Tetris/vga_controller.v:21]
 INFO: [Synth 8-6157] synthesizing module 'tetris' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'tetris' (2#1) [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:23]
-INFO: [Synth 8-6157] synthesizing module 'pixel_gen' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/pixel_gen.v:23]
+	Parameter t_piece_top bound to: 8'b00010000 
+	Parameter t_piece_bottom bound to: 8'b00111000 
+	Parameter l_piece_top bound to: 8'b00111000 
+	Parameter l_piece_bottom bound to: 8'b00100000 
+	Parameter l_piece_mirrored_bottom bound to: 8'b00001000 
+	Parameter line_piece bound to: 8'b00111100 
+	Parameter z_piece_left bound to: 8'b00110000 
+	Parameter z_piece_right bound to: 8'b00011000 
 	Parameter BLOCK_SIZE bound to: 20 - type: integer 
-	Parameter GRID_WIDTH bound to: 8 - type: integer 
-	Parameter GRID_HEIGHT bound to: 16 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'pixel_gen' (3#1) [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/pixel_gen.v:23]
-WARNING: [Synth 8-689] width (3) of port connection 'rgb' does not match port width (12) of module 'pixel_gen' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/main.v:42]
-INFO: [Synth 8-6155] done synthesizing module 'main' (4#1) [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/main.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'tetris' (2#1) [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'main' (3#1) [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/main.v:23]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1167.297 ; gain = 59.754
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1164.957 ; gain = 55.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1167.297 ; gain = 59.754
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1164.957 ; gain = 55.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1167.297 ; gain = 59.754
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1164.957 ; gain = 55.535
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1167.297 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1164.957 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc]
-WARNING: [Vivado 12-584] No ports matched 'rgb[3]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:14]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:14]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rgb[3]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:15]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:15]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rgb[4]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:16]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:16]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rgb[4]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:17]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:17]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rgb[5]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:18]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:18]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rgb[5]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:19]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:19]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rgb[6]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:20]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:20]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rgb[6]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:21]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:21]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rgb[7]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:22]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:22]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rgb[7]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:23]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:23]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rgb[8]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:24]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:24]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rgb[8]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:25]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:25]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rgb[9]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:26]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:26]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rgb[9]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:27]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:27]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rgb[10]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:28]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:28]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rgb[10]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:29]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:29]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rgb[11]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:30]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:30]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rgb[11]'. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:31]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc:31]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/main_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/main_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1271.672 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1268.438 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1271.672 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1268.438 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1271.672 ; gain = 164.129
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1268.438 ; gain = 159.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1271.672 ; gain = 164.129
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1268.438 ; gain = 159.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1271.672 ; gain = 164.129
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1268.438 ; gain = 159.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1271.672 ; gain = 164.129
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1268.438 ; gain = 159.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -154,17 +103,15 @@ Detailed RTL Component Info :
 +---XORs : 
 	   4 Input      8 Bit         XORs := 1     
 +---Registers : 
-	              128 Bit    Registers := 1     
-	               12 Bit    Registers := 1     
 	               10 Bit    Registers := 4     
-	                8 Bit    Registers := 1     
-	                3 Bit    Registers := 1     
+	                8 Bit    Registers := 47    
 	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 3     
 +---Muxes : 
-	   3 Input   12 Bit        Muxes := 1     
+	   4 Input   12 Bit        Muxes := 1     
+	   8 Input    8 Bit        Muxes := 1     
+	   8 Input    6 Bit        Muxes := 1     
 	   2 Input    1 Bit        Muxes := 16    
-	   8 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -180,228 +127,38 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[0][7]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[0][6]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[0][5]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[0][4]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[0][3]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[0][2]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[0][1]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[0][0]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[0][7]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[0][6]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[0][5]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[0][4]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[0][3]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[0][2]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[0][1]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[0][0]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[1][7]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[1][6]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[1][5]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[1][4]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[1][3]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[1][2]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[1][1]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[1][0]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[1][7]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[1][6]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[1][5]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[1][4]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[1][3]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[1][2]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[1][1]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[1][0]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[2][7]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[2][6]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[2][5]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[2][4]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[2][3]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[2][2]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[2][1]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[2][0]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[2][7]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[2][6]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[2][5]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[2][4]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[2][3]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[2][2]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[2][1]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[2][0]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[3][7]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/current_board_next_reg[3][6]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-INFO: [Common 17-14] Message 'Synth 8-6859' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:61]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:60]
-INFO: [Common 17-14] Message 'Synth 8-6858' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[14][7]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:143]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:143]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:143]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[14][6]__0/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:143]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:143]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:143]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[14][7]__1/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:64]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:64]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:64]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'tetris/player_board_next_reg[14][6]__1/Q' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:64]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:64]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:64]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1271.672 ; gain = 164.129
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1268.438 ; gain = 159.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1271.672 ; gain = 164.129
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 1268.438 ; gain = 159.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1271.672 ; gain = 164.129
+Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 1268.559 ; gain = 159.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1271.672 ; gain = 164.129
+Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 1269.367 ; gain = 159.945
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -419,37 +176,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1272.496 ; gain = 164.953
+Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:32 . Memory (MB): peak = 1276.156 ; gain = 166.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1272.496 ; gain = 164.953
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:32 . Memory (MB): peak = 1276.156 ; gain = 166.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1272.496 ; gain = 164.953
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:32 . Memory (MB): peak = 1276.156 ; gain = 166.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1272.496 ; gain = 164.953
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:32 . Memory (MB): peak = 1276.156 ; gain = 166.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1272.496 ; gain = 164.953
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:32 . Memory (MB): peak = 1276.156 ; gain = 166.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1272.496 ; gain = 164.953
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:32 . Memory (MB): peak = 1276.156 ; gain = 166.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -472,29 +229,29 @@ Report Cell Usage:
 |5     |LUT4 |     4|
 |6     |LUT5 |    10|
 |7     |LUT6 |     9|
-|8     |FDRE |    44|
-|9     |IBUF |     1|
-|10    |OBUF |     5|
+|8     |FDCE |    44|
+|9     |IBUF |     2|
+|10    |OBUF |    14|
 +------+-----+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1272.496 ; gain = 164.953
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:32 . Memory (MB): peak = 1276.156 ; gain = 166.734
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 783 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 1272.496 ; gain = 60.578
-Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1272.496 ; gain = 164.953
+Synthesis finished with 0 errors, 12 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:29 . Memory (MB): peak = 1276.156 ; gain = 63.254
+Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1276.156 ; gain = 166.734
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1284.527 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1288.203 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1284.527 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1290.188 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-23 Infos, 19 Warnings, 218 Critical Warnings and 0 Errors encountered.
+19 Infos, 0 Warnings, 12 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1284.527 ; gain = 176.984
+synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:39 . Memory (MB): peak = 1290.188 ; gain = 180.766
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint 'D:/Tetris/Tetris/Tetris.runs/synth_1/main.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Nov 28 01:50:42 2024...
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 28 03:08:42 2024...
