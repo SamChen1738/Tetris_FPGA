@@ -26,7 +26,7 @@ module pixel_gen(
     input [127:0] board,        // Tetris board state
     input [9:0] x,              // Current pixel x-coordinate from VGA controller
     input [9:0] y,              // Current pixel y-coordinate from VGA controller
-    output reg [2:0] rgb        // RGB color output for VGA display
+    output reg [11:0] rgb        // RGB color output for VGA display
 );
     parameter BLOCK_SIZE = 20;       // Size of each Tetris block in pixels
     parameter GRID_WIDTH = 8;       // Number of blocks horizontally
@@ -37,7 +37,7 @@ module pixel_gen(
 
     always @(posedge clk or posedge reset) begin
         if (reset) begin
-            rgb <= 3'b000;          // Black screen on reset
+            rgb <= 12'hF00;          // Black screen on reset
         end else begin
             // Map pixel coordinates to Tetris blocks
             block_x = x / BLOCK_SIZE;
@@ -47,12 +47,12 @@ module pixel_gen(
             if ((block_x < GRID_WIDTH) && (block_y < GRID_HEIGHT)) begin
                 // Check if the current block is active
                 if (board[block_x * GRID_WIDTH + block_y]) begin
-                    rgb <= 3'b111;  // White for active blocks (can change color here)
+                    rgb <= 12'hFFF;  // White for active blocks (can change color here)
                 end else begin
-                    rgb <= 3'b000;  // Black for empty spaces
+                    rgb <= 12'hF00;  // Black for empty spaces
                 end
             end else begin
-                rgb <= 3'b000;      // Black outside Tetris grid area
+                rgb <= 12'hF00;      // Black outside Tetris grid area
             end
         end 
     end
