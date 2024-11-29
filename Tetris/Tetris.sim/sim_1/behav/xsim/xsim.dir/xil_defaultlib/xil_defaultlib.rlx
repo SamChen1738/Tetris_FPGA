@@ -1,0 +1,8 @@
+0.7
+2020.2
+Nov 18 2020
+09:47:47
+D:/Tetris/Tetris/Tetris.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,,,,,,,
+D:/Tetris/Tetris/Tetris.srcs/sources_1/new/main.v,1732827365,verilog,,,,main,,,,,,,,
+D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v,1732828429,verilog,,D:/Tetris/vga_controller.v,,tetris,,,,,,,,
+D:/Tetris/vga_controller.v,1732754363,verilog,,D:/Tetris/Tetris/Tetris.srcs/sources_1/new/main.v,,vga_controller,,,,,,,,

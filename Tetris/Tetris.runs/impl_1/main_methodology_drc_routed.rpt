@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Thu Nov 28 03:09:46 2024
+| Date         : Thu Nov 28 23:44:10 2024
 | Host         : Sam-PC running 64-bit major release  (build 9200)
 | Command      : report_methodology -file main_methodology_drc_routed.rpt -pb main_methodology_drc_routed.pb -rpx main_methodology_drc_routed.rpx
 | Design       : main
@@ -23,12 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 23
+             Violations found: 35
 +-----------+------------------+-------------------------------+------------+
 | Rule      | Severity         | Description                   | Violations |
 +-----------+------------------+-------------------------------+------------+
 | TIMING-17 | Critical Warning | Non-clocked sequential cell   | 20         |
-| TIMING-18 | Warning          | Missing input or output delay | 3          |
+| TIMING-18 | Warning          | Missing input or output delay | 15         |
 +-----------+------------------+-------------------------------+------------+
 
 2. REPORT DETAILS
@@ -144,6 +144,66 @@ An output delay is missing on hsync relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#3 Warning
+Missing input or output delay  
+An output delay is missing on rgb[0] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An output delay is missing on rgb[10] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An output delay is missing on rgb[11] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
+An output delay is missing on rgb[1] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay  
+An output delay is missing on rgb[2] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#8 Warning
+Missing input or output delay  
+An output delay is missing on rgb[3] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#9 Warning
+Missing input or output delay  
+An output delay is missing on rgb[4] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#10 Warning
+Missing input or output delay  
+An output delay is missing on rgb[5] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#11 Warning
+Missing input or output delay  
+An output delay is missing on rgb[6] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#12 Warning
+Missing input or output delay  
+An output delay is missing on rgb[7] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#13 Warning
+Missing input or output delay  
+An output delay is missing on rgb[8] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#14 Warning
+Missing input or output delay  
+An output delay is missing on rgb[9] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#15 Warning
 Missing input or output delay  
 An output delay is missing on vsync relative to clock(s) sys_clk_pin
 Related violations: <none>

@@ -33,3 +33,6 @@ set_property PACKAGE_PIN P19     [get_ports hsync]
 set_property IOSTANDARD LVCMOS33 [get_ports hsync]
 set_property PACKAGE_PIN R19     [get_ports vsync]						
 set_property IOSTANDARD LVCMOS33 [get_ports vsync]
+
+set_property PACKAGE_PIN V17 	 [get_ports sw]					
+set_property IOSTANDARD LVCMOS33 [get_ports sw]

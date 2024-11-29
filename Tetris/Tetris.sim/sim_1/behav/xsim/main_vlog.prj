@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../Tetris.srcs/sources_1/new/tetris.v" \
+"../../../../../vga_controller.v" \
+"../../../../Tetris.srcs/sources_1/new/main.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tetris
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Tetris/vga_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vga_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Tetris/Tetris/Tetris.srcs/sources_1/new/main.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Tetris/Tetris/Tetris.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

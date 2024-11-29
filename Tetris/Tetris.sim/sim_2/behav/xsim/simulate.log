@@ -1,0 +1,1056 @@
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+Cycle           0:
+(   0,  481)
+rng: 0, lfsr: d8
+distance_traveled:  2
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 10    |    player_board[14]: 10    |    current_board[14]: 00
+display_board[13]: 38    |    player_board[13]: 38    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 00    |    player_board[1]: 00    |    current_board[1]: 00
+display_board[0]: 00    |    player_board[0]: 00    |    current_board[0]: 00
+Cycle           1:
+(   0,  481)
+rng: 0, lfsr: d8
+distance_traveled:  3
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 10    |    player_board[13]: 10    |    current_board[13]: 00
+display_board[12]: 38    |    player_board[12]: 38    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 00    |    player_board[1]: 00    |    current_board[1]: 00
+display_board[0]: 00    |    player_board[0]: 00    |    current_board[0]: 00
+Cycle           2:
+(   0,  481)
+rng: 0, lfsr: d8
+distance_traveled:  4
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 10    |    player_board[12]: 10    |    current_board[12]: 00
+display_board[11]: 38    |    player_board[11]: 38    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 00    |    player_board[1]: 00    |    current_board[1]: 00
+display_board[0]: 00    |    player_board[0]: 00    |    current_board[0]: 00
+Cycle           3:
+(   0,  481)
+rng: 0, lfsr: d8
+distance_traveled:  5
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 10    |    player_board[11]: 10    |    current_board[11]: 00
+display_board[10]: 38    |    player_board[10]: 38    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 00    |    player_board[1]: 00    |    current_board[1]: 00
+display_board[0]: 00    |    player_board[0]: 00    |    current_board[0]: 00
+Cycle           4:
+(   0,  481)
+rng: 0, lfsr: d8
+distance_traveled:  6
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 10    |    player_board[10]: 10    |    current_board[10]: 00
+display_board[9]: 38    |    player_board[9]: 38    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 00    |    player_board[1]: 00    |    current_board[1]: 00
+display_board[0]: 00    |    player_board[0]: 00    |    current_board[0]: 00
+Cycle           5:
+(   0,  481)
+rng: 0, lfsr: d8
+distance_traveled:  7
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 10    |    player_board[9]: 10    |    current_board[9]: 00
+display_board[8]: 38    |    player_board[8]: 38    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 00    |    player_board[1]: 00    |    current_board[1]: 00
+display_board[0]: 00    |    player_board[0]: 00    |    current_board[0]: 00
+Cycle           6:
+(   0,  481)
+rng: 0, lfsr: d8
+distance_traveled:  8
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 10    |    player_board[8]: 10    |    current_board[8]: 00
+display_board[7]: 38    |    player_board[7]: 38    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 00    |    player_board[1]: 00    |    current_board[1]: 00
+display_board[0]: 00    |    player_board[0]: 00    |    current_board[0]: 00
+Cycle           7:
+(   0,  481)
+rng: 0, lfsr: d8
+distance_traveled:  9
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 10    |    player_board[7]: 10    |    current_board[7]: 00
+display_board[6]: 38    |    player_board[6]: 38    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 00    |    player_board[1]: 00    |    current_board[1]: 00
+display_board[0]: 00    |    player_board[0]: 00    |    current_board[0]: 00
+Cycle           8:
+(   0,  481)
+rng: 0, lfsr: d8
+distance_traveled: 10
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 10    |    player_board[6]: 10    |    current_board[6]: 00
+display_board[5]: 38    |    player_board[5]: 38    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 00    |    player_board[1]: 00    |    current_board[1]: 00
+display_board[0]: 00    |    player_board[0]: 00    |    current_board[0]: 00
+Cycle           9:
+(   0,  481)
+rng: 0, lfsr: d8
+distance_traveled: 11
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 10    |    player_board[5]: 10    |    current_board[5]: 00
+display_board[4]: 38    |    player_board[4]: 38    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 00    |    player_board[1]: 00    |    current_board[1]: 00
+display_board[0]: 00    |    player_board[0]: 00    |    current_board[0]: 00
+Cycle          10:
+(   0,  481)
+rng: 0, lfsr: d8
+distance_traveled: 12
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 10    |    player_board[4]: 10    |    current_board[4]: 00
+display_board[3]: 38    |    player_board[3]: 38    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 00    |    player_board[1]: 00    |    current_board[1]: 00
+display_board[0]: 00    |    player_board[0]: 00    |    current_board[0]: 00
+Cycle          11:
+(   0,  481)
+rng: 0, lfsr: d8
+distance_traveled: 13
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 10    |    player_board[3]: 10    |    current_board[3]: 00
+display_board[2]: 38    |    player_board[2]: 38    |    current_board[2]: 00
+display_board[1]: 00    |    player_board[1]: 00    |    current_board[1]: 00
+display_board[0]: 00    |    player_board[0]: 00    |    current_board[0]: 00
+Cycle          12:
+(   0,  481)
+rng: 0, lfsr: d8
+distance_traveled: 14
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 10    |    player_board[2]: 10    |    current_board[2]: 00
+display_board[1]: 38    |    player_board[1]: 38    |    current_board[1]: 00
+display_board[0]: 00    |    player_board[0]: 00    |    current_board[0]: 00
+Cycle          13:
+(   0,  481)
+rng: 0, lfsr: d8
+distance_traveled:  0
+block_generate: 1, can_move: 0
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 10    |    player_board[1]: 10    |    current_board[1]: 00
+display_board[0]: 38    |    player_board[0]: 38    |    current_board[0]: 00
+Cycle          14:
+(   0,  481)
+rng: 4, lfsr: ec
+distance_traveled:  1
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          15:
+(   0,  481)
+rng: 4, lfsr: ec
+distance_traveled:  2
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 30    |    player_board[14]: 30    |    current_board[14]: 00
+display_board[13]: 30    |    player_board[13]: 30    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          16:
+(   0,  481)
+rng: 4, lfsr: ec
+distance_traveled:  3
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 30    |    player_board[13]: 30    |    current_board[13]: 00
+display_board[12]: 30    |    player_board[12]: 30    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          17:
+(   0,  481)
+rng: 4, lfsr: ec
+distance_traveled:  4
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 30    |    player_board[12]: 30    |    current_board[12]: 00
+display_board[11]: 30    |    player_board[11]: 30    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          18:
+(   0,  481)
+rng: 4, lfsr: ec
+distance_traveled:  5
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 30    |    player_board[11]: 30    |    current_board[11]: 00
+display_board[10]: 30    |    player_board[10]: 30    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          19:
+(   0,  481)
+rng: 4, lfsr: ec
+distance_traveled:  6
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 30    |    player_board[10]: 30    |    current_board[10]: 00
+display_board[9]: 30    |    player_board[9]: 30    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          20:
+(   0,  481)
+rng: 4, lfsr: ec
+distance_traveled:  7
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 30    |    player_board[9]: 30    |    current_board[9]: 00
+display_board[8]: 30    |    player_board[8]: 30    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          21:
+(   0,  481)
+rng: 4, lfsr: ec
+distance_traveled:  8
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 30    |    player_board[8]: 30    |    current_board[8]: 00
+display_board[7]: 30    |    player_board[7]: 30    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          22:
+(   0,  481)
+rng: 4, lfsr: ec
+distance_traveled:  9
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 30    |    player_board[7]: 30    |    current_board[7]: 00
+display_board[6]: 30    |    player_board[6]: 30    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          23:
+(   0,  481)
+rng: 4, lfsr: ec
+distance_traveled: 10
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 30    |    player_board[6]: 30    |    current_board[6]: 00
+display_board[5]: 30    |    player_board[5]: 30    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          24:
+(   0,  481)
+rng: 4, lfsr: ec
+distance_traveled: 11
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 30    |    player_board[5]: 30    |    current_board[5]: 00
+display_board[4]: 30    |    player_board[4]: 30    |    current_board[4]: 00
+display_board[3]: 00    |    player_board[3]: 00    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          25:
+(   0,  481)
+rng: 4, lfsr: ec
+distance_traveled: 12
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 30    |    player_board[4]: 30    |    current_board[4]: 00
+display_board[3]: 30    |    player_board[3]: 30    |    current_board[3]: 00
+display_board[2]: 00    |    player_board[2]: 00    |    current_board[2]: 00
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+player_board_next[          2] & current_board_next[          1]: 10
+Cycle          26:
+(   0,  481)
+rng: 4, lfsr: ec
+distance_traveled:  0
+block_generate: 1, can_move: 0
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 30    |    player_board[3]: 30    |    current_board[3]: 00
+display_board[2]: 30    |    player_board[2]: 30    |    current_board[2]: 00
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          27:
+(   0,  481)
+rng: 6, lfsr: f6
+distance_traveled:  1
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          28:
+(   0,  481)
+rng: 6, lfsr: f6
+distance_traveled:  2
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 18    |    player_board[14]: 18    |    current_board[14]: 00
+display_board[13]: 30    |    player_board[13]: 30    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          29:
+(   0,  481)
+rng: 6, lfsr: f6
+distance_traveled:  3
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 18    |    player_board[13]: 18    |    current_board[13]: 00
+display_board[12]: 30    |    player_board[12]: 30    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          30:
+(   0,  481)
+rng: 6, lfsr: f6
+distance_traveled:  4
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 18    |    player_board[12]: 18    |    current_board[12]: 00
+display_board[11]: 30    |    player_board[11]: 30    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          31:
+(   0,  481)
+rng: 6, lfsr: f6
+distance_traveled:  5
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 18    |    player_board[11]: 18    |    current_board[11]: 00
+display_board[10]: 30    |    player_board[10]: 30    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          32:
+(   0,  481)
+rng: 6, lfsr: f6
+distance_traveled:  6
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 18    |    player_board[10]: 18    |    current_board[10]: 00
+display_board[9]: 30    |    player_board[9]: 30    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          33:
+(   0,  481)
+rng: 6, lfsr: f6
+distance_traveled:  7
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 18    |    player_board[9]: 18    |    current_board[9]: 00
+display_board[8]: 30    |    player_board[8]: 30    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          34:
+(   0,  481)
+rng: 6, lfsr: f6
+distance_traveled:  8
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 18    |    player_board[8]: 18    |    current_board[8]: 00
+display_board[7]: 30    |    player_board[7]: 30    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          35:
+(   0,  481)
+rng: 6, lfsr: f6
+distance_traveled:  9
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 18    |    player_board[7]: 18    |    current_board[7]: 00
+display_board[6]: 30    |    player_board[6]: 30    |    current_board[6]: 00
+display_board[5]: 00    |    player_board[5]: 00    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          36:
+(   0,  481)
+rng: 6, lfsr: f6
+distance_traveled: 10
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 18    |    player_board[6]: 18    |    current_board[6]: 00
+display_board[5]: 30    |    player_board[5]: 30    |    current_board[5]: 00
+display_board[4]: 00    |    player_board[4]: 00    |    current_board[4]: 00
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+player_board_next[          4] & current_board_next[          3]: 30
+Cycle          37:
+(   0,  481)
+rng: 6, lfsr: f6
+distance_traveled:  0
+block_generate: 1, can_move: 0
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 18    |    player_board[5]: 18    |    current_board[5]: 00
+display_board[4]: 30    |    player_board[4]: 30    |    current_board[4]: 00
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          38:
+(   0,  481)
+rng: 3, lfsr: 7b
+distance_traveled:  1
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 18    |    player_board[5]: 00    |    current_board[5]: 18
+display_board[4]: 30    |    player_board[4]: 00    |    current_board[4]: 30
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          39:
+(   0,  481)
+rng: 3, lfsr: 7b
+distance_traveled:  2
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 38    |    player_board[14]: 38    |    current_board[14]: 00
+display_board[13]: 08    |    player_board[13]: 08    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 18    |    player_board[5]: 00    |    current_board[5]: 18
+display_board[4]: 30    |    player_board[4]: 00    |    current_board[4]: 30
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          40:
+(   0,  481)
+rng: 3, lfsr: 7b
+distance_traveled:  3
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 38    |    player_board[13]: 38    |    current_board[13]: 00
+display_board[12]: 08    |    player_board[12]: 08    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 18    |    player_board[5]: 00    |    current_board[5]: 18
+display_board[4]: 30    |    player_board[4]: 00    |    current_board[4]: 30
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          41:
+(   0,  481)
+rng: 3, lfsr: 7b
+distance_traveled:  4
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 38    |    player_board[12]: 38    |    current_board[12]: 00
+display_board[11]: 08    |    player_board[11]: 08    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 18    |    player_board[5]: 00    |    current_board[5]: 18
+display_board[4]: 30    |    player_board[4]: 00    |    current_board[4]: 30
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          42:
+(   0,  481)
+rng: 3, lfsr: 7b
+distance_traveled:  5
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 38    |    player_board[11]: 38    |    current_board[11]: 00
+display_board[10]: 08    |    player_board[10]: 08    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 18    |    player_board[5]: 00    |    current_board[5]: 18
+display_board[4]: 30    |    player_board[4]: 00    |    current_board[4]: 30
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          43:
+(   0,  481)
+rng: 3, lfsr: 7b
+distance_traveled:  6
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 38    |    player_board[10]: 38    |    current_board[10]: 00
+display_board[9]: 08    |    player_board[9]: 08    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 18    |    player_board[5]: 00    |    current_board[5]: 18
+display_board[4]: 30    |    player_board[4]: 00    |    current_board[4]: 30
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          44:
+(   0,  481)
+rng: 3, lfsr: 7b
+distance_traveled:  7
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 38    |    player_board[9]: 38    |    current_board[9]: 00
+display_board[8]: 08    |    player_board[8]: 08    |    current_board[8]: 00
+display_board[7]: 00    |    player_board[7]: 00    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 18    |    player_board[5]: 00    |    current_board[5]: 18
+display_board[4]: 30    |    player_board[4]: 00    |    current_board[4]: 30
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          45:
+(   0,  481)
+rng: 3, lfsr: 7b
+distance_traveled:  8
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 38    |    player_board[8]: 38    |    current_board[8]: 00
+display_board[7]: 08    |    player_board[7]: 08    |    current_board[7]: 00
+display_board[6]: 00    |    player_board[6]: 00    |    current_board[6]: 00
+display_board[5]: 18    |    player_board[5]: 00    |    current_board[5]: 18
+display_board[4]: 30    |    player_board[4]: 00    |    current_board[4]: 30
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+player_board_next[          6] & current_board_next[          5]: 08
+Cycle          46:
+(   0,  481)
+rng: 3, lfsr: 7b
+distance_traveled:  0
+block_generate: 1, can_move: 0
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 38    |    player_board[7]: 38    |    current_board[7]: 00
+display_board[6]: 08    |    player_board[6]: 08    |    current_board[6]: 00
+display_board[5]: 18    |    player_board[5]: 00    |    current_board[5]: 18
+display_board[4]: 30    |    player_board[4]: 00    |    current_board[4]: 30
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          47:
+(   0,  481)
+rng: 5, lfsr: bd
+distance_traveled:  1
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 00    |    player_board[13]: 00    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 38    |    player_board[7]: 00    |    current_board[7]: 38
+display_board[6]: 08    |    player_board[6]: 00    |    current_board[6]: 08
+display_board[5]: 18    |    player_board[5]: 00    |    current_board[5]: 18
+display_board[4]: 30    |    player_board[4]: 00    |    current_board[4]: 30
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          48:
+(   0,  481)
+rng: 5, lfsr: bd
+distance_traveled:  2
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 30    |    player_board[14]: 30    |    current_board[14]: 00
+display_board[13]: 18    |    player_board[13]: 18    |    current_board[13]: 00
+display_board[12]: 00    |    player_board[12]: 00    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 38    |    player_board[7]: 00    |    current_board[7]: 38
+display_board[6]: 08    |    player_board[6]: 00    |    current_board[6]: 08
+display_board[5]: 18    |    player_board[5]: 00    |    current_board[5]: 18
+display_board[4]: 30    |    player_board[4]: 00    |    current_board[4]: 30
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+Cycle          49:
+(   0,  481)
+rng: 5, lfsr: bd
+distance_traveled:  3
+block_generate: 0, can_move: 1
+display_board[15]: 00    |    player_board[15]: 00    |    current_board[15]: 00
+display_board[14]: 00    |    player_board[14]: 00    |    current_board[14]: 00
+display_board[13]: 30    |    player_board[13]: 30    |    current_board[13]: 00
+display_board[12]: 18    |    player_board[12]: 18    |    current_board[12]: 00
+display_board[11]: 00    |    player_board[11]: 00    |    current_board[11]: 00
+display_board[10]: 00    |    player_board[10]: 00    |    current_board[10]: 00
+display_board[9]: 00    |    player_board[9]: 00    |    current_board[9]: 00
+display_board[8]: 00    |    player_board[8]: 00    |    current_board[8]: 00
+display_board[7]: 38    |    player_board[7]: 00    |    current_board[7]: 38
+display_board[6]: 08    |    player_board[6]: 00    |    current_board[6]: 08
+display_board[5]: 18    |    player_board[5]: 00    |    current_board[5]: 18
+display_board[4]: 30    |    player_board[4]: 00    |    current_board[4]: 30
+display_board[3]: 30    |    player_board[3]: 00    |    current_board[3]: 30
+display_board[2]: 30    |    player_board[2]: 00    |    current_board[2]: 30
+display_board[1]: 10    |    player_board[1]: 00    |    current_board[1]: 10
+display_board[0]: 38    |    player_board[0]: 00    |    current_board[0]: 38
+$finish called at time : 515 ns : File "D:/Tetris/Tetris/Tetris.srcs/sim_2/new/sim_2.v" Line 91
