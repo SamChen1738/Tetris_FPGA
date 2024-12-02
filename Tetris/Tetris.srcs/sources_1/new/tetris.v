@@ -43,6 +43,7 @@ module tetris(
     reg [4:0] distance_traveled;
     reg shift_down;
     reg rows_cleared;
+    reg can_shift;
     
     parameter t_piece_top = 8'h10;
     parameter t_piece_bottom = 8'h38;
@@ -57,7 +58,7 @@ module tetris(
     
     wire refresh_tick;
     assign refresh_tick = ((y == 481) && (x == 0)) ? 1 : 0;
-    reg [5:0] refresh_counter;
+    reg [1:0] refresh_counter;
     wire N_refreshes;
     assign N_refreshes = (refresh_counter == 0) ? 1 : 0;
     
@@ -80,6 +81,7 @@ module tetris(
             shift_down = 0;
             rows_cleared = 0;
             refresh_counter = 0;
+            can_shift = 1;
         end
         else begin
             for(i = 0; i < 16; i = i + 1) begin
@@ -97,13 +99,14 @@ module tetris(
         
     always @(posedge clk) begin
         //generate state
+        can_shift = 1;
         for(i = 0; i < 16; i = i + 1) begin
             player_board_next[i] = player_board[i];
             current_board_next[i] = current_board[i];
         end
         if(block_generate) begin
             //$display("refresh_tick = %d", refresh_tick);
-            if(/*N_refreshes*/refresh_tick) begin
+            if(N_refreshes) begin
                 block_generate = 0;
                 bit = (lfsr >> 0) ^ (lfsr >> 2) ^ (lfsr >> 3) ^ (lfsr >> 5) & 1;
                 lfsr = (lfsr >> 1) | (bit << 7);
@@ -147,10 +150,52 @@ module tetris(
             end
         end
         
+        if(refresh_tick) begin
+            //shift left
+            if(keypad_input == 4'b0001) begin
+                //checks for can_shift
+                for(i = 0; i < 16; i = i + 1) begin
+                    if(player_board_next[i][0] == 1) begin
+                        //$display("i = %d", i);
+                        can_shift = 0;
+                    end
+                    for(j = 1; j <= 7; j = j + 1) begin
+                        if(player_board_next[i][j] == 1 && current_board_next[i][j-1] == 1) begin
+                            can_shift = 0;
+                        end
+                    end
+                end
+                if(can_shift) begin
+                    for(i = 0; i < 16; i = i + 1) begin
+                        player_board_next[i] = (player_board_next[i] >> 1);
+                    end
+                end
+            end
+            //shift right
+            else if(keypad_input == 4'b0010) begin
+                //checks for can_shift
+                for(i = 0; i < 16; i = i + 1) begin
+                    if(player_board_next[i][7] == 1) begin
+                        can_shift = 0;
+                    end
+                    for(j = 6; j >= 0; j = j - 1) begin
+                        if(player_board_next[i][j] == 1 && current_board_next[i][j+1] == 1) begin
+                            can_shift = 0;
+                        end
+                    end
+                end
+                if(can_shift) begin
+                    for(i = 0; i < 16; i = i + 1) begin
+                        player_board_next[i] = (player_board_next[i] << 1);
+                    end
+                end
+            end
+        end
         //can move state
         if(can_move) begin
             //$display("aksdjf");
-            if(/*N_refreshes*/refresh_tick) begin
+            
+            if(N_refreshes) begin
                 distance_traveled = distance_traveled + 1;
                 //check for off by 1 error
                 if(distance_traveled >= 15) begin
@@ -176,7 +221,7 @@ module tetris(
             end 
         end
         if(!can_move) begin
-            if(/*N_refreshes*/refresh_tick) begin
+            if(N_refreshes) begin
                 for(i = 0; i < 15; i = i + 1) begin
                     current_board_next[i] = current_board_next[i] | player_board_next[i];
                     player_board_next[i] = 8'h00;

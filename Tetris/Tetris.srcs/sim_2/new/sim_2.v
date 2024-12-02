@@ -58,22 +58,24 @@ always #5 clk = ~clk;
 initial begin 
     reset = 1;
     clk = 0;
-    keypad_input = 0;
+    keypad_input = 4'b0001;
     x = 0;
     y = 481;
     video_on = 1;
     #15 reset = 0;
 
-    for(j = 0; j < 50; j = j + 1) begin
+    for(j = 0; j < 500; j = j + 1) begin
+        
         #10;
         //if(x==0) begin
             $display("Cycle %d:", j);
             $display("(%d, %d)", x, y);
             $display("rng: %d, lfsr: %x", tetris_inst.rng, tetris_inst.lfsr);
             $display("distance_traveled: %d", tetris_inst.distance_traveled);
-            $display("block_generate: %b, can_move: %b", 
+            $display("block_generate: %b, can_move: %b, can_shift: %b", 
                 tetris_inst.block_generate, 
-                tetris_inst.can_move
+                tetris_inst.can_move,
+                tetris_inst.can_shift
             );
             for(i = 15; i >= 0; i = i - 1) begin
                 $display("display_board[%0d]: %x    |    player_board[%0d]: %x    |    current_board[%0d]: %x", 
