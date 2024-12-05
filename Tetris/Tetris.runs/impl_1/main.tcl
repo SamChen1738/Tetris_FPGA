@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "D:/Tetris/Tetris/Tetris.runs/impl_1/main.tcl"
+  variable script "C:/Tetris/Tetris/Tetris/Tetris.runs/impl_1/main.tcl"
   variable category "vivado_impl"
 }
 
@@ -115,6 +115,7 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -130,15 +131,15 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir D:/Tetris/Tetris/Tetris.cache/wt [current_project]
-  set_property parent.project_path D:/Tetris/Tetris/Tetris.xpr [current_project]
-  set_property ip_output_repo D:/Tetris/Tetris/Tetris.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Tetris/Tetris/Tetris/Tetris.cache/wt [current_project]
+  set_property parent.project_path C:/Tetris/Tetris/Tetris/Tetris.xpr [current_project]
+  set_property ip_output_repo C:/Tetris/Tetris/Tetris/Tetris.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet D:/Tetris/Tetris/Tetris.runs/synth_1/main.dcp
+  add_files -quiet C:/Tetris/Tetris/Tetris/Tetris.runs/synth_1/main.dcp
 OPTRACE "read constraints: implementation" START { }
-  read_xdc D:/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc
+  read_xdc C:/Tetris/Tetris/Tetris/Tetris.srcs/constrs_1/new/Basys3_Master.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }

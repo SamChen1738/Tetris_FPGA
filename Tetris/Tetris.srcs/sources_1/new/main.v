@@ -39,7 +39,7 @@ module main(
     
     vga_controller vga (.clk(clk), .reset(reset), .video_on(video_on),
                         .hsync(hsync), .vsync(vsync), .p_tick(p_tick), .x(x), .y(y));
-    tetris tetris_inst(.clk(clk), .reset(reset), .keypad_input(keypad_input), .x(x), .y(y), .video_on(video_on), .rgb(rgb_next));
+    tetris tetris_inst(.clk(clk), .reset(reset), /*.keypad_input(keypad_input),*/ .x(x), .y(y), .video_on(video_on), .rgb(rgb_next));
     
     always @(posedge clk or posedge reset)
     if (reset)

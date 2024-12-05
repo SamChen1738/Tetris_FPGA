@@ -2,11 +2,11 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Thu Nov 28 23:42:37 2024
-# Process ID: 15268
-# Current directory: D:/Tetris/Tetris/Tetris.runs/synth_1
+# Start of session at: Thu Dec  5 13:30:57 2024
+# Process ID: 26220
+# Current directory: C:/Tetris/Tetris/Tetris/Tetris.runs/synth_1
 # Command line: vivado.exe -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
-# Log file: D:/Tetris/Tetris/Tetris.runs/synth_1/main.vds
-# Journal file: D:/Tetris/Tetris/Tetris.runs/synth_1\vivado.jou
+# Log file: C:/Tetris/Tetris/Tetris/Tetris.runs/synth_1/main.vds
+# Journal file: C:/Tetris/Tetris/Tetris/Tetris.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source main.tcl -notrace
