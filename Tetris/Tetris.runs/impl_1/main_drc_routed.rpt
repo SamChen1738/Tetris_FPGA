@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Fri Dec  6 14:57:44 2024
+| Date         : Fri Dec  6 16:56:11 2024
 | Host         : Sam-laptop running 64-bit major release  (build 9200)
 | Command      : report_drc -file main_drc_routed.rpt -pb main_drc_routed.pb -rpx main_drc_routed.rpx
 | Design       : main
@@ -50,7 +50,7 @@ Related violations: <none>
 
 PDRC-153#1 Warning
 Gated clock check  
-Net vga/r_25MHz_reg[1]_0[0] is a gated clock net sourced by a combinational pin vga/h_count_next[9]_i_2/O, cell vga/h_count_next[9]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net vga/E[0] is a gated clock net sourced by a combinational pin vga/h_count_next[9]_i_2/O, cell vga/h_count_next[9]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PLHOLDVIO-2#1 Warning

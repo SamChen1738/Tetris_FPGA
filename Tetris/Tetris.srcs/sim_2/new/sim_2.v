@@ -64,19 +64,20 @@ initial begin
     video_on = 1;
     #1 reset = 0;
 
-    for(j = 0; j < 500; j = j + 1) begin
+    for(j = 0; j < 50; j = j + 1) begin
         
-        #1;
+        #2;
             $display("Cycle %d:", j);
             $display("(%d, %d)", x, y);
             $display("rng: %d, lfsr: %x", tetris_inst.rng, tetris_inst.lfsr);
             $display("distance_traveled: %d", tetris_inst.distance_traveled);
-            $display("block_generate: %b, can_move: %b, can_shift: %b, refresh_counter : %d", 
-                tetris_inst.block_generate, 
-                tetris_inst.can_move,
-                tetris_inst.can_shift,
-                tetris_inst.refresh_counter
-            );
+            $display("update_game_state: %b", tetris_inst.update_game_state);
+            $display("update_display: %b", tetris_inst.update_display);
+            $display("read_game_state: %b", tetris_inst.read_game_state);
+            $display("block_generate: %b", tetris_inst.block_generate);
+            $display("can_move: %b", tetris_inst.can_move);
+            $display("clear_player_board: %b", tetris_inst.clear_player_board);
+            $display("clear_rows: %b", tetris_inst.clear_rows);
             for(i = 15; i >= 0; i = i - 1) begin
                 $display("display_board[%0d]: %x    |    player_board[%0d]: %x    |    current_board[%0d]: %x", 
                     i, 
