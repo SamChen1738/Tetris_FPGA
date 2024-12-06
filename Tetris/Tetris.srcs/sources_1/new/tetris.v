@@ -40,7 +40,7 @@ module tetris(
     reg [7:0] lfsr;
     reg [7:0] bit;
     reg [2:0] rng;
-    reg [4:0] distance_traveled;
+    reg [5:0] distance_traveled;
     reg shift_down;
     
     reg rows_cleared;
@@ -58,12 +58,12 @@ module tetris(
     integer i,j;
     
     wire refresh_tick;
-    assign refresh_tick = ((y == 525) && (x == 0)) ? 1 : 0;
-    reg [9:0] refresh_counter;
+    assign refresh_tick = ((y == 481) && (x == 0)) ? 1 : 0;
+    reg [7:0] refresh_counter;
     wire N_refreshes;
     assign N_refreshes = (refresh_counter == 0) ? 1 : 0;
     
-    parameter BLOCK_SIZE = 12;          
+    parameter BLOCK_SIZE = 14;          
 
     integer block_x;                
     integer block_y;                
@@ -196,7 +196,6 @@ module tetris(
             end
             //can move state
             if(N_refreshes) begin
-                distance_traveled = distance_traveled + 1;
                 //$display("distance_traveled = %d", distance_traveled);
                 //check for off by 1 error
                 if(distance_traveled >= 15) begin
@@ -219,6 +218,7 @@ module tetris(
                         player_board_next[i] = player_board_next[i+1];
                     end
                     player_board_next[15] = 8'h00;
+                    distance_traveled = distance_traveled + 1;
                 end
                 if(!can_move) begin
                     if(N_refreshes) begin
@@ -245,22 +245,24 @@ module tetris(
     //            rgb <= 12'h00F;
     //        end else if(x> 100) begin
     //            rgb <= 12'hFFF;
-        end else if(x > 640 && x < 1280) begin
-            block_x = (x - 640) / BLOCK_SIZE;
-            block_y = y / BLOCK_SIZE;
-            
-            if ((block_x < 8) && (block_y < 16)) begin
-                if (display_board[15-block_y][block_x]) begin
-                    rgb = 12'hFFF;  
-                end else begin
-                    rgb = 12'hF00;  
-                end
-            end 
-            else begin
-                rgb = 12'h000;      
-            end
         end else begin
-            rgb = 12'h000; 
-        end
+            if(x < 24 || y < 36) begin
+                rgb = 12'h111;
+            end else begin
+                block_x = (x-24) / BLOCK_SIZE;
+                block_y = (y-36) / BLOCK_SIZE;
+                
+                if ((block_x < 8) && (block_y < 16)) begin
+                    if (display_board[15-block_y][block_x]) begin
+                        rgb = 12'hFFF;  
+                    end else begin
+                        rgb = 12'hF00;  
+                    end
+                end 
+                else begin
+                    rgb = 12'h111;      
+                end
+            end
+        end 
     end
 endmodule

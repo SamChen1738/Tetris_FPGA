@@ -71,7 +71,7 @@ initial begin
             $display("(%d, %d)", x, y);
             $display("rng: %d, lfsr: %x", tetris_inst.rng, tetris_inst.lfsr);
             $display("distance_traveled: %d", tetris_inst.distance_traveled);
-            $display("block_generate: %b, can_move: %b, can_shift: %b, register_counter : %d", 
+            $display("block_generate: %b, can_move: %b, can_shift: %b, refresh_counter : %d", 
                 tetris_inst.block_generate, 
                 tetris_inst.can_move,
                 tetris_inst.can_shift,
