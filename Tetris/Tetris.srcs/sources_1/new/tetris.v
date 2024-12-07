@@ -41,6 +41,7 @@ module tetris(
     reg [7:0] bit;
     reg [2:0] rng;
     reg [5:0] distance_traveled;
+    reg [2:0] number_of_shifts;
     reg shift_down;
     reg update_display;
     reg update_game_state;
@@ -65,7 +66,7 @@ module tetris(
     integer i,j;
     
     reg refresh_tick;
-    reg [1:0] refresh_counter;
+    reg refresh_counter;
     reg N_refreshes;
     
     parameter BLOCK_SIZE = 14;          
@@ -109,6 +110,7 @@ module tetris(
             check_shift_right <= 0;
             can_shift_left <= 0;
             can_shift_right <= 0;
+            number_of_shifts <= 0;
         end
         else if(clk)begin
             if(update_game_state && !shift_down) begin
@@ -126,154 +128,179 @@ module tetris(
                 update_display <= 0;
                 read_game_state <= 1;
             end
+            if(read_game_state) begin
+                for(i = 0; i < 16; i = i + 1) begin
+                    player_board_next[i] <= player_board[i];
+                    current_board_next[i] <= current_board[i];
+                end
+                read_game_state <= 0;
+            end
             //$display("refresh_tick = %b, N_refreshes = %b", refresh_tick, N_refreshes);
             if(refresh_tick) begin
                 refresh_counter <= refresh_counter + 1;
                 update_game_state <= 1;
-                if(read_game_state) begin
-                    for(i = 0; i < 16; i = i + 1) begin
-                        player_board_next[i] <= player_board[i];
-                        current_board_next[i] <= current_board[i];
+                if(!N_refreshes) begin
+                    //generate state
+                    if(block_generate && !shift_down) begin
+                        block_generate <= 0;
+                        check_shift_left <= 1;
+                        //check_movement <= 1;
+                        bit <= (lfsr >> 0) ^ (lfsr >> 2) ^ (lfsr >> 3) ^ (lfsr >> 5) & 1;
+                        lfsr <= (lfsr >> 1) | (bit << 7);
+                        rng <= lfsr & 3'b111;
+                        
+                        case(rng) 
+                            8'h00: begin 
+                                player_board_next[15] <= t_piece_top; 
+                                player_board_next[14] <= t_piece_bottom;
+                                //player_board_next[14] <= 8'hff;
+                                //$display("generated t piece");
+                            end 
+                            8'h01: begin
+                                player_board_next[14] <= line_piece;
+                            end
+                            8'h02: begin
+                                player_board_next[15] <= l_piece_top;
+                                player_board_next[14] <= l_piece_bottom;
+                            end
+                            8'h03: begin 
+                                player_board_next[15] <= l_piece_top;
+                                player_board_next[14] <= l_piece_mirrored_bottom;
+                            end
+                            8'h04: begin
+                                //it says z piece but it makes a square
+                                player_board_next[15] <= z_piece_left;
+                                player_board_next[14] <= z_piece_left;
+                            end
+                            8'h05: begin
+                                player_board_next[15] <= z_piece_left;
+                                player_board_next[14] <= z_piece_right;
+                            end
+                            8'h06: begin
+                                player_board_next[15] <= z_piece_right;
+                                player_board_next[14] <= z_piece_left;
+                            end
+                            8'h07: begin 
+                                //upside down t piece
+                                player_board_next[15] <= t_piece_bottom;
+                                player_board_next[14] <= t_piece_top;
+                            end
+                        endcase
                     end
-                    read_game_state <= 0;
-                end
-                //generate state
-                if(block_generate && !shift_down) begin
-                    block_generate <= 0;
-                    //check_shift_left <= 1;
-                    check_movement <= 1;
-                    bit <= (lfsr >> 0) ^ (lfsr >> 2) ^ (lfsr >> 3) ^ (lfsr >> 5) & 1;
-                    lfsr <= (lfsr >> 1) | (bit << 7);
-                    rng <= lfsr & 3'b111;
-                    
-                    case(rng) 
-                        8'h00: begin 
-                            player_board_next[15] <= t_piece_top; 
-                            player_board_next[14] <= t_piece_bottom;
-                            //$display("generated t piece");
-                        end 
-                        8'h01: begin
-                            player_board_next[14] <= line_piece;
+                    if(check_shift_left) begin
+                        can_shift_left <= 1;
+                        check_shift_left <= 0;
+                        check_shift_right <= 1;
+                        for(i = 0; i < 16; i = i + 1) begin
+                            if(player_board_next[i][7]) begin
+                                can_shift_left <= 0;
+                            end
+                            for(j = 6; j >= 0; j = j - 1) begin
+                                if(player_board_next[i][j] && current_board_next[i][j+1]) begin
+                                    can_shift_left <= 0;
+                                end
+                            end
                         end
-                        8'h02: begin
-                            player_board_next[15] <= l_piece_top;
-                            player_board_next[14] <= l_piece_bottom;
-                        end
-                        8'h03: begin 
-                            player_board_next[15] <= l_piece_top;
-                            player_board_next[14] <= l_piece_mirrored_bottom;
-                        end
-                        8'h04: begin
-                            //it says z piece but it makes a square
-                            player_board_next[15] <= z_piece_left;
-                            player_board_next[14] <= z_piece_left;
-                        end
-                        8'h05: begin
-                            player_board_next[15] <= z_piece_left;
-                            player_board_next[14] <= z_piece_right;
-                        end
-                        8'h06: begin
-                            player_board_next[15] <= z_piece_right;
-                            player_board_next[14] <= z_piece_left;
-                        end
-                        8'h07: begin
-                            player_board_next[15] <= t_piece_top; 
-                            player_board_next[14] <= t_piece_bottom;
-                        end
-                    endcase
-                end
-                // if(check_shift_left) begin
-                //     can_shift_left <= 1;
-                //     check_shift_right <= 1;
-                //     for(i = 0; i < 16; i = i + 1) begin
-                //         if(player_board_next[i][7] == 1) begin
-                //             can_shift_left <= 0;
-                //         end
-                //         for(j = 6; j >= 0; j = j - 1) begin
-                //             if(player_board_next[i][j] && current_board_next[i][j+1]) begin
-                //                 can_shift_left <= 0;
-                //             end
-                //         end
-                //     end
-                // end
-                // if(check_shift_right) begin
-                //     can_shift_right <= 1;
-                //     check_shift_right <= 0;
-                //     check_movement <= 1;
-                //     $display("player_board_next[12][0] = %b", player_board_next[12][0]);
-                //     if(player_board_next[i][0] == 1) begin
-                //         can_shift_right <= 0;
-                //     end
-                //     for(j = 1; j <= 7; j = j + 1) begin
-                //         if(player_board_next[i][j] && current_board_next[i][j-1]) begin
-                //             can_shift_right <= 0;
-                //         end
-                //     end
-                // end
-                if(check_movement) begin
-                    can_move <= 1;
-                    //check_movement <= 0;
-                    if(distance_traveled >= 14) begin
-                        distance_traveled <= 0;
-                        can_move <= 0;
-                        combine_boards <= 1;
                     end
-                    for(i = 15; i > 0; i = i - 1) begin
-                        if((player_board_next[i] & current_board_next[i-1]) != 8'h00) begin
-                            can_move <= 0;
+                    if(check_shift_right) begin
+                        can_shift_right <= 1;
+                        check_shift_right <= 0;
+                        check_movement <= 1;
+                        $display("value of player_board_next[10][0] = %b", player_board_next[10][0]);
+                        for(i = 0; i < 16; i = i + 1) begin
+                            if(player_board_next[i][0]) begin
+                                can_shift_right <= 0;
+                            end
+                            for(j = 1; j <= 7; j = j + 1) begin
+                                if(player_board_next[i][j] && current_board_next[i][j-1]) begin
+                                    can_shift_right <= 0;
+                                end
+                            end
+                        end
+                    end
+                    if(can_shift_left && !check_shift_right) begin
+                        $display("shifted left");
+                        can_shift_left <= 0;
+                        if(keypad_input == 4'b0001) begin
+                            for(i = 0; i < 16; i = i + 1) begin
+                                player_board_next[i] <= (player_board_next[i] << 1);
+                            end
+                        end
+                    end
+                    if(can_shift_right && !can_shift_left) begin
+                        $display("shifted right");
+                        can_shift_right <= 0;
+                        if(keypad_input == 4'b0010) begin
+                            for(i = 0; i < 16; i = i + 1) begin
+                                player_board_next[i] <= (player_board_next[i] >> 1);
+                            end
+                        end
+                    end
+                    if(check_movement && !can_shift_left && !can_shift_right) begin
+                        can_move <= 1;
+                        check_movement <= 0;
+                        check_shift_left <= 1;
+                        if(distance_traveled >= 14) begin
                             distance_traveled <= 0;
+                            can_move <= 0;
                             combine_boards <= 1;
-                        end 
-                    end
-                end
-                if(can_shift_left && keypad_input == 4'b0001) begin
-                    $display("shifted left");
-                    can_shift_left <= 0;
-                    for(i = 0; i < 16; i = i + 1) begin
-                        player_board_next[i] <= (player_board_next[i] << 1);
-                    end
-                end
-                if(can_shift_right && keypad_input == 4'b0010) begin
-                    $display("shifted right");
-                    can_shift_right <= 0;
-                    for(i = 0; i < 16; i = i + 1) begin
-                        player_board_next[i] <= (player_board_next[i] >> 1);
-                    end
-                end
-                if(combine_boards && !can_shift_left && !can_shift_right) begin
-                    combine_boards <= 0;
-                    for(i = 0; i < 16; i = i + 1) begin
-                        current_board_next[i] <= current_board_next[i] | player_board_next[i];
-                    end
-                    clear_player_board <= 1;
-                end
-                if(clear_player_board) begin
-                    clear_player_board <= 0;
-                    for(i = 0; i < 16; i = i + 1) begin
-                        player_board_next[i] <= 8'h00;
-                    end
-                    clear_rows <= 1;
-                end
-                if(clear_rows) begin    
-                    clear_rows <= 0;
-                    for(i = 0; i < 16; i = i + 1) begin
-                        if(current_board_next[i] == 8'hff) begin
-                            current_board_next[i] <= 8'h0;
-                            shift_down <= 1;
+                        end
+                        for(i = 15; i > 0; i = i - 1) begin
+                            if((player_board_next[i] & current_board_next[i-1]) != 8'h00) begin
+                                can_move <= 0;
+                                distance_traveled <= 0;
+                                combine_boards <= 1;
+                            end 
                         end
                     end
-                    block_generate <= 1;
+                    if(combine_boards) begin
+                        combine_boards <= 0;
+                        for(i = 0; i < 16; i = i + 1) begin
+                            current_board_next[i] <= current_board_next[i] | player_board_next[i];
+                        end
+                        clear_player_board <= 1;
+                    end
+                    if(clear_player_board) begin
+                        clear_player_board <= 0;
+                        for(i = 0; i < 16; i = i + 1) begin
+                            player_board_next[i] <= 8'h00;
+                        end
+                        clear_rows <= 1;
+                    end
+                    if(clear_rows) begin    
+                        clear_rows <= 0;
+                        for(i = 0; i < 16; i = i + 1) begin
+                            if(current_board_next[i] == 8'hff) begin
+                                current_board_next[i] <= 8'h0;
+                                shift_down <= 1;
+                            end
+                        end
+                        block_generate <= 1;
+                    end
+                    if(shift_down) begin
+                        number_of_shifts <= number_of_shifts + 1;
+                        if(number_of_shifts >= 4) begin
+                            shift_down <= 0;
+                            number_of_shifts <= 0;
+                        end
+                        for(i = 0; i < 16; i = i + 1) begin
+                            if(current_board_next[i] == 8'h00) begin
+                                for(j = i; j < 15; j = j + 1) begin
+                                    current_board_next[j] <= current_board_next[j+1];
+                                end
+                                current_board_next[15] = 8'h00;
+                            end
+                        end
+                    end
                 end
-                if(shift_down) begin
-                    shift_down <= 0;
-                end
-                if(N_refreshes && can_move) begin
+                if(N_refreshes && can_move && !can_shift_left && !can_shift_right) begin
                     $display("block moved down");
                     for(i = 0; i < 15; i = i + 1) begin 
                         player_board_next[i] <= player_board_next[i+1];
                     end
                     player_board_next[15] <= 8'h00;
                     distance_traveled <= distance_traveled + 1;
+                    can_move <= 0;
                 end
             end
             //can move state
