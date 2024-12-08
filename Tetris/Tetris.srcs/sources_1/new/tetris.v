@@ -66,7 +66,7 @@ module tetris(
     integer i,j;
     
     reg refresh_tick;
-    reg refresh_counter;
+    reg [1:0] refresh_counter;
     reg N_refreshes;
     
     parameter BLOCK_SIZE = 14;          
@@ -78,8 +78,8 @@ module tetris(
     reg can_shift_right;
 
     always @(posedge reset or posedge clk) begin
-        refresh_tick = ((y == 481) && (x == 0)) ? 1 : 0;
-        N_refreshes = (refresh_counter == 0) ? 1 : 0;
+        refresh_tick <= ((y == 481) && (x == 0)) ? 1 : 0;
+        N_refreshes <= (refresh_counter == 0) ? 1 : 0;
         if(reset) begin
             $display("reset");
             for(i = 0; i < 16; i = i + 1) begin
@@ -144,7 +144,6 @@ module tetris(
                     if(block_generate && !shift_down) begin
                         block_generate <= 0;
                         check_shift_left <= 1;
-                        //check_movement <= 1;
                         bit <= (lfsr >> 0) ^ (lfsr >> 2) ^ (lfsr >> 3) ^ (lfsr >> 5) & 1;
                         lfsr <= (lfsr >> 1) | (bit << 7);
                         rng <= lfsr & 3'b111;
@@ -152,8 +151,8 @@ module tetris(
                         case(rng) 
                             8'h00: begin 
                                 player_board_next[15] <= t_piece_top; 
-                                player_board_next[14] <= t_piece_bottom;
-                                //player_board_next[14] <= 8'hff;
+                                //player_board_next[14] <= t_piece_bottom;
+                                player_board_next[14] <= 8'hff;
                                 //$display("generated t piece");
                             end 
                             8'h01: begin
@@ -187,7 +186,7 @@ module tetris(
                             end
                         endcase
                     end
-                    if(check_shift_left) begin
+                    if(check_shift_left && !block_generate) begin
                         can_shift_left <= 1;
                         check_shift_left <= 0;
                         check_shift_right <= 1;
@@ -206,7 +205,6 @@ module tetris(
                         can_shift_right <= 1;
                         check_shift_right <= 0;
                         check_movement <= 1;
-                        $display("value of player_board_next[10][0] = %b", player_board_next[10][0]);
                         for(i = 0; i < 16; i = i + 1) begin
                             if(player_board_next[i][0]) begin
                                 can_shift_right <= 0;
@@ -283,14 +281,13 @@ module tetris(
                             shift_down <= 0;
                             number_of_shifts <= 0;
                         end
-                        for(i = 0; i < 16; i = i + 1) begin
+                        for(i = 0; i < 15; i = i + 1) begin
                             if(current_board_next[i] == 8'h00) begin
-                                for(j = i; j < 15; j = j + 1) begin
-                                    current_board_next[j] <= current_board_next[j+1];
-                                end
-                                current_board_next[15] = 8'h00;
+                                current_board_next[i] <= current_board_next[i+1];
+                                current_board_next[i+1] <= 8'h00;
                             end
                         end
+                        current_board_next[15] <= 8'h00;
                     end
                 end
                 if(N_refreshes && can_move && !can_shift_left && !can_shift_right) begin
