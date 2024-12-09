@@ -4,9 +4,9 @@ create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports clk
 	
 set_property PACKAGE_PIN U18 	 [get_ports reset]						
 set_property IOSTANDARD LVCMOS33 [get_ports reset]
-set_property PACKAGE_PIN W19     [get_ports left_button]
+set_property PACKAGE_PIN T17     [get_ports left_button]
 set_property IOSTANDARD LVCMOS33 [get_ports left_button]
-set_property PACKAGE_PIN T17     [get_ports right_button]
+set_property PACKAGE_PIN W19     [get_ports right_button]
 set_property IOSTANDARD LVCMOS33 [get_ports right_button]
 
 set_property PACKAGE_PIN G19     [get_ports {rgb[0]}]				

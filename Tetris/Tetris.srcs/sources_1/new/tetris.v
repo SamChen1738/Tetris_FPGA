@@ -66,7 +66,7 @@ module tetris(
     integer i,j;
     
     reg refresh_tick;
-    reg [1:0] refresh_counter;
+    reg [5:0] refresh_counter;
     reg N_refreshes;
     
     parameter BLOCK_SIZE = 14;          
@@ -113,6 +113,7 @@ module tetris(
             number_of_shifts <= 0;
         end
         else if(clk)begin
+            if(!refresh_tick) begin
             if(update_game_state && !shift_down) begin
                 for(i = 0; i < 16; i = i + 1) begin
                     current_board[i] <= current_board_next[i];
@@ -135,6 +136,7 @@ module tetris(
                 end
                 read_game_state <= 0;
             end
+            end
             //$display("refresh_tick = %b, N_refreshes = %b", refresh_tick, N_refreshes);
             if(refresh_tick) begin
                 refresh_counter <= refresh_counter + 1;
@@ -151,8 +153,8 @@ module tetris(
                         case(rng) 
                             8'h00: begin 
                                 player_board_next[15] <= t_piece_top; 
-                                //player_board_next[14] <= t_piece_bottom;
-                                player_board_next[14] <= 8'hff;
+                                player_board_next[14] <= t_piece_bottom;
+                                //player_board_next[14] <= 8'hff;
                                 //$display("generated t piece");
                             end 
                             8'h01: begin
@@ -291,7 +293,7 @@ module tetris(
                     end
                 end
                 if(N_refreshes && can_move && !can_shift_left && !can_shift_right) begin
-                    $display("block moved down");
+                    //$display("block moved down");
                     for(i = 0; i < 15; i = i + 1) begin 
                         player_board_next[i] <= player_board_next[i+1];
                     end
