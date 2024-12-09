@@ -64,7 +64,7 @@ initial begin
     video_on = 1;
     #1 reset = 0;
 
-    for(j = 0; j < 900; j = j + 1) begin
+    for(j = 0; j < 10500; j = j + 1) begin
         if(x <= 2) begin
             x = x + 1;
         end
@@ -88,6 +88,8 @@ initial begin
             $display("update_display: %b", tetris_inst.update_display);
             $display("read_game_state: %b", tetris_inst.read_game_state);
             $display("block_generate: %b", tetris_inst.block_generate);
+            $display("check_game_over: %b", tetris_inst.check_game_over);
+            $display("game_over: %b", tetris_inst.game_over);
             $display("check_shift_left: %b", tetris_inst.check_shift_left);
             $display("check_shift_right: %b", tetris_inst.check_shift_right);
             $display("check_movement: %b", tetris_inst.check_movement);
@@ -97,7 +99,7 @@ initial begin
             $display("combine_boards: %b", tetris_inst.combine_boards);
             $display("clear_player_board: %b", tetris_inst.clear_player_board);
             $display("clear_rows: %b", tetris_inst.clear_rows);
-            $display("shift_down: %b", tetris_inst.shift_down);
+            $display("shift_down: %b", tetris_inst.shift_down); 
             $display("number_of_shifts: %d", tetris_inst.number_of_shifts);
             for(i = 15; i >= 0; i = i - 1) begin
                 $display("display_board[%0d]: %x    |    player_board[%0d]: %x    |    current_board[%0d]: %x   |   player_board_next[%0d]: %x   |   current_board_next[%0d]: %x", 

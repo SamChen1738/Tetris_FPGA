@@ -27,7 +27,11 @@ module tetris(
     input [9:0] x,              
     input [9:0] y, 
     input video_on,
-    output reg [11:0] rgb
+    output reg [11:0] rgb,
+    output reg [3:0] score_ones,
+    output reg [3:0] score_tens,
+    output reg [3:0] score_hundreds,
+    output reg [3:0] score_thousands
     );
     reg [7:0] current_board [15:0];
     reg [7:0] current_board_next [15:0];
@@ -53,6 +57,9 @@ module tetris(
     reg check_shift_right;
     reg clear_player_board;
     reg clear_rows;
+
+    reg check_game_over;
+    reg game_over;
     
     parameter t_piece_top = 8'h10;
     parameter t_piece_bottom = 8'h38;
@@ -66,8 +73,10 @@ module tetris(
     integer i,j;
     
     reg refresh_tick;
-    reg [5:0] refresh_counter;
+    reg [1:0] refresh_counter;
     reg N_refreshes;
+    reg [2:0] refresh_counter_2;
+    reg N_refreshes_2;
     
     parameter BLOCK_SIZE = 14;          
 
@@ -80,6 +89,7 @@ module tetris(
     always @(posedge reset or posedge clk) begin
         refresh_tick <= ((y == 481) && (x == 0)) ? 1 : 0;
         N_refreshes <= (refresh_counter == 0) ? 1 : 0;
+        N_refreshes_2 <= (refresh_counter_2 == 0) ? 1 : 0;
         if(reset) begin
             $display("reset");
             for(i = 0; i < 16; i = i + 1) begin
@@ -90,6 +100,7 @@ module tetris(
                 player_board_next[i] <= 8'h00;
             end
             can_move <= 0;
+            check_game_over <= 0;
             game_over <= 0;
             block_generate <= 1;
             lfsr <= 8'hB0;
@@ -99,6 +110,7 @@ module tetris(
             shift_down <= 0;
             rows_cleared <= 0;
             refresh_counter <= 0;
+            refresh_counter_2 <= 0;
             check_movement <= 0;
             update_game_state <= 1;
             update_display <= 0;
@@ -111,45 +123,52 @@ module tetris(
             can_shift_left <= 0;
             can_shift_right <= 0;
             number_of_shifts <= 0;
+            score_ones <= 0;
+            score_tens <= 0;
+            score_hundreds <= 0;
+            score_thousands <= 0;
         end
         else if(clk)begin
             if(!refresh_tick) begin
-            if(update_game_state && !shift_down) begin
-                for(i = 0; i < 16; i = i + 1) begin
-                    current_board[i] <= current_board_next[i];
-                    player_board[i] <= player_board_next[i];
+                if(update_game_state && !shift_down) begin
+                    for(i = 0; i < 16; i = i + 1) begin
+                        current_board[i] <= current_board_next[i];
+                        player_board[i] <= player_board_next[i];
+                    end
+                    update_display <= 1;
+                    update_game_state <= 0;
                 end
-                update_display <= 1;
-                update_game_state <= 0;
-            end
-            if(update_display) begin
-                for(i = 0; i < 16; i = i + 1) begin
-                    display_board[i] <= (current_board[i] | player_board[i]);
+                if(update_display) begin
+                    for(i = 0; i < 16; i = i + 1) begin
+                        display_board[i] <= (current_board[i] | player_board[i]);
+                    end
+                    update_display <= 0;
+                    read_game_state <= 1;
                 end
-                update_display <= 0;
-                read_game_state <= 1;
-            end
-            if(read_game_state) begin
-                for(i = 0; i < 16; i = i + 1) begin
-                    player_board_next[i] <= player_board[i];
-                    current_board_next[i] <= current_board[i];
+                if(read_game_state) begin
+                    for(i = 0; i < 16; i = i + 1) begin
+                        player_board_next[i] <= player_board[i];
+                        current_board_next[i] <= current_board[i];
+                    end
+                    read_game_state <= 0;
                 end
-                read_game_state <= 0;
-            end
             end
             //$display("refresh_tick = %b, N_refreshes = %b", refresh_tick, N_refreshes);
             if(refresh_tick) begin
                 refresh_counter <= refresh_counter + 1;
-                update_game_state <= 1;
-                if(!N_refreshes) begin
+                refresh_counter_2 <= refresh_counter_2 + 1;
+                if(!game_over) begin
+                    update_game_state <= 1;
+                end
+                if(N_refreshes && !N_refreshes_2) begin
                     //generate state
                     if(block_generate && !shift_down) begin
                         block_generate <= 0;
-                        check_shift_left <= 1;
+                        //check_shift_left <= 1;
+                        check_game_over <= 1;
                         bit <= (lfsr >> 0) ^ (lfsr >> 2) ^ (lfsr >> 3) ^ (lfsr >> 5) & 1;
                         lfsr <= (lfsr >> 1) | (bit << 7);
                         rng <= lfsr & 3'b111;
-                        
                         case(rng) 
                             8'h00: begin 
                                 player_board_next[15] <= t_piece_top; 
@@ -170,8 +189,8 @@ module tetris(
                             end
                             8'h04: begin
                                 //it says z piece but it makes a square
-                                player_board_next[15] <= z_piece_left;
-                                player_board_next[14] <= z_piece_left;
+                                player_board_next[15] <= z_piece_right;
+                                player_board_next[14] <= z_piece_right;
                             end
                             8'h05: begin
                                 player_board_next[15] <= z_piece_left;
@@ -182,13 +201,60 @@ module tetris(
                                 player_board_next[14] <= z_piece_left;
                             end
                             8'h07: begin 
-                                //upside down t piece
-                                player_board_next[15] <= t_piece_bottom;
-                                player_board_next[14] <= t_piece_top;
+                                player_board_next[15] <= t_piece_top; 
+                                player_board_next[14] <= t_piece_bottom;
                             end
                         endcase
                     end
-                    if(check_shift_left && !block_generate) begin
+                    if(check_game_over) begin
+                        check_shift_left <= 1;
+                        check_game_over <= 0;
+                        for(i = 0; i < 16; i = i + 1) begin
+                            if((current_board_next[i] & player_board_next[i]) != 8'h00) begin
+                                can_move <= 0;
+                                game_over <= 1;
+                                block_generate <= 0;
+                                lfsr <= 8'hB0;
+                                bit <= 8'h00;
+                                rng <= 3'b000;
+                                distance_traveled <= 0;
+                                shift_down <= 0;
+                                rows_cleared <= 0;
+                                refresh_counter <= 0;
+                                check_movement <= 0;
+                                clear_player_board <= 0;
+                                combine_boards <= 0;    
+                                clear_rows <= 0;
+                                check_shift_left <= 0;
+                                check_shift_right <= 0;
+                                can_shift_left <= 0;
+                                can_shift_right <= 0;
+                                number_of_shifts <= 0;
+                                update_display <= 0;
+                                update_game_state <= 0;
+                                read_game_state <= 0;
+                            end
+                        end
+                    end
+                    if(game_over) begin
+                        display_board[15] = 8'h00;
+                        display_board[14] = 8'h7e;
+                        display_board[13] = 8'h40;
+                        display_board[12] = 8'h40;
+                        display_board[11] = 8'h4e;
+                        display_board[10] = 8'h42;
+                        display_board[9] = 8'h7e;
+                        display_board[8] = 8'h00;
+                        display_board[7] = 8'h00;
+                        display_board[6] = 8'h7e;
+                        display_board[5] = 8'h40;
+                        display_board[4] = 8'h40;
+                        display_board[3] = 8'h4e;
+                        display_board[2] = 8'h42;
+                        display_board[1] = 8'h7e;
+                        display_board[0] = 8'h00;
+                    end
+                    if(check_shift_left && !block_generate && !check_game_over) begin
                         can_shift_left <= 1;
                         check_shift_left <= 0;
                         check_shift_right <= 1;
@@ -273,6 +339,19 @@ module tetris(
                             if(current_board_next[i] == 8'hff) begin
                                 current_board_next[i] <= 8'h0;
                                 shift_down <= 1;
+                                score_ones <= score_ones + 1;
+                                if(score_ones == 10) begin
+                                    score_ones <= 0;
+                                    score_tens <= score_tens + 1;
+                                end
+                                if(score_tens == 10) begin
+                                    score_tens <= 0;
+                                    score_hundreds <= score_hundreds + 1;
+                                end
+                                if(score_hundreds == 10) begin
+                                    score_hundreds <= 0;
+                                    score_thousands <= score_thousands + 1;
+                                end
                             end
                         end
                         block_generate <= 1;
@@ -292,7 +371,7 @@ module tetris(
                         current_board_next[15] <= 8'h00;
                     end
                 end
-                if(N_refreshes && can_move && !can_shift_left && !can_shift_right) begin
+                if(N_refreshes_2 && can_move && !can_shift_left && !can_shift_right) begin
                     //$display("block moved down");
                     for(i = 0; i < 15; i = i + 1) begin 
                         player_board_next[i] <= player_board_next[i+1];

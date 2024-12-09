@@ -1,5 +1,7 @@
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Tetris/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module tetris
+WARNING: [VRFC 10-3248] data object 'game_over' is already declared [C:/Tetris/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:62]
+WARNING: [VRFC 10-3703] second declaration of 'game_over' ignored [C:/Tetris/Tetris/Tetris/Tetris.srcs/sources_1/new/tetris.v:62]
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Tetris/Tetris/Tetris/Tetris.srcs/sim_2/new/sim_2.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module sim_2
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Tetris/Tetris/Tetris/Tetris.sim/sim_2/behav/xsim/glbl.v" into library xil_defaultlib

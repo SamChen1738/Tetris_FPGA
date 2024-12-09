@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Fri Dec  6 16:56:13 2024
+| Date         : Mon Dec  9 11:59:55 2024
 | Host         : Sam-laptop running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file main_timing_summary_routed.rpt -pb main_timing_summary_routed.pb -rpx main_timing_summary_routed.rpx -warn_on_violation
 | Design       : main
@@ -43,7 +43,7 @@ Table of Contents
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
 4. checking unconstrained_internal_endpoints (50)
-5. checking no_input_delay (1)
+5. checking no_input_delay (3)
 6. checking no_output_delay (14)
 7. checking multiple_clock (0)
 8. checking generated_clocks (0)
@@ -76,9 +76,9 @@ Table of Contents
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
-5. checking no_input_delay (1)
+5. checking no_input_delay (3)
 ------------------------------
- There is 1 input port with no input delay specified. (HIGH)
+ There are 3 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
@@ -130,7 +130,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-     -4.056      -11.641                      3                 1338        0.118        0.000                      0                 1338        4.500        0.000                       0                   703  
+     -4.449      -12.953                      3                 1355        0.094        0.000                      0                 1355        4.500        0.000                       0                   723  
 
 
 Timing constraints are not met.
@@ -153,7 +153,7 @@ sys_clk_pin  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-sys_clk_pin        -4.056      -11.641                      3                 1338        0.118        0.000                      0                 1338        4.500        0.000                       0                   703  
+sys_clk_pin        -4.449      -12.953                      3                 1355        0.094        0.000                      0                 1355        4.500        0.000                       0                   723  
 
 
 ------------------------------------------------------------------------------------------------
@@ -184,27 +184,27 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  sys_clk_pin
   To Clock:  sys_clk_pin
 
-Setup :            3  Failing Endpoints,  Worst Slack       -4.056ns,  Total Violation      -11.641ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.118ns,  Total Violation        0.000ns
+Setup :            3  Failing Endpoints,  Worst Slack       -4.449ns,  Total Violation      -12.953ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.094ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (VIOLATED) :        -4.056ns  (required time - arrival time)
-  Source:                 vga/v_count_reg_reg[4]/C
+Slack (VIOLATED) :        -4.449ns  (required time - arrival time)
+  Source:                 vga/v_count_reg_reg[9]/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            rgb_reg_reg[4]/D
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        14.077ns  (logic 6.195ns (44.008%)  route 7.882ns (55.992%))
-  Logic Levels:           25  (CARRY4=14 LUT2=1 LUT4=1 LUT5=2 LUT6=5 MUXF7=1 MUXF8=1)
-  Clock Path Skew:        0.027ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.833ns = ( 14.833 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.064ns
+  Data Path Delay:        14.408ns  (logic 6.184ns (42.919%)  route 8.224ns (57.081%))
+  Logic Levels:           24  (CARRY4=12 LUT2=1 LUT4=2 LUT5=1 LUT6=6 MUXF7=1 MUXF8=1)
+  Clock Path Skew:        -0.034ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.774ns = ( 14.774 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.066ns
     Clock Pessimism Removal (CPR):    0.258ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -221,76 +221,72 @@ Slack (VIOLATED) :        -4.056ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     3.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.543     5.064    vga/CLK
-    SLICE_X8Y71          FDCE                                         r  vga/v_count_reg_reg[4]/C
+                         net (fo=722, routed)         1.545     5.066    vga/CLK
+    SLICE_X11Y69         FDCE                                         r  vga/v_count_reg_reg[9]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X8Y71          FDCE (Prop_fdce_C_Q)         0.518     5.582 r  vga/v_count_reg_reg[4]/Q
-                         net (fo=28, routed)          0.740     6.322    vga/y[4]
-    SLICE_X9Y70          LUT5 (Prop_lut5_I1_O)        0.124     6.446 f  vga/rgb_reg[7]_i_203/O
-                         net (fo=10, routed)          0.750     7.196    vga/rgb_reg[7]_i_203_n_0
-    SLICE_X9Y70          LUT6 (Prop_lut6_I2_O)        0.124     7.320 r  vga/rgb_reg[7]_i_322_comp_2/O
-                         net (fo=5, routed)           0.860     8.179    vga/rgb_reg[7]_i_322_n_0
-    SLICE_X7Y67          CARRY4 (Prop_carry4_DI[0]_CO[3])
-                                                      0.526     8.705 r  vga/rgb_reg_reg[7]_i_471/CO[3]
-                         net (fo=1, routed)           0.000     8.705    vga/rgb_reg_reg[7]_i_471_n_0
-    SLICE_X7Y68          CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222     8.927 r  vga/rgb_reg_reg[7]_i_425/O[0]
-                         net (fo=3, routed)           0.584     9.511    vga_n_10
-    SLICE_X5Y68          LUT4 (Prop_lut4_I3_O)        0.299     9.810 r  rgb_reg[7]_i_422/O
-                         net (fo=1, routed)           0.000     9.810    vga/rgb_reg_reg[7]_i_308_1[1]
-    SLICE_X5Y68          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    10.360 r  vga/rgb_reg_reg[7]_i_362/CO[3]
-                         net (fo=1, routed)           0.000    10.360    vga/rgb_reg_reg[7]_i_362_n_0
-    SLICE_X5Y69          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    10.474 r  vga/rgb_reg_reg[7]_i_308/CO[3]
-                         net (fo=1, routed)           0.000    10.474    vga/rgb_reg_reg[7]_i_308_n_0
-    SLICE_X5Y70          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    10.588 r  vga/rgb_reg_reg[7]_i_253/CO[3]
-                         net (fo=1, routed)           0.000    10.588    vga/rgb_reg_reg[7]_i_253_n_0
-    SLICE_X5Y71          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    10.702 r  vga/rgb_reg_reg[7]_i_192/CO[3]
-                         net (fo=1, routed)           0.000    10.702    vga/rgb_reg_reg[7]_i_192_n_0
-    SLICE_X5Y72          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    10.816 r  vga/rgb_reg_reg[7]_i_138/CO[3]
-                         net (fo=1, routed)           0.000    10.816    vga/rgb_reg_reg[7]_i_138_n_0
-    SLICE_X5Y73          CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222    11.038 r  vga/rgb_reg_reg[7]_i_71/O[0]
-                         net (fo=5, routed)           0.626    11.664    vga_n_21
-    SLICE_X4Y73          LUT2 (Prop_lut2_I0_O)        0.299    11.963 r  rgb_reg[7]_i_218/O
-                         net (fo=1, routed)           0.000    11.963    rgb_reg[7]_i_218_n_0
-    SLICE_X4Y73          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    12.513 r  rgb_reg_reg[7]_i_154/CO[3]
-                         net (fo=1, routed)           0.000    12.513    vga/rgb_reg[7]_i_445_0[0]
-    SLICE_X4Y74          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.627 f  vga/rgb_reg_reg[7]_i_73/CO[3]
-                         net (fo=45, routed)          1.092    13.719    vga/rgb_reg_reg[7]_i_73_n_0
-    SLICE_X2Y72          LUT6 (Prop_lut6_I5_O)        0.124    13.843 r  vga/rgb_reg[7]_i_328/O
-                         net (fo=1, routed)           0.613    14.456    vga/rgb_reg[7]_i_328_n_0
-    SLICE_X3Y74          CARRY4 (Prop_carry4_DI[3]_CO[3])
-                                                      0.385    14.841 r  vga/rgb_reg_reg[7]_i_267/CO[3]
-                         net (fo=1, routed)           0.009    14.850    vga/rgb_reg_reg[7]_i_267_n_0
-    SLICE_X3Y75          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    14.964 r  vga/rgb_reg_reg[7]_i_206/CO[3]
-                         net (fo=1, routed)           0.000    14.964    vga/rgb_reg_reg[7]_i_206_n_0
-    SLICE_X3Y76          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    15.078 r  vga/rgb_reg_reg[7]_i_147/CO[3]
-                         net (fo=1, routed)           0.000    15.078    vga/rgb_reg_reg[7]_i_147_n_0
-    SLICE_X3Y77          CARRY4 (Prop_carry4_CI_CO[2])
-                                                      0.228    15.306 r  vga/rgb_reg_reg[7]_i_72/CO[2]
-                         net (fo=8, routed)           0.462    15.768    vga/rgb_reg_reg[7]_i_72_n_1
-    SLICE_X3Y78          LUT5 (Prop_lut5_I1_O)        0.313    16.081 r  vga/rgb_reg[7]_i_160/O
-                         net (fo=32, routed)          0.631    16.713    tetris_inst/rgb_reg_reg[7]_i_34_1
-    SLICE_X3Y80          LUT6 (Prop_lut6_I4_O)        0.124    16.837 r  tetris_inst/rgb_reg[7]_i_77/O
-                         net (fo=1, routed)           0.000    16.837    tetris_inst/rgb_reg[7]_i_77_n_0
-    SLICE_X3Y80          MUXF7 (Prop_muxf7_I1_O)      0.245    17.082 r  tetris_inst/rgb_reg_reg[7]_i_30/O
-                         net (fo=1, routed)           0.000    17.082    tetris_inst/rgb_reg_reg[7]_i_30_n_0
-    SLICE_X3Y80          MUXF8 (Prop_muxf8_I0_O)      0.104    17.186 r  tetris_inst/rgb_reg_reg[7]_i_7/O
-                         net (fo=1, routed)           0.948    18.134    tetris_inst/rgb_reg_reg[7]_i_7_n_0
-    SLICE_X2Y78          LUT6 (Prop_lut6_I0_O)        0.316    18.450 r  tetris_inst/rgb_reg[7]_i_2/O
-                         net (fo=2, routed)           0.567    19.017    vga/rgb_reg_reg[4]_0
-    SLICE_X7Y76          LUT6 (Prop_lut6_I4_O)        0.124    19.141 r  vga/rgb_reg[4]_i_1/O
-                         net (fo=1, routed)           0.000    19.141    rgb_next[4]
-    SLICE_X7Y76          FDCE                                         r  rgb_reg_reg[4]/D
+    SLICE_X11Y69         FDCE (Prop_fdce_C_Q)         0.456     5.522 f  vga/v_count_reg_reg[9]/Q
+                         net (fo=70, routed)          0.883     6.405    vga/y[9]
+    SLICE_X11Y70         LUT4 (Prop_lut4_I1_O)        0.124     6.529 r  vga/rgb_reg[11]_i_5_comp/O
+                         net (fo=1, routed)           0.786     7.315    vga/rgb_reg[11]_i_5_n_0_repN
+    SLICE_X9Y69          LUT6 (Prop_lut6_I5_O)        0.124     7.439 r  vga/rgb_reg[7]_i_320_comp/O
+                         net (fo=6, routed)           0.724     8.163    vga/rgb_reg[7]_i_320_n_0
+    SLICE_X9Y73          LUT6 (Prop_lut6_I0_O)        0.124     8.287 r  vga/rgb_reg[7]_i_324/O
+                         net (fo=1, routed)           0.000     8.287    vga/rgb_reg[7]_i_324_n_0
+    SLICE_X9Y73          CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     8.819 r  vga/rgb_reg_reg[7]_i_260/CO[3]
+                         net (fo=1, routed)           0.000     8.819    vga/rgb_reg_reg[7]_i_260_n_0
+    SLICE_X9Y74          CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     9.153 r  vga/rgb_reg_reg[7]_i_200/O[1]
+                         net (fo=4, routed)           0.498     9.651    vga/rgb_reg_reg[7]_i_200_n_6
+    SLICE_X10Y74         LUT4 (Prop_lut4_I2_O)        0.303     9.954 r  vga/rgb_reg[7]_i_139/O
+                         net (fo=1, routed)           0.764    10.718    vga/rgb_reg[7]_i_139_n_0
+    SLICE_X7Y74          CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.507    11.225 r  vga/rgb_reg_reg[7]_i_72/CO[3]
+                         net (fo=1, routed)           0.009    11.234    vga/rgb_reg_reg[7]_i_72_n_0
+    SLICE_X7Y75          CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157    11.391 r  vga/rgb_reg_reg[11]_i_37/CO[1]
+                         net (fo=5, routed)           0.719    12.110    vga_n_40
+    SLICE_X8Y74          LUT2 (Prop_lut2_I1_O)        0.329    12.439 r  rgb_reg[7]_i_215/O
+                         net (fo=1, routed)           0.000    12.439    rgb_reg[7]_i_215_n_0
+    SLICE_X8Y74          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.376    12.815 r  rgb_reg_reg[7]_i_152/CO[3]
+                         net (fo=1, routed)           0.009    12.824    vga/rgb_reg[7]_i_441_0[0]
+    SLICE_X8Y75          CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    13.063 r  vga/rgb_reg_reg[7]_i_74/O[2]
+                         net (fo=3, routed)           0.357    13.420    vga/rgb_reg_reg[7]_i_74_n_5
+    SLICE_X9Y75          LUT6 (Prop_lut6_I5_O)        0.301    13.721 r  vga/rgb_reg[7]_i_434/O
+                         net (fo=1, routed)           0.752    14.474    vga/rgb_reg[7]_i_434_n_0
+    SLICE_X6Y74          CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.396    14.870 r  vga/rgb_reg_reg[7]_i_382/CO[3]
+                         net (fo=1, routed)           0.009    14.879    vga/rgb_reg_reg[7]_i_382_n_0
+    SLICE_X6Y75          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    14.996 r  vga/rgb_reg_reg[7]_i_325/CO[3]
+                         net (fo=1, routed)           0.000    14.996    vga/rgb_reg_reg[7]_i_325_n_0
+    SLICE_X6Y76          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    15.113 r  vga/rgb_reg_reg[7]_i_265/CO[3]
+                         net (fo=1, routed)           0.000    15.113    vga/rgb_reg_reg[7]_i_265_n_0
+    SLICE_X6Y77          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    15.230 r  vga/rgb_reg_reg[7]_i_205/CO[3]
+                         net (fo=1, routed)           0.000    15.230    vga/rgb_reg_reg[7]_i_205_n_0
+    SLICE_X6Y78          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    15.347 r  vga/rgb_reg_reg[7]_i_145/CO[3]
+                         net (fo=1, routed)           0.000    15.347    vga/rgb_reg_reg[7]_i_145_n_0
+    SLICE_X6Y79          CARRY4 (Prop_carry4_CI_CO[2])
+                                                      0.229    15.576 r  vga/rgb_reg_reg[7]_i_73/CO[2]
+                         net (fo=8, routed)           0.497    16.073    vga/rgb_reg_reg[7]_i_73_n_1
+    SLICE_X7Y78          LUT5 (Prop_lut5_I1_O)        0.310    16.383 r  vga/rgb_reg[7]_i_157/O
+                         net (fo=32, routed)          0.959    17.341    tetris_inst/rgb_reg_reg[7]_i_35_0
+    SLICE_X9Y81          LUT6 (Prop_lut6_I2_O)        0.124    17.465 r  tetris_inst/rgb_reg[7]_i_127/O
+                         net (fo=1, routed)           0.000    17.465    tetris_inst/rgb_reg[7]_i_127_n_0
+    SLICE_X9Y81          MUXF7 (Prop_muxf7_I1_O)      0.217    17.682 r  tetris_inst/rgb_reg_reg[7]_i_67/O
+                         net (fo=1, routed)           0.000    17.682    tetris_inst/rgb_reg_reg[7]_i_67_n_0
+    SLICE_X9Y81          MUXF8 (Prop_muxf8_I1_O)      0.094    17.776 r  tetris_inst/rgb_reg_reg[7]_i_26/O
+                         net (fo=1, routed)           0.814    18.590    tetris_inst/rgb_reg_reg[7]_i_26_n_0
+    SLICE_X9Y83          LUT6 (Prop_lut6_I1_O)        0.316    18.906 r  tetris_inst/rgb_reg[7]_i_6/O
+                         net (fo=2, routed)           0.444    19.350    vga/rgb_reg_reg[4]
+    SLICE_X9Y83          LUT6 (Prop_lut6_I2_O)        0.124    19.474 r  vga/rgb_reg[4]_i_1/O
+                         net (fo=1, routed)           0.000    19.474    rgb_next[4]
+    SLICE_X9Y83          FDCE                                         r  rgb_reg_reg[4]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -300,30 +296,30 @@ Slack (VIOLATED) :        -4.056ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.492    14.833    clk_IBUF_BUFG
-    SLICE_X7Y76          FDCE                                         r  rgb_reg_reg[4]/C
-                         clock pessimism              0.258    15.091    
-                         clock uncertainty           -0.035    15.056    
-    SLICE_X7Y76          FDCE (Setup_fdce_C_D)        0.029    15.085    rgb_reg_reg[4]
+                         net (fo=722, routed)         1.433    14.774    clk_IBUF_BUFG
+    SLICE_X9Y83          FDCE                                         r  rgb_reg_reg[4]/C
+                         clock pessimism              0.258    15.032    
+                         clock uncertainty           -0.035    14.997    
+    SLICE_X9Y83          FDCE (Setup_fdce_C_D)        0.029    15.026    rgb_reg_reg[4]
   -------------------------------------------------------------------
-                         required time                         15.085    
-                         arrival time                         -19.141    
+                         required time                         15.026    
+                         arrival time                         -19.474    
   -------------------------------------------------------------------
-                         slack                                 -4.056    
+                         slack                                 -4.449    
 
-Slack (VIOLATED) :        -3.933ns  (required time - arrival time)
-  Source:                 vga/v_count_reg_reg[4]/C
+Slack (VIOLATED) :        -4.419ns  (required time - arrival time)
+  Source:                 vga/v_count_reg_reg[9]/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            rgb_reg_reg[7]/D
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        13.955ns  (logic 6.195ns (44.394%)  route 7.760ns (55.606%))
-  Logic Levels:           25  (CARRY4=14 LUT2=1 LUT4=1 LUT5=2 LUT6=5 MUXF7=1 MUXF8=1)
-  Clock Path Skew:        0.028ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.834ns = ( 14.834 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.064ns
+  Data Path Delay:        14.382ns  (logic 6.173ns (42.923%)  route 8.209ns (57.077%))
+  Logic Levels:           24  (CARRY4=12 LUT2=1 LUT4=2 LUT5=1 LUT6=6 MUXF7=1 MUXF8=1)
+  Clock Path Skew:        -0.034ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.774ns = ( 14.774 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.066ns
     Clock Pessimism Removal (CPR):    0.258ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -340,76 +336,72 @@ Slack (VIOLATED) :        -3.933ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     3.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.543     5.064    vga/CLK
-    SLICE_X8Y71          FDCE                                         r  vga/v_count_reg_reg[4]/C
+                         net (fo=722, routed)         1.545     5.066    vga/CLK
+    SLICE_X11Y69         FDCE                                         r  vga/v_count_reg_reg[9]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X8Y71          FDCE (Prop_fdce_C_Q)         0.518     5.582 r  vga/v_count_reg_reg[4]/Q
-                         net (fo=28, routed)          0.740     6.322    vga/y[4]
-    SLICE_X9Y70          LUT5 (Prop_lut5_I1_O)        0.124     6.446 f  vga/rgb_reg[7]_i_203/O
-                         net (fo=10, routed)          0.750     7.196    vga/rgb_reg[7]_i_203_n_0
-    SLICE_X9Y70          LUT6 (Prop_lut6_I2_O)        0.124     7.320 r  vga/rgb_reg[7]_i_322_comp_2/O
-                         net (fo=5, routed)           0.860     8.179    vga/rgb_reg[7]_i_322_n_0
-    SLICE_X7Y67          CARRY4 (Prop_carry4_DI[0]_CO[3])
-                                                      0.526     8.705 r  vga/rgb_reg_reg[7]_i_471/CO[3]
-                         net (fo=1, routed)           0.000     8.705    vga/rgb_reg_reg[7]_i_471_n_0
-    SLICE_X7Y68          CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222     8.927 r  vga/rgb_reg_reg[7]_i_425/O[0]
-                         net (fo=3, routed)           0.584     9.511    vga_n_10
-    SLICE_X5Y68          LUT4 (Prop_lut4_I3_O)        0.299     9.810 r  rgb_reg[7]_i_422/O
-                         net (fo=1, routed)           0.000     9.810    vga/rgb_reg_reg[7]_i_308_1[1]
-    SLICE_X5Y68          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    10.360 r  vga/rgb_reg_reg[7]_i_362/CO[3]
-                         net (fo=1, routed)           0.000    10.360    vga/rgb_reg_reg[7]_i_362_n_0
-    SLICE_X5Y69          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    10.474 r  vga/rgb_reg_reg[7]_i_308/CO[3]
-                         net (fo=1, routed)           0.000    10.474    vga/rgb_reg_reg[7]_i_308_n_0
-    SLICE_X5Y70          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    10.588 r  vga/rgb_reg_reg[7]_i_253/CO[3]
-                         net (fo=1, routed)           0.000    10.588    vga/rgb_reg_reg[7]_i_253_n_0
-    SLICE_X5Y71          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    10.702 r  vga/rgb_reg_reg[7]_i_192/CO[3]
-                         net (fo=1, routed)           0.000    10.702    vga/rgb_reg_reg[7]_i_192_n_0
-    SLICE_X5Y72          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    10.816 r  vga/rgb_reg_reg[7]_i_138/CO[3]
-                         net (fo=1, routed)           0.000    10.816    vga/rgb_reg_reg[7]_i_138_n_0
-    SLICE_X5Y73          CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222    11.038 r  vga/rgb_reg_reg[7]_i_71/O[0]
-                         net (fo=5, routed)           0.626    11.664    vga_n_21
-    SLICE_X4Y73          LUT2 (Prop_lut2_I0_O)        0.299    11.963 r  rgb_reg[7]_i_218/O
-                         net (fo=1, routed)           0.000    11.963    rgb_reg[7]_i_218_n_0
-    SLICE_X4Y73          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    12.513 r  rgb_reg_reg[7]_i_154/CO[3]
-                         net (fo=1, routed)           0.000    12.513    vga/rgb_reg[7]_i_445_0[0]
-    SLICE_X4Y74          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.627 f  vga/rgb_reg_reg[7]_i_73/CO[3]
-                         net (fo=45, routed)          1.092    13.719    vga/rgb_reg_reg[7]_i_73_n_0
-    SLICE_X2Y72          LUT6 (Prop_lut6_I5_O)        0.124    13.843 r  vga/rgb_reg[7]_i_328/O
-                         net (fo=1, routed)           0.613    14.456    vga/rgb_reg[7]_i_328_n_0
-    SLICE_X3Y74          CARRY4 (Prop_carry4_DI[3]_CO[3])
-                                                      0.385    14.841 r  vga/rgb_reg_reg[7]_i_267/CO[3]
-                         net (fo=1, routed)           0.009    14.850    vga/rgb_reg_reg[7]_i_267_n_0
-    SLICE_X3Y75          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    14.964 r  vga/rgb_reg_reg[7]_i_206/CO[3]
-                         net (fo=1, routed)           0.000    14.964    vga/rgb_reg_reg[7]_i_206_n_0
-    SLICE_X3Y76          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    15.078 r  vga/rgb_reg_reg[7]_i_147/CO[3]
-                         net (fo=1, routed)           0.000    15.078    vga/rgb_reg_reg[7]_i_147_n_0
-    SLICE_X3Y77          CARRY4 (Prop_carry4_CI_CO[2])
-                                                      0.228    15.306 r  vga/rgb_reg_reg[7]_i_72/CO[2]
-                         net (fo=8, routed)           0.462    15.768    vga/rgb_reg_reg[7]_i_72_n_1
-    SLICE_X3Y78          LUT5 (Prop_lut5_I1_O)        0.313    16.081 r  vga/rgb_reg[7]_i_160/O
-                         net (fo=32, routed)          0.631    16.713    tetris_inst/rgb_reg_reg[7]_i_34_1
-    SLICE_X3Y80          LUT6 (Prop_lut6_I4_O)        0.124    16.837 r  tetris_inst/rgb_reg[7]_i_77/O
-                         net (fo=1, routed)           0.000    16.837    tetris_inst/rgb_reg[7]_i_77_n_0
-    SLICE_X3Y80          MUXF7 (Prop_muxf7_I1_O)      0.245    17.082 r  tetris_inst/rgb_reg_reg[7]_i_30/O
-                         net (fo=1, routed)           0.000    17.082    tetris_inst/rgb_reg_reg[7]_i_30_n_0
-    SLICE_X3Y80          MUXF8 (Prop_muxf8_I0_O)      0.104    17.186 r  tetris_inst/rgb_reg_reg[7]_i_7/O
-                         net (fo=1, routed)           0.948    18.134    tetris_inst/rgb_reg_reg[7]_i_7_n_0
-    SLICE_X2Y78          LUT6 (Prop_lut6_I0_O)        0.316    18.450 r  tetris_inst/rgb_reg[7]_i_2/O
-                         net (fo=2, routed)           0.445    18.894    vga/rgb_reg_reg[4]_0
-    SLICE_X7Y77          LUT6 (Prop_lut6_I1_O)        0.124    19.018 r  vga/rgb_reg[7]_i_1/O
-                         net (fo=1, routed)           0.000    19.018    rgb_next[7]
-    SLICE_X7Y77          FDCE                                         r  rgb_reg_reg[7]/D
+    SLICE_X11Y69         FDCE (Prop_fdce_C_Q)         0.456     5.522 f  vga/v_count_reg_reg[9]/Q
+                         net (fo=70, routed)          0.883     6.405    vga/y[9]
+    SLICE_X11Y70         LUT4 (Prop_lut4_I1_O)        0.124     6.529 r  vga/rgb_reg[11]_i_5_comp/O
+                         net (fo=1, routed)           0.786     7.315    vga/rgb_reg[11]_i_5_n_0_repN
+    SLICE_X9Y69          LUT6 (Prop_lut6_I5_O)        0.124     7.439 r  vga/rgb_reg[7]_i_320_comp/O
+                         net (fo=6, routed)           0.724     8.163    vga/rgb_reg[7]_i_320_n_0
+    SLICE_X9Y73          LUT6 (Prop_lut6_I0_O)        0.124     8.287 r  vga/rgb_reg[7]_i_324/O
+                         net (fo=1, routed)           0.000     8.287    vga/rgb_reg[7]_i_324_n_0
+    SLICE_X9Y73          CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     8.819 r  vga/rgb_reg_reg[7]_i_260/CO[3]
+                         net (fo=1, routed)           0.000     8.819    vga/rgb_reg_reg[7]_i_260_n_0
+    SLICE_X9Y74          CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     9.153 r  vga/rgb_reg_reg[7]_i_200/O[1]
+                         net (fo=4, routed)           0.498     9.651    vga/rgb_reg_reg[7]_i_200_n_6
+    SLICE_X10Y74         LUT4 (Prop_lut4_I2_O)        0.303     9.954 r  vga/rgb_reg[7]_i_139/O
+                         net (fo=1, routed)           0.764    10.718    vga/rgb_reg[7]_i_139_n_0
+    SLICE_X7Y74          CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.507    11.225 r  vga/rgb_reg_reg[7]_i_72/CO[3]
+                         net (fo=1, routed)           0.009    11.234    vga/rgb_reg_reg[7]_i_72_n_0
+    SLICE_X7Y75          CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157    11.391 r  vga/rgb_reg_reg[11]_i_37/CO[1]
+                         net (fo=5, routed)           0.719    12.110    vga_n_40
+    SLICE_X8Y74          LUT2 (Prop_lut2_I1_O)        0.329    12.439 r  rgb_reg[7]_i_215/O
+                         net (fo=1, routed)           0.000    12.439    rgb_reg[7]_i_215_n_0
+    SLICE_X8Y74          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.376    12.815 r  rgb_reg_reg[7]_i_152/CO[3]
+                         net (fo=1, routed)           0.009    12.824    vga/rgb_reg[7]_i_441_0[0]
+    SLICE_X8Y75          CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    13.063 r  vga/rgb_reg_reg[7]_i_74/O[2]
+                         net (fo=3, routed)           0.357    13.420    vga/rgb_reg_reg[7]_i_74_n_5
+    SLICE_X9Y75          LUT6 (Prop_lut6_I5_O)        0.301    13.721 r  vga/rgb_reg[7]_i_434/O
+                         net (fo=1, routed)           0.752    14.474    vga/rgb_reg[7]_i_434_n_0
+    SLICE_X6Y74          CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.396    14.870 r  vga/rgb_reg_reg[7]_i_382/CO[3]
+                         net (fo=1, routed)           0.009    14.879    vga/rgb_reg_reg[7]_i_382_n_0
+    SLICE_X6Y75          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    14.996 r  vga/rgb_reg_reg[7]_i_325/CO[3]
+                         net (fo=1, routed)           0.000    14.996    vga/rgb_reg_reg[7]_i_325_n_0
+    SLICE_X6Y76          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    15.113 r  vga/rgb_reg_reg[7]_i_265/CO[3]
+                         net (fo=1, routed)           0.000    15.113    vga/rgb_reg_reg[7]_i_265_n_0
+    SLICE_X6Y77          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    15.230 r  vga/rgb_reg_reg[7]_i_205/CO[3]
+                         net (fo=1, routed)           0.000    15.230    vga/rgb_reg_reg[7]_i_205_n_0
+    SLICE_X6Y78          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    15.347 r  vga/rgb_reg_reg[7]_i_145/CO[3]
+                         net (fo=1, routed)           0.000    15.347    vga/rgb_reg_reg[7]_i_145_n_0
+    SLICE_X6Y79          CARRY4 (Prop_carry4_CI_CO[2])
+                                                      0.229    15.576 r  vga/rgb_reg_reg[7]_i_73/CO[2]
+                         net (fo=8, routed)           0.497    16.073    vga/rgb_reg_reg[7]_i_73_n_1
+    SLICE_X7Y78          LUT5 (Prop_lut5_I1_O)        0.310    16.383 r  vga/rgb_reg[7]_i_157/O
+                         net (fo=32, routed)          0.972    17.355    tetris_inst/rgb_reg_reg[7]_i_35_0
+    SLICE_X8Y81          LUT6 (Prop_lut6_I2_O)        0.124    17.479 r  tetris_inst/rgb_reg[7]_i_87/O
+                         net (fo=1, routed)           0.000    17.479    tetris_inst/rgb_reg[7]_i_87_n_0
+    SLICE_X8Y81          MUXF7 (Prop_muxf7_I0_O)      0.209    17.688 r  tetris_inst/rgb_reg_reg[7]_i_35/O
+                         net (fo=1, routed)           0.000    17.688    tetris_inst/rgb_reg_reg[7]_i_35_n_0
+    SLICE_X8Y81          MUXF8 (Prop_muxf8_I1_O)      0.088    17.776 r  tetris_inst/rgb_reg_reg[7]_i_10/O
+                         net (fo=1, routed)           0.645    18.421    tetris_inst/rgb_reg_reg[7]_i_10_n_0
+    SLICE_X9Y82          LUT6 (Prop_lut6_I3_O)        0.319    18.740 r  tetris_inst/rgb_reg[7]_i_2/O
+                         net (fo=2, routed)           0.583    19.323    vga/rgb_reg_reg[4]_0
+    SLICE_X9Y83          LUT6 (Prop_lut6_I1_O)        0.124    19.447 r  vga/rgb_reg[7]_i_1/O
+                         net (fo=1, routed)           0.000    19.447    rgb_next[7]
+    SLICE_X9Y83          FDCE                                         r  rgb_reg_reg[7]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -419,30 +411,30 @@ Slack (VIOLATED) :        -3.933ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.493    14.834    clk_IBUF_BUFG
-    SLICE_X7Y77          FDCE                                         r  rgb_reg_reg[7]/C
-                         clock pessimism              0.258    15.092    
-                         clock uncertainty           -0.035    15.057    
-    SLICE_X7Y77          FDCE (Setup_fdce_C_D)        0.029    15.086    rgb_reg_reg[7]
+                         net (fo=722, routed)         1.433    14.774    clk_IBUF_BUFG
+    SLICE_X9Y83          FDCE                                         r  rgb_reg_reg[7]/C
+                         clock pessimism              0.258    15.032    
+                         clock uncertainty           -0.035    14.997    
+    SLICE_X9Y83          FDCE (Setup_fdce_C_D)        0.032    15.029    rgb_reg_reg[7]
   -------------------------------------------------------------------
-                         required time                         15.086    
-                         arrival time                         -19.018    
+                         required time                         15.029    
+                         arrival time                         -19.447    
   -------------------------------------------------------------------
-                         slack                                 -3.933    
+                         slack                                 -4.419    
 
-Slack (VIOLATED) :        -3.652ns  (required time - arrival time)
-  Source:                 vga/v_count_reg_reg[4]/C
+Slack (VIOLATED) :        -4.085ns  (required time - arrival time)
+  Source:                 vga/v_count_reg_reg[9]/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            rgb_reg_reg[11]/D
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        13.597ns  (logic 6.438ns (47.347%)  route 7.159ns (52.653%))
-  Logic Levels:           24  (CARRY4=17 LUT2=1 LUT4=1 LUT5=1 LUT6=4)
-  Clock Path Skew:        0.028ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.834ns = ( 14.834 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.064ns
+  Data Path Delay:        13.975ns  (logic 6.465ns (46.262%)  route 7.510ns (53.738%))
+  Logic Levels:           23  (CARRY4=15 LUT2=1 LUT4=2 LUT6=5)
+  Clock Path Skew:        -0.035ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.773ns = ( 14.773 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.066ns
     Clock Pessimism Removal (CPR):    0.258ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -459,77 +451,73 @@ Slack (VIOLATED) :        -3.652ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     3.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.543     5.064    vga/CLK
-    SLICE_X8Y71          FDCE                                         r  vga/v_count_reg_reg[4]/C
+                         net (fo=722, routed)         1.545     5.066    vga/CLK
+    SLICE_X11Y69         FDCE                                         r  vga/v_count_reg_reg[9]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X8Y71          FDCE (Prop_fdce_C_Q)         0.518     5.582 r  vga/v_count_reg_reg[4]/Q
-                         net (fo=28, routed)          0.740     6.322    vga/y[4]
-    SLICE_X9Y70          LUT5 (Prop_lut5_I1_O)        0.124     6.446 f  vga/rgb_reg[7]_i_203/O
-                         net (fo=10, routed)          0.750     7.196    vga/rgb_reg[7]_i_203_n_0
-    SLICE_X9Y70          LUT6 (Prop_lut6_I2_O)        0.124     7.320 r  vga/rgb_reg[7]_i_322_comp_2/O
-                         net (fo=5, routed)           0.860     8.179    vga/rgb_reg[7]_i_322_n_0
-    SLICE_X7Y67          CARRY4 (Prop_carry4_DI[0]_CO[3])
-                                                      0.526     8.705 r  vga/rgb_reg_reg[7]_i_471/CO[3]
-                         net (fo=1, routed)           0.000     8.705    vga/rgb_reg_reg[7]_i_471_n_0
-    SLICE_X7Y68          CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222     8.927 r  vga/rgb_reg_reg[7]_i_425/O[0]
-                         net (fo=3, routed)           0.584     9.511    vga_n_10
-    SLICE_X5Y68          LUT4 (Prop_lut4_I3_O)        0.299     9.810 r  rgb_reg[7]_i_422/O
-                         net (fo=1, routed)           0.000     9.810    vga/rgb_reg_reg[7]_i_308_1[1]
-    SLICE_X5Y68          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    10.360 r  vga/rgb_reg_reg[7]_i_362/CO[3]
-                         net (fo=1, routed)           0.000    10.360    vga/rgb_reg_reg[7]_i_362_n_0
-    SLICE_X5Y69          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    10.474 r  vga/rgb_reg_reg[7]_i_308/CO[3]
-                         net (fo=1, routed)           0.000    10.474    vga/rgb_reg_reg[7]_i_308_n_0
-    SLICE_X5Y70          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    10.588 r  vga/rgb_reg_reg[7]_i_253/CO[3]
-                         net (fo=1, routed)           0.000    10.588    vga/rgb_reg_reg[7]_i_253_n_0
-    SLICE_X5Y71          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    10.702 r  vga/rgb_reg_reg[7]_i_192/CO[3]
-                         net (fo=1, routed)           0.000    10.702    vga/rgb_reg_reg[7]_i_192_n_0
-    SLICE_X5Y72          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    10.816 r  vga/rgb_reg_reg[7]_i_138/CO[3]
-                         net (fo=1, routed)           0.000    10.816    vga/rgb_reg_reg[7]_i_138_n_0
-    SLICE_X5Y73          CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222    11.038 r  vga/rgb_reg_reg[7]_i_71/O[0]
-                         net (fo=5, routed)           0.626    11.664    vga_n_21
-    SLICE_X4Y73          LUT2 (Prop_lut2_I0_O)        0.299    11.963 r  rgb_reg[7]_i_218/O
-                         net (fo=1, routed)           0.000    11.963    rgb_reg[7]_i_218_n_0
-    SLICE_X4Y73          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550    12.513 r  rgb_reg_reg[7]_i_154/CO[3]
-                         net (fo=1, routed)           0.000    12.513    vga/rgb_reg[7]_i_445_0[0]
-    SLICE_X4Y74          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.627 f  vga/rgb_reg_reg[7]_i_73/CO[3]
-                         net (fo=45, routed)          1.092    13.719    vga/rgb_reg_reg[7]_i_73_n_0
-    SLICE_X2Y72          LUT6 (Prop_lut6_I5_O)        0.124    13.843 r  vga/rgb_reg[7]_i_328/O
-                         net (fo=1, routed)           0.613    14.456    vga/rgb_reg[7]_i_328_n_0
-    SLICE_X3Y74          CARRY4 (Prop_carry4_DI[3]_CO[3])
-                                                      0.385    14.841 r  vga/rgb_reg_reg[7]_i_267/CO[3]
-                         net (fo=1, routed)           0.009    14.850    vga/rgb_reg_reg[7]_i_267_n_0
-    SLICE_X3Y75          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    14.964 r  vga/rgb_reg_reg[7]_i_206/CO[3]
-                         net (fo=1, routed)           0.000    14.964    vga/rgb_reg_reg[7]_i_206_n_0
-    SLICE_X3Y76          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    15.078 r  vga/rgb_reg_reg[7]_i_147/CO[3]
-                         net (fo=1, routed)           0.000    15.078    vga/rgb_reg_reg[7]_i_147_n_0
-    SLICE_X3Y77          CARRY4 (Prop_carry4_CI_CO[2])
-                                                      0.228    15.306 r  vga/rgb_reg_reg[7]_i_72/CO[2]
-                         net (fo=8, routed)           0.488    15.794    vga/rgb_reg_reg[7]_i_72_n_1
-    SLICE_X5Y76          LUT6 (Prop_lut6_I4_O)        0.313    16.107 r  vga/rgb_reg[11]_i_25/O
-                         net (fo=1, routed)           0.498    16.605    vga/rgb_reg[11]_i_25_n_0
-    SLICE_X6Y74          CARRY4 (Prop_carry4_DI[0]_CO[3])
-                                                      0.550    17.155 r  vga/rgb_reg_reg[11]_i_15/CO[3]
-                         net (fo=1, routed)           0.009    17.164    vga/rgb_reg_reg[11]_i_15_n_0
+    SLICE_X11Y69         FDCE (Prop_fdce_C_Q)         0.456     5.522 f  vga/v_count_reg_reg[9]/Q
+                         net (fo=70, routed)          0.883     6.405    vga/y[9]
+    SLICE_X11Y70         LUT4 (Prop_lut4_I1_O)        0.124     6.529 r  vga/rgb_reg[11]_i_5_comp/O
+                         net (fo=1, routed)           0.786     7.315    vga/rgb_reg[11]_i_5_n_0_repN
+    SLICE_X9Y69          LUT6 (Prop_lut6_I5_O)        0.124     7.439 r  vga/rgb_reg[7]_i_320_comp/O
+                         net (fo=6, routed)           0.724     8.163    vga/rgb_reg[7]_i_320_n_0
+    SLICE_X9Y73          LUT6 (Prop_lut6_I0_O)        0.124     8.287 r  vga/rgb_reg[7]_i_324/O
+                         net (fo=1, routed)           0.000     8.287    vga/rgb_reg[7]_i_324_n_0
+    SLICE_X9Y73          CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     8.819 r  vga/rgb_reg_reg[7]_i_260/CO[3]
+                         net (fo=1, routed)           0.000     8.819    vga/rgb_reg_reg[7]_i_260_n_0
+    SLICE_X9Y74          CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     9.153 r  vga/rgb_reg_reg[7]_i_200/O[1]
+                         net (fo=4, routed)           0.498     9.651    vga/rgb_reg_reg[7]_i_200_n_6
+    SLICE_X10Y74         LUT4 (Prop_lut4_I2_O)        0.303     9.954 r  vga/rgb_reg[7]_i_139/O
+                         net (fo=1, routed)           0.764    10.718    vga/rgb_reg[7]_i_139_n_0
+    SLICE_X7Y74          CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.507    11.225 r  vga/rgb_reg_reg[7]_i_72/CO[3]
+                         net (fo=1, routed)           0.009    11.234    vga/rgb_reg_reg[7]_i_72_n_0
+    SLICE_X7Y75          CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157    11.391 r  vga/rgb_reg_reg[11]_i_37/CO[1]
+                         net (fo=5, routed)           0.719    12.110    vga_n_40
+    SLICE_X8Y74          LUT2 (Prop_lut2_I1_O)        0.329    12.439 r  rgb_reg[7]_i_215/O
+                         net (fo=1, routed)           0.000    12.439    rgb_reg[7]_i_215_n_0
+    SLICE_X8Y74          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.376    12.815 r  rgb_reg_reg[7]_i_152/CO[3]
+                         net (fo=1, routed)           0.009    12.824    vga/rgb_reg[7]_i_441_0[0]
+    SLICE_X8Y75          CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    13.063 r  vga/rgb_reg_reg[7]_i_74/O[2]
+                         net (fo=3, routed)           0.357    13.420    vga/rgb_reg_reg[7]_i_74_n_5
+    SLICE_X9Y75          LUT6 (Prop_lut6_I5_O)        0.301    13.721 r  vga/rgb_reg[7]_i_434/O
+                         net (fo=1, routed)           0.752    14.474    vga/rgb_reg[7]_i_434_n_0
+    SLICE_X6Y74          CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.396    14.870 r  vga/rgb_reg_reg[7]_i_382/CO[3]
+                         net (fo=1, routed)           0.009    14.879    vga/rgb_reg_reg[7]_i_382_n_0
     SLICE_X6Y75          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117    17.281 r  vga/rgb_reg_reg[11]_i_8/CO[3]
-                         net (fo=1, routed)           0.000    17.281    vga/rgb_reg_reg[11]_i_8_n_0
-    SLICE_X6Y76          CARRY4 (Prop_carry4_CI_CO[1])
-                                                      0.157    17.438 r  vga/rgb_reg_reg[11]_i_4/CO[1]
-                         net (fo=2, routed)           0.502    17.939    vga/tetris_inst/rgb2
-    SLICE_X7Y77          LUT6 (Prop_lut6_I2_O)        0.332    18.271 r  vga/rgb_reg[11]_i_1/O
-                         net (fo=2, routed)           0.390    18.661    rgb_next[11]
-    SLICE_X7Y77          FDCE                                         r  rgb_reg_reg[11]/D
+                                                      0.117    14.996 r  vga/rgb_reg_reg[7]_i_325/CO[3]
+                         net (fo=1, routed)           0.000    14.996    vga/rgb_reg_reg[7]_i_325_n_0
+    SLICE_X6Y76          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    15.113 r  vga/rgb_reg_reg[7]_i_265/CO[3]
+                         net (fo=1, routed)           0.000    15.113    vga/rgb_reg_reg[7]_i_265_n_0
+    SLICE_X6Y77          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    15.230 r  vga/rgb_reg_reg[7]_i_205/CO[3]
+                         net (fo=1, routed)           0.000    15.230    vga/rgb_reg_reg[7]_i_205_n_0
+    SLICE_X6Y78          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    15.347 r  vga/rgb_reg_reg[7]_i_145/CO[3]
+                         net (fo=1, routed)           0.000    15.347    vga/rgb_reg_reg[7]_i_145_n_0
+    SLICE_X6Y79          CARRY4 (Prop_carry4_CI_CO[2])
+                                                      0.229    15.576 r  vga/rgb_reg_reg[7]_i_73/CO[2]
+                         net (fo=8, routed)           0.571    16.147    vga/rgb_reg_reg[7]_i_73_n_1
+    SLICE_X8Y78          LUT6 (Prop_lut6_I4_O)        0.310    16.457 r  vga/rgb_reg[11]_i_24/O
+                         net (fo=1, routed)           0.352    16.809    vga/rgb_reg[11]_i_24_n_0
+    SLICE_X10Y77         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.550    17.359 r  vga/rgb_reg_reg[11]_i_14/CO[3]
+                         net (fo=1, routed)           0.000    17.359    vga/rgb_reg_reg[11]_i_14_n_0
+    SLICE_X10Y78         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    17.476 r  vga/rgb_reg_reg[11]_i_6/CO[3]
+                         net (fo=1, routed)           0.000    17.476    vga/rgb_reg_reg[11]_i_6_n_0
+    SLICE_X10Y79         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157    17.633 r  vga/rgb_reg_reg[11]_i_3/CO[1]
+                         net (fo=2, routed)           0.559    18.192    vga/tetris_inst/rgb2
+    SLICE_X11Y82         LUT6 (Prop_lut6_I3_O)        0.332    18.524 r  vga/rgb_reg[11]_i_1/O
+                         net (fo=2, routed)           0.516    19.041    rgb_next[11]
+    SLICE_X9Y82          FDCE                                         r  rgb_reg_reg[11]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -539,30 +527,30 @@ Slack (VIOLATED) :        -3.652ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.493    14.834    clk_IBUF_BUFG
-    SLICE_X7Y77          FDCE                                         r  rgb_reg_reg[11]/C
-                         clock pessimism              0.258    15.092    
-                         clock uncertainty           -0.035    15.057    
-    SLICE_X7Y77          FDCE (Setup_fdce_C_D)       -0.047    15.010    rgb_reg_reg[11]
+                         net (fo=722, routed)         1.432    14.773    clk_IBUF_BUFG
+    SLICE_X9Y82          FDCE                                         r  rgb_reg_reg[11]/C
+                         clock pessimism              0.258    15.031    
+                         clock uncertainty           -0.035    14.996    
+    SLICE_X9Y82          FDCE (Setup_fdce_C_D)       -0.040    14.956    rgb_reg_reg[11]
   -------------------------------------------------------------------
-                         required time                         15.010    
-                         arrival time                         -18.661    
+                         required time                         14.956    
+                         arrival time                         -19.041    
   -------------------------------------------------------------------
-                         slack                                 -3.652    
+                         slack                                 -4.085    
 
-Slack (MET) :             0.144ns  (required time - arrival time)
-  Source:                 vga/h_count_reg_reg[0]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            tetris_inst/player_board_next_reg[6][6]/CE
+Slack (MET) :             1.711ns  (required time - arrival time)
+  Source:                 tetris_inst/N_refreshes_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            tetris_inst/player_board_next_reg[8][3]/CE
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        9.374ns  (logic 1.566ns (16.706%)  route 7.808ns (83.294%))
-  Logic Levels:           5  (LUT2=1 LUT3=1 LUT4=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.038ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.843ns = ( 14.843 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.139ns
+  Data Path Delay:        8.095ns  (logic 1.002ns (12.378%)  route 7.093ns (87.622%))
+  Logic Levels:           2  (LUT4=1 LUT6=1)
+  Clock Path Skew:        0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.849ns = ( 14.849 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.061ns
     Clock Pessimism Removal (CPR):    0.258ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -579,22 +567,16 @@ Slack (MET) :             0.144ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     3.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.618     5.139    vga/CLK
-    SLICE_X4Y64          FDCE                                         r  vga/h_count_reg_reg[0]/C
+                         net (fo=722, routed)         1.540     5.061    tetris_inst/clk_IBUF_BUFG
+    SLICE_X12Y72         FDRE                                         r  tetris_inst/N_refreshes_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y64          FDCE (Prop_fdce_C_Q)         0.456     5.595 f  vga/h_count_reg_reg[0]/Q
-                         net (fo=26, routed)          1.817     7.412    vga/x[0]
-    SLICE_X8Y67          LUT4 (Prop_lut4_I3_O)        0.148     7.560 f  vga/current_board_next[0][7]_i_16/O
-                         net (fo=1, routed)           0.782     8.341    vga/current_board_next[0][7]_i_16_n_0
-    SLICE_X8Y72          LUT5 (Prop_lut5_I4_O)        0.328     8.669 f  vga/current_board_next[0][7]_i_13/O
-                         net (fo=1, routed)           0.452     9.121    vga/current_board_next[0][7]_i_13_n_0
-    SLICE_X8Y72          LUT6 (Prop_lut6_I1_O)        0.124     9.245 r  vga/current_board_next[0][7]_i_5/O
-                         net (fo=142, routed)         1.333    10.579    tetris_inst/refresh_tick
-    SLICE_X14Y79         LUT3 (Prop_lut3_I1_O)        0.153    10.732 f  tetris_inst/player_board_next[15][7]_i_3/O
-                         net (fo=131, routed)         1.824    12.556    tetris_inst/player_board_next[15][7]_i_3_n_0
-    SLICE_X8Y88          LUT2 (Prop_lut2_I1_O)        0.357    12.913 r  tetris_inst/player_board_next[13][7]_i_1/O
-                         net (fo=112, routed)         1.600    14.513    tetris_inst/player_board_next
-    SLICE_X0Y83          FDCE                                         r  tetris_inst/player_board_next_reg[6][6]/CE
+    SLICE_X12Y72         FDRE (Prop_fdre_C_Q)         0.518     5.579 r  tetris_inst/N_refreshes_reg/Q
+                         net (fo=37, routed)          1.800     7.379    tetris_inst/N_refreshes
+    SLICE_X14Y86         LUT4 (Prop_lut4_I3_O)        0.153     7.532 r  tetris_inst/player_board_next[15][7]_i_6/O
+                         net (fo=31, routed)          1.215     8.747    tetris_inst/player_board_next[15][7]_i_6_n_0
+    SLICE_X14Y83         LUT6 (Prop_lut6_I3_O)        0.331     9.078 r  tetris_inst/player_board_next[13][7]_i_1/O
+                         net (fo=114, routed)         4.077    13.156    tetris_inst/player_board_next[13][7]_i_1_n_0
+    SLICE_X0Y92          FDCE                                         r  tetris_inst/player_board_next_reg[8][3]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -604,30 +586,30 @@ Slack (MET) :             0.144ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.502    14.843    tetris_inst/clk_IBUF_BUFG
-    SLICE_X0Y83          FDCE                                         r  tetris_inst/player_board_next_reg[6][6]/C
-                         clock pessimism              0.258    15.101    
-                         clock uncertainty           -0.035    15.066    
-    SLICE_X0Y83          FDCE (Setup_fdce_C_CE)      -0.409    14.657    tetris_inst/player_board_next_reg[6][6]
+                         net (fo=722, routed)         1.508    14.849    tetris_inst/clk_IBUF_BUFG
+    SLICE_X0Y92          FDCE                                         r  tetris_inst/player_board_next_reg[8][3]/C
+                         clock pessimism              0.258    15.107    
+                         clock uncertainty           -0.035    15.072    
+    SLICE_X0Y92          FDCE (Setup_fdce_C_CE)      -0.205    14.867    tetris_inst/player_board_next_reg[8][3]
   -------------------------------------------------------------------
-                         required time                         14.657    
-                         arrival time                         -14.513    
+                         required time                         14.867    
+                         arrival time                         -13.156    
   -------------------------------------------------------------------
-                         slack                                  0.144    
+                         slack                                  1.711    
 
-Slack (MET) :             0.144ns  (required time - arrival time)
-  Source:                 vga/h_count_reg_reg[0]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            tetris_inst/player_board_next_reg[7][6]/CE
+Slack (MET) :             1.750ns  (required time - arrival time)
+  Source:                 tetris_inst/refresh_tick_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            tetris_inst/current_board_next_reg[7][3]/CE
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        9.374ns  (logic 1.566ns (16.706%)  route 7.808ns (83.294%))
-  Logic Levels:           5  (LUT2=1 LUT3=1 LUT4=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.038ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.843ns = ( 14.843 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.139ns
+  Data Path Delay:        7.986ns  (logic 0.828ns (10.368%)  route 7.158ns (89.632%))
+  Logic Levels:           3  (LUT2=1 LUT3=1 LUT5=1)
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.850ns = ( 14.850 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.132ns
     Clock Pessimism Removal (CPR):    0.258ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -644,22 +626,18 @@ Slack (MET) :             0.144ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     3.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.618     5.139    vga/CLK
-    SLICE_X4Y64          FDCE                                         r  vga/h_count_reg_reg[0]/C
+                         net (fo=722, routed)         1.611     5.132    tetris_inst/clk_IBUF_BUFG
+    SLICE_X5Y69          FDRE                                         r  tetris_inst/refresh_tick_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y64          FDCE (Prop_fdce_C_Q)         0.456     5.595 f  vga/h_count_reg_reg[0]/Q
-                         net (fo=26, routed)          1.817     7.412    vga/x[0]
-    SLICE_X8Y67          LUT4 (Prop_lut4_I3_O)        0.148     7.560 f  vga/current_board_next[0][7]_i_16/O
-                         net (fo=1, routed)           0.782     8.341    vga/current_board_next[0][7]_i_16_n_0
-    SLICE_X8Y72          LUT5 (Prop_lut5_I4_O)        0.328     8.669 f  vga/current_board_next[0][7]_i_13/O
-                         net (fo=1, routed)           0.452     9.121    vga/current_board_next[0][7]_i_13_n_0
-    SLICE_X8Y72          LUT6 (Prop_lut6_I1_O)        0.124     9.245 r  vga/current_board_next[0][7]_i_5/O
-                         net (fo=142, routed)         1.333    10.579    tetris_inst/refresh_tick
-    SLICE_X14Y79         LUT3 (Prop_lut3_I1_O)        0.153    10.732 f  tetris_inst/player_board_next[15][7]_i_3/O
-                         net (fo=131, routed)         1.824    12.556    tetris_inst/player_board_next[15][7]_i_3_n_0
-    SLICE_X8Y88          LUT2 (Prop_lut2_I1_O)        0.357    12.913 r  tetris_inst/player_board_next[13][7]_i_1/O
-                         net (fo=112, routed)         1.600    14.513    tetris_inst/player_board_next
-    SLICE_X0Y83          FDCE                                         r  tetris_inst/player_board_next_reg[7][6]/CE
+    SLICE_X5Y69          FDRE (Prop_fdre_C_Q)         0.456     5.588 r  tetris_inst/refresh_tick_reg/Q
+                         net (fo=58, routed)          2.004     7.592    tetris_inst/refresh_tick
+    SLICE_X15Y84         LUT2 (Prop_lut2_I0_O)        0.124     7.716 r  tetris_inst/number_of_shifts[2]_i_2/O
+                         net (fo=272, routed)         3.738    11.454    tetris_inst/number_of_shifts[2]_i_2_n_0
+    SLICE_X2Y96          LUT5 (Prop_lut5_I0_O)        0.124    11.578 r  tetris_inst/current_board_next[7][7]_i_3/O
+                         net (fo=2, routed)           0.824    12.402    tetris_inst/current_board_next[7][7]_i_3_n_0
+    SLICE_X2Y94          LUT3 (Prop_lut3_I2_O)        0.124    12.526 r  tetris_inst/current_board_next[7][7]_i_1/O
+                         net (fo=8, routed)           0.592    13.118    tetris_inst/current_board_next[7][7]_i_1_n_0
+    SLICE_X3Y94          FDCE                                         r  tetris_inst/current_board_next_reg[7][3]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -669,30 +647,30 @@ Slack (MET) :             0.144ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.502    14.843    tetris_inst/clk_IBUF_BUFG
-    SLICE_X0Y83          FDCE                                         r  tetris_inst/player_board_next_reg[7][6]/C
-                         clock pessimism              0.258    15.101    
-                         clock uncertainty           -0.035    15.066    
-    SLICE_X0Y83          FDCE (Setup_fdce_C_CE)      -0.409    14.657    tetris_inst/player_board_next_reg[7][6]
+                         net (fo=722, routed)         1.509    14.850    tetris_inst/clk_IBUF_BUFG
+    SLICE_X3Y94          FDCE                                         r  tetris_inst/current_board_next_reg[7][3]/C
+                         clock pessimism              0.258    15.108    
+                         clock uncertainty           -0.035    15.073    
+    SLICE_X3Y94          FDCE (Setup_fdce_C_CE)      -0.205    14.868    tetris_inst/current_board_next_reg[7][3]
   -------------------------------------------------------------------
-                         required time                         14.657    
-                         arrival time                         -14.513    
+                         required time                         14.868    
+                         arrival time                         -13.118    
   -------------------------------------------------------------------
-                         slack                                  0.144    
+                         slack                                  1.750    
 
-Slack (MET) :             0.213ns  (required time - arrival time)
-  Source:                 vga/h_count_reg_reg[0]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            tetris_inst/player_board_next_reg[8][6]/CE
+Slack (MET) :             1.750ns  (required time - arrival time)
+  Source:                 tetris_inst/refresh_tick_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            tetris_inst/current_board_next_reg[7][5]/CE
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        9.299ns  (logic 1.566ns (16.841%)  route 7.733ns (83.159%))
-  Logic Levels:           5  (LUT2=1 LUT3=1 LUT4=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.044ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.837ns = ( 14.837 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.139ns
+  Data Path Delay:        7.986ns  (logic 0.828ns (10.368%)  route 7.158ns (89.632%))
+  Logic Levels:           3  (LUT2=1 LUT3=1 LUT5=1)
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.850ns = ( 14.850 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.132ns
     Clock Pessimism Removal (CPR):    0.258ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -709,22 +687,18 @@ Slack (MET) :             0.213ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     3.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.618     5.139    vga/CLK
-    SLICE_X4Y64          FDCE                                         r  vga/h_count_reg_reg[0]/C
+                         net (fo=722, routed)         1.611     5.132    tetris_inst/clk_IBUF_BUFG
+    SLICE_X5Y69          FDRE                                         r  tetris_inst/refresh_tick_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y64          FDCE (Prop_fdce_C_Q)         0.456     5.595 f  vga/h_count_reg_reg[0]/Q
-                         net (fo=26, routed)          1.817     7.412    vga/x[0]
-    SLICE_X8Y67          LUT4 (Prop_lut4_I3_O)        0.148     7.560 f  vga/current_board_next[0][7]_i_16/O
-                         net (fo=1, routed)           0.782     8.341    vga/current_board_next[0][7]_i_16_n_0
-    SLICE_X8Y72          LUT5 (Prop_lut5_I4_O)        0.328     8.669 f  vga/current_board_next[0][7]_i_13/O
-                         net (fo=1, routed)           0.452     9.121    vga/current_board_next[0][7]_i_13_n_0
-    SLICE_X8Y72          LUT6 (Prop_lut6_I1_O)        0.124     9.245 r  vga/current_board_next[0][7]_i_5/O
-                         net (fo=142, routed)         1.333    10.579    tetris_inst/refresh_tick
-    SLICE_X14Y79         LUT3 (Prop_lut3_I1_O)        0.153    10.732 f  tetris_inst/player_board_next[15][7]_i_3/O
-                         net (fo=131, routed)         1.824    12.556    tetris_inst/player_board_next[15][7]_i_3_n_0
-    SLICE_X8Y88          LUT2 (Prop_lut2_I1_O)        0.357    12.913 r  tetris_inst/player_board_next[13][7]_i_1/O
-                         net (fo=112, routed)         1.525    14.438    tetris_inst/player_board_next
-    SLICE_X7Y80          FDCE                                         r  tetris_inst/player_board_next_reg[8][6]/CE
+    SLICE_X5Y69          FDRE (Prop_fdre_C_Q)         0.456     5.588 r  tetris_inst/refresh_tick_reg/Q
+                         net (fo=58, routed)          2.004     7.592    tetris_inst/refresh_tick
+    SLICE_X15Y84         LUT2 (Prop_lut2_I0_O)        0.124     7.716 r  tetris_inst/number_of_shifts[2]_i_2/O
+                         net (fo=272, routed)         3.738    11.454    tetris_inst/number_of_shifts[2]_i_2_n_0
+    SLICE_X2Y96          LUT5 (Prop_lut5_I0_O)        0.124    11.578 r  tetris_inst/current_board_next[7][7]_i_3/O
+                         net (fo=2, routed)           0.824    12.402    tetris_inst/current_board_next[7][7]_i_3_n_0
+    SLICE_X2Y94          LUT3 (Prop_lut3_I2_O)        0.124    12.526 r  tetris_inst/current_board_next[7][7]_i_1/O
+                         net (fo=8, routed)           0.592    13.118    tetris_inst/current_board_next[7][7]_i_1_n_0
+    SLICE_X3Y94          FDCE                                         r  tetris_inst/current_board_next_reg[7][5]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -734,160 +708,30 @@ Slack (MET) :             0.213ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.496    14.837    tetris_inst/clk_IBUF_BUFG
-    SLICE_X7Y80          FDCE                                         r  tetris_inst/player_board_next_reg[8][6]/C
-                         clock pessimism              0.258    15.095    
-                         clock uncertainty           -0.035    15.060    
-    SLICE_X7Y80          FDCE (Setup_fdce_C_CE)      -0.409    14.651    tetris_inst/player_board_next_reg[8][6]
+                         net (fo=722, routed)         1.509    14.850    tetris_inst/clk_IBUF_BUFG
+    SLICE_X3Y94          FDCE                                         r  tetris_inst/current_board_next_reg[7][5]/C
+                         clock pessimism              0.258    15.108    
+                         clock uncertainty           -0.035    15.073    
+    SLICE_X3Y94          FDCE (Setup_fdce_C_CE)      -0.205    14.868    tetris_inst/current_board_next_reg[7][5]
   -------------------------------------------------------------------
-                         required time                         14.651    
-                         arrival time                         -14.438    
+                         required time                         14.868    
+                         arrival time                         -13.118    
   -------------------------------------------------------------------
-                         slack                                  0.213    
+                         slack                                  1.750    
 
-Slack (MET) :             0.216ns  (required time - arrival time)
-  Source:                 vga/h_count_reg_reg[0]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            tetris_inst/player_board_next_reg[6][1]/CE
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        9.297ns  (logic 1.566ns (16.844%)  route 7.731ns (83.156%))
-  Logic Levels:           5  (LUT2=1 LUT3=1 LUT4=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.043ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.838ns = ( 14.838 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.139ns
-    Clock Pessimism Removal (CPR):    0.258ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.967     3.425    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.618     5.139    vga/CLK
-    SLICE_X4Y64          FDCE                                         r  vga/h_count_reg_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X4Y64          FDCE (Prop_fdce_C_Q)         0.456     5.595 f  vga/h_count_reg_reg[0]/Q
-                         net (fo=26, routed)          1.817     7.412    vga/x[0]
-    SLICE_X8Y67          LUT4 (Prop_lut4_I3_O)        0.148     7.560 f  vga/current_board_next[0][7]_i_16/O
-                         net (fo=1, routed)           0.782     8.341    vga/current_board_next[0][7]_i_16_n_0
-    SLICE_X8Y72          LUT5 (Prop_lut5_I4_O)        0.328     8.669 f  vga/current_board_next[0][7]_i_13/O
-                         net (fo=1, routed)           0.452     9.121    vga/current_board_next[0][7]_i_13_n_0
-    SLICE_X8Y72          LUT6 (Prop_lut6_I1_O)        0.124     9.245 r  vga/current_board_next[0][7]_i_5/O
-                         net (fo=142, routed)         1.333    10.579    tetris_inst/refresh_tick
-    SLICE_X14Y79         LUT3 (Prop_lut3_I1_O)        0.153    10.732 f  tetris_inst/player_board_next[15][7]_i_3/O
-                         net (fo=131, routed)         1.824    12.556    tetris_inst/player_board_next[15][7]_i_3_n_0
-    SLICE_X8Y88          LUT2 (Prop_lut2_I1_O)        0.357    12.913 r  tetris_inst/player_board_next[13][7]_i_1/O
-                         net (fo=112, routed)         1.523    14.436    tetris_inst/player_board_next
-    SLICE_X5Y81          FDCE                                         r  tetris_inst/player_board_next_reg[6][1]/CE
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                     10.000    10.000 r  
-    W5                                                0.000    10.000 r  clk (IN)
-                         net (fo=0)                   0.000    10.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.862    13.250    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.497    14.838    tetris_inst/clk_IBUF_BUFG
-    SLICE_X5Y81          FDCE                                         r  tetris_inst/player_board_next_reg[6][1]/C
-                         clock pessimism              0.258    15.096    
-                         clock uncertainty           -0.035    15.061    
-    SLICE_X5Y81          FDCE (Setup_fdce_C_CE)      -0.409    14.652    tetris_inst/player_board_next_reg[6][1]
-  -------------------------------------------------------------------
-                         required time                         14.652    
-                         arrival time                         -14.436    
-  -------------------------------------------------------------------
-                         slack                                  0.216    
-
-Slack (MET) :             0.216ns  (required time - arrival time)
-  Source:                 vga/h_count_reg_reg[0]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            tetris_inst/player_board_next_reg[7][3]/CE
+Slack (MET) :             1.792ns  (required time - arrival time)
+  Source:                 tetris_inst/refresh_tick_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            tetris_inst/current_board_next_reg[7][0]/CE
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        9.297ns  (logic 1.566ns (16.844%)  route 7.731ns (83.156%))
-  Logic Levels:           5  (LUT2=1 LUT3=1 LUT4=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.043ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.838ns = ( 14.838 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.139ns
-    Clock Pessimism Removal (CPR):    0.258ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.967     3.425    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.618     5.139    vga/CLK
-    SLICE_X4Y64          FDCE                                         r  vga/h_count_reg_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X4Y64          FDCE (Prop_fdce_C_Q)         0.456     5.595 f  vga/h_count_reg_reg[0]/Q
-                         net (fo=26, routed)          1.817     7.412    vga/x[0]
-    SLICE_X8Y67          LUT4 (Prop_lut4_I3_O)        0.148     7.560 f  vga/current_board_next[0][7]_i_16/O
-                         net (fo=1, routed)           0.782     8.341    vga/current_board_next[0][7]_i_16_n_0
-    SLICE_X8Y72          LUT5 (Prop_lut5_I4_O)        0.328     8.669 f  vga/current_board_next[0][7]_i_13/O
-                         net (fo=1, routed)           0.452     9.121    vga/current_board_next[0][7]_i_13_n_0
-    SLICE_X8Y72          LUT6 (Prop_lut6_I1_O)        0.124     9.245 r  vga/current_board_next[0][7]_i_5/O
-                         net (fo=142, routed)         1.333    10.579    tetris_inst/refresh_tick
-    SLICE_X14Y79         LUT3 (Prop_lut3_I1_O)        0.153    10.732 f  tetris_inst/player_board_next[15][7]_i_3/O
-                         net (fo=131, routed)         1.824    12.556    tetris_inst/player_board_next[15][7]_i_3_n_0
-    SLICE_X8Y88          LUT2 (Prop_lut2_I1_O)        0.357    12.913 r  tetris_inst/player_board_next[13][7]_i_1/O
-                         net (fo=112, routed)         1.523    14.436    tetris_inst/player_board_next
-    SLICE_X5Y81          FDCE                                         r  tetris_inst/player_board_next_reg[7][3]/CE
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                     10.000    10.000 r  
-    W5                                                0.000    10.000 r  clk (IN)
-                         net (fo=0)                   0.000    10.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.862    13.250    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.497    14.838    tetris_inst/clk_IBUF_BUFG
-    SLICE_X5Y81          FDCE                                         r  tetris_inst/player_board_next_reg[7][3]/C
-                         clock pessimism              0.258    15.096    
-                         clock uncertainty           -0.035    15.061    
-    SLICE_X5Y81          FDCE (Setup_fdce_C_CE)      -0.409    14.652    tetris_inst/player_board_next_reg[7][3]
-  -------------------------------------------------------------------
-                         required time                         14.652    
-                         arrival time                         -14.436    
-  -------------------------------------------------------------------
-                         slack                                  0.216    
-
-Slack (MET) :             0.261ns  (required time - arrival time)
-  Source:                 vga/h_count_reg_reg[0]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            tetris_inst/player_board_next_reg[0][6]/CE
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        9.262ns  (logic 1.566ns (16.908%)  route 7.696ns (83.092%))
-  Logic Levels:           5  (LUT2=1 LUT3=1 LUT4=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.033ns (DCD - SCD + CPR)
+  Data Path Delay:        7.942ns  (logic 0.828ns (10.426%)  route 7.114ns (89.574%))
+  Logic Levels:           3  (LUT2=1 LUT3=1 LUT5=1)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.848ns = ( 14.848 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.139ns
+    Source Clock Delay      (SCD):    5.132ns
     Clock Pessimism Removal (CPR):    0.258ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -904,22 +748,18 @@ Slack (MET) :             0.261ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     3.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.618     5.139    vga/CLK
-    SLICE_X4Y64          FDCE                                         r  vga/h_count_reg_reg[0]/C
+                         net (fo=722, routed)         1.611     5.132    tetris_inst/clk_IBUF_BUFG
+    SLICE_X5Y69          FDRE                                         r  tetris_inst/refresh_tick_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y64          FDCE (Prop_fdce_C_Q)         0.456     5.595 f  vga/h_count_reg_reg[0]/Q
-                         net (fo=26, routed)          1.817     7.412    vga/x[0]
-    SLICE_X8Y67          LUT4 (Prop_lut4_I3_O)        0.148     7.560 f  vga/current_board_next[0][7]_i_16/O
-                         net (fo=1, routed)           0.782     8.341    vga/current_board_next[0][7]_i_16_n_0
-    SLICE_X8Y72          LUT5 (Prop_lut5_I4_O)        0.328     8.669 f  vga/current_board_next[0][7]_i_13/O
-                         net (fo=1, routed)           0.452     9.121    vga/current_board_next[0][7]_i_13_n_0
-    SLICE_X8Y72          LUT6 (Prop_lut6_I1_O)        0.124     9.245 r  vga/current_board_next[0][7]_i_5/O
-                         net (fo=142, routed)         1.333    10.579    tetris_inst/refresh_tick
-    SLICE_X14Y79         LUT3 (Prop_lut3_I1_O)        0.153    10.732 f  tetris_inst/player_board_next[15][7]_i_3/O
-                         net (fo=131, routed)         1.824    12.556    tetris_inst/player_board_next[15][7]_i_3_n_0
-    SLICE_X8Y88          LUT2 (Prop_lut2_I1_O)        0.357    12.913 r  tetris_inst/player_board_next[13][7]_i_1/O
-                         net (fo=112, routed)         1.488    14.401    tetris_inst/player_board_next
-    SLICE_X0Y90          FDCE                                         r  tetris_inst/player_board_next_reg[0][6]/CE
+    SLICE_X5Y69          FDRE (Prop_fdre_C_Q)         0.456     5.588 r  tetris_inst/refresh_tick_reg/Q
+                         net (fo=58, routed)          2.004     7.592    tetris_inst/refresh_tick
+    SLICE_X15Y84         LUT2 (Prop_lut2_I0_O)        0.124     7.716 r  tetris_inst/number_of_shifts[2]_i_2/O
+                         net (fo=272, routed)         3.738    11.454    tetris_inst/number_of_shifts[2]_i_2_n_0
+    SLICE_X2Y96          LUT5 (Prop_lut5_I0_O)        0.124    11.578 r  tetris_inst/current_board_next[7][7]_i_3/O
+                         net (fo=2, routed)           0.824    12.402    tetris_inst/current_board_next[7][7]_i_3_n_0
+    SLICE_X2Y94          LUT3 (Prop_lut3_I2_O)        0.124    12.526 r  tetris_inst/current_board_next[7][7]_i_1/O
+                         net (fo=8, routed)           0.548    13.073    tetris_inst/current_board_next[7][7]_i_1_n_0
+    SLICE_X4Y94          FDCE                                         r  tetris_inst/current_board_next_reg[7][0]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -929,30 +769,30 @@ Slack (MET) :             0.261ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.507    14.848    tetris_inst/clk_IBUF_BUFG
-    SLICE_X0Y90          FDCE                                         r  tetris_inst/player_board_next_reg[0][6]/C
+                         net (fo=722, routed)         1.507    14.848    tetris_inst/clk_IBUF_BUFG
+    SLICE_X4Y94          FDCE                                         r  tetris_inst/current_board_next_reg[7][0]/C
                          clock pessimism              0.258    15.106    
                          clock uncertainty           -0.035    15.071    
-    SLICE_X0Y90          FDCE (Setup_fdce_C_CE)      -0.409    14.662    tetris_inst/player_board_next_reg[0][6]
+    SLICE_X4Y94          FDCE (Setup_fdce_C_CE)      -0.205    14.866    tetris_inst/current_board_next_reg[7][0]
   -------------------------------------------------------------------
-                         required time                         14.662    
-                         arrival time                         -14.401    
+                         required time                         14.866    
+                         arrival time                         -13.073    
   -------------------------------------------------------------------
-                         slack                                  0.261    
+                         slack                                  1.792    
 
-Slack (MET) :             0.261ns  (required time - arrival time)
-  Source:                 vga/h_count_reg_reg[0]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            tetris_inst/player_board_next_reg[3][0]/CE
+Slack (MET) :             1.832ns  (required time - arrival time)
+  Source:                 tetris_inst/refresh_tick_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            tetris_inst/current_board_next_reg[7][1]/CE
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        9.262ns  (logic 1.566ns (16.908%)  route 7.696ns (83.092%))
-  Logic Levels:           5  (LUT2=1 LUT3=1 LUT4=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.033ns (DCD - SCD + CPR)
+  Data Path Delay:        7.902ns  (logic 0.828ns (10.478%)  route 7.074ns (89.522%))
+  Logic Levels:           3  (LUT2=1 LUT3=1 LUT5=1)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.848ns = ( 14.848 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.139ns
+    Source Clock Delay      (SCD):    5.132ns
     Clock Pessimism Removal (CPR):    0.258ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -969,22 +809,18 @@ Slack (MET) :             0.261ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.967     3.425    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.618     5.139    vga/CLK
-    SLICE_X4Y64          FDCE                                         r  vga/h_count_reg_reg[0]/C
+                         net (fo=722, routed)         1.611     5.132    tetris_inst/clk_IBUF_BUFG
+    SLICE_X5Y69          FDRE                                         r  tetris_inst/refresh_tick_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y64          FDCE (Prop_fdce_C_Q)         0.456     5.595 f  vga/h_count_reg_reg[0]/Q
-                         net (fo=26, routed)          1.817     7.412    vga/x[0]
-    SLICE_X8Y67          LUT4 (Prop_lut4_I3_O)        0.148     7.560 f  vga/current_board_next[0][7]_i_16/O
-                         net (fo=1, routed)           0.782     8.341    vga/current_board_next[0][7]_i_16_n_0
-    SLICE_X8Y72          LUT5 (Prop_lut5_I4_O)        0.328     8.669 f  vga/current_board_next[0][7]_i_13/O
-                         net (fo=1, routed)           0.452     9.121    vga/current_board_next[0][7]_i_13_n_0
-    SLICE_X8Y72          LUT6 (Prop_lut6_I1_O)        0.124     9.245 r  vga/current_board_next[0][7]_i_5/O
-                         net (fo=142, routed)         1.333    10.579    tetris_inst/refresh_tick
-    SLICE_X14Y79         LUT3 (Prop_lut3_I1_O)        0.153    10.732 f  tetris_inst/player_board_next[15][7]_i_3/O
-                         net (fo=131, routed)         1.824    12.556    tetris_inst/player_board_next[15][7]_i_3_n_0
-    SLICE_X8Y88          LUT2 (Prop_lut2_I1_O)        0.357    12.913 r  tetris_inst/player_board_next[13][7]_i_1/O
-                         net (fo=112, routed)         1.488    14.401    tetris_inst/player_board_next
-    SLICE_X0Y90          FDCE                                         r  tetris_inst/player_board_next_reg[3][0]/CE
+    SLICE_X5Y69          FDRE (Prop_fdre_C_Q)         0.456     5.588 r  tetris_inst/refresh_tick_reg/Q
+                         net (fo=58, routed)          2.004     7.592    tetris_inst/refresh_tick
+    SLICE_X15Y84         LUT2 (Prop_lut2_I0_O)        0.124     7.716 r  tetris_inst/number_of_shifts[2]_i_2/O
+                         net (fo=272, routed)         3.738    11.454    tetris_inst/number_of_shifts[2]_i_2_n_0
+    SLICE_X2Y96          LUT5 (Prop_lut5_I0_O)        0.124    11.578 r  tetris_inst/current_board_next[7][7]_i_3/O
+                         net (fo=2, routed)           0.824    12.402    tetris_inst/current_board_next[7][7]_i_3_n_0
+    SLICE_X2Y94          LUT3 (Prop_lut3_I2_O)        0.124    12.526 r  tetris_inst/current_board_next[7][7]_i_1/O
+                         net (fo=8, routed)           0.508    13.034    tetris_inst/current_board_next[7][7]_i_1_n_0
+    SLICE_X5Y95          FDCE                                         r  tetris_inst/current_board_next_reg[7][1]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -994,16 +830,136 @@ Slack (MET) :             0.261ns  (required time - arrival time)
     W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         1.507    14.848    tetris_inst/clk_IBUF_BUFG
-    SLICE_X0Y90          FDCE                                         r  tetris_inst/player_board_next_reg[3][0]/C
+                         net (fo=722, routed)         1.507    14.848    tetris_inst/clk_IBUF_BUFG
+    SLICE_X5Y95          FDCE                                         r  tetris_inst/current_board_next_reg[7][1]/C
                          clock pessimism              0.258    15.106    
                          clock uncertainty           -0.035    15.071    
-    SLICE_X0Y90          FDCE (Setup_fdce_C_CE)      -0.409    14.662    tetris_inst/player_board_next_reg[3][0]
+    SLICE_X5Y95          FDCE (Setup_fdce_C_CE)      -0.205    14.866    tetris_inst/current_board_next_reg[7][1]
   -------------------------------------------------------------------
-                         required time                         14.662    
-                         arrival time                         -14.401    
+                         required time                         14.866    
+                         arrival time                         -13.034    
   -------------------------------------------------------------------
-                         slack                                  0.261    
+                         slack                                  1.832    
+
+Slack (MET) :             1.832ns  (required time - arrival time)
+  Source:                 tetris_inst/refresh_tick_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            tetris_inst/current_board_next_reg[7][7]/CE
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.902ns  (logic 0.828ns (10.478%)  route 7.074ns (89.522%))
+  Logic Levels:           3  (LUT2=1 LUT3=1 LUT5=1)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.848ns = ( 14.848 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.132ns
+    Clock Pessimism Removal (CPR):    0.258ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=722, routed)         1.611     5.132    tetris_inst/clk_IBUF_BUFG
+    SLICE_X5Y69          FDRE                                         r  tetris_inst/refresh_tick_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X5Y69          FDRE (Prop_fdre_C_Q)         0.456     5.588 r  tetris_inst/refresh_tick_reg/Q
+                         net (fo=58, routed)          2.004     7.592    tetris_inst/refresh_tick
+    SLICE_X15Y84         LUT2 (Prop_lut2_I0_O)        0.124     7.716 r  tetris_inst/number_of_shifts[2]_i_2/O
+                         net (fo=272, routed)         3.738    11.454    tetris_inst/number_of_shifts[2]_i_2_n_0
+    SLICE_X2Y96          LUT5 (Prop_lut5_I0_O)        0.124    11.578 r  tetris_inst/current_board_next[7][7]_i_3/O
+                         net (fo=2, routed)           0.824    12.402    tetris_inst/current_board_next[7][7]_i_3_n_0
+    SLICE_X2Y94          LUT3 (Prop_lut3_I2_O)        0.124    12.526 r  tetris_inst/current_board_next[7][7]_i_1/O
+                         net (fo=8, routed)           0.508    13.034    tetris_inst/current_board_next[7][7]_i_1_n_0
+    SLICE_X5Y95          FDCE                                         r  tetris_inst/current_board_next_reg[7][7]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=722, routed)         1.507    14.848    tetris_inst/clk_IBUF_BUFG
+    SLICE_X5Y95          FDCE                                         r  tetris_inst/current_board_next_reg[7][7]/C
+                         clock pessimism              0.258    15.106    
+                         clock uncertainty           -0.035    15.071    
+    SLICE_X5Y95          FDCE (Setup_fdce_C_CE)      -0.205    14.866    tetris_inst/current_board_next_reg[7][7]
+  -------------------------------------------------------------------
+                         required time                         14.866    
+                         arrival time                         -13.034    
+  -------------------------------------------------------------------
+                         slack                                  1.832    
+
+Slack (MET) :             1.854ns  (required time - arrival time)
+  Source:                 tetris_inst/N_refreshes_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            tetris_inst/player_board_next_reg[9][4]/CE
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.952ns  (logic 1.002ns (12.601%)  route 6.950ns (87.399%))
+  Logic Levels:           2  (LUT4=1 LUT6=1)
+  Clock Path Skew:        0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.849ns = ( 14.849 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.061ns
+    Clock Pessimism Removal (CPR):    0.258ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=722, routed)         1.540     5.061    tetris_inst/clk_IBUF_BUFG
+    SLICE_X12Y72         FDRE                                         r  tetris_inst/N_refreshes_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y72         FDRE (Prop_fdre_C_Q)         0.518     5.579 r  tetris_inst/N_refreshes_reg/Q
+                         net (fo=37, routed)          1.800     7.379    tetris_inst/N_refreshes
+    SLICE_X14Y86         LUT4 (Prop_lut4_I3_O)        0.153     7.532 r  tetris_inst/player_board_next[15][7]_i_6/O
+                         net (fo=31, routed)          1.215     8.747    tetris_inst/player_board_next[15][7]_i_6_n_0
+    SLICE_X14Y83         LUT6 (Prop_lut6_I3_O)        0.331     9.078 r  tetris_inst/player_board_next[13][7]_i_1/O
+                         net (fo=114, routed)         3.934    13.013    tetris_inst/player_board_next[13][7]_i_1_n_0
+    SLICE_X0Y91          FDCE                                         r  tetris_inst/player_board_next_reg[9][4]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=722, routed)         1.508    14.849    tetris_inst/clk_IBUF_BUFG
+    SLICE_X0Y91          FDCE                                         r  tetris_inst/player_board_next_reg[9][4]/C
+                         clock pessimism              0.258    15.107    
+                         clock uncertainty           -0.035    15.072    
+    SLICE_X0Y91          FDCE (Setup_fdce_C_CE)      -0.205    14.867    tetris_inst/player_board_next_reg[9][4]
+  -------------------------------------------------------------------
+                         required time                         14.867    
+                         arrival time                         -13.013    
+  -------------------------------------------------------------------
+                         slack                                  1.854    
 
 
 
@@ -1011,20 +967,20 @@ Slack (MET) :             0.261ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.118ns  (arrival time - required time)
-  Source:                 tetris_inst/current_board_reg[4][5]/C
+Slack (MET) :             0.094ns  (arrival time - required time)
+  Source:                 tetris_inst/current_board_reg[5][3]/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            tetris_inst/display_board_reg[4][5]/D
+  Destination:            tetris_inst/display_board_reg[5][3]/D
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.252ns  (logic 0.186ns (73.740%)  route 0.066ns (26.260%))
+  Data Path Delay:        0.539ns  (logic 0.186ns (34.517%)  route 0.353ns (65.483%))
   Logic Levels:           1  (LUT2=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.988ns
-    Source Clock Delay      (SCD):    1.473ns
-    Clock Pessimism Removal (CPR):    0.502ns
+  Clock Path Skew:        0.352ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.077ns
+    Source Clock Delay      (SCD):    1.475ns
+    Clock Pessimism Removal (CPR):    0.249ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1035,14 +991,14 @@ Slack (MET) :             0.118ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.631     0.858    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.590     1.473    tetris_inst/clk_IBUF_BUFG
-    SLICE_X7Y90          FDCE                                         r  tetris_inst/current_board_reg[4][5]/C
+                         net (fo=722, routed)         0.592     1.475    tetris_inst/clk_IBUF_BUFG
+    SLICE_X7Y99          FDCE                                         r  tetris_inst/current_board_reg[5][3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X7Y90          FDCE (Prop_fdce_C_Q)         0.141     1.614 r  tetris_inst/current_board_reg[4][5]/Q
-                         net (fo=2, routed)           0.066     1.680    tetris_inst/current_board[4][5]
-    SLICE_X6Y90          LUT2 (Prop_lut2_I0_O)        0.045     1.725 r  tetris_inst/display_board[4][5]_i_1/O
-                         net (fo=1, routed)           0.000     1.725    tetris_inst/display_board[4][5]_i_1_n_0
-    SLICE_X6Y90          FDCE                                         r  tetris_inst/display_board_reg[4][5]/D
+    SLICE_X7Y99          FDCE (Prop_fdce_C_Q)         0.141     1.616 r  tetris_inst/current_board_reg[5][3]/Q
+                         net (fo=3, routed)           0.353     1.969    tetris_inst/current_board[5][3]
+    SLICE_X7Y100         LUT2 (Prop_lut2_I1_O)        0.045     2.014 r  tetris_inst/display_board[5][3]_i_1/O
+                         net (fo=1, routed)           0.000     2.014    tetris_inst/display_board[5][3]_i_1_n_0
+    SLICE_X7Y100         FDCE                                         r  tetris_inst/display_board_reg[5][3]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -1052,29 +1008,131 @@ Slack (MET) :             0.118ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.685     1.099    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.860     1.988    tetris_inst/clk_IBUF_BUFG
-    SLICE_X6Y90          FDCE                                         r  tetris_inst/display_board_reg[4][5]/C
-                         clock pessimism             -0.502     1.486    
-    SLICE_X6Y90          FDCE (Hold_fdce_C_D)         0.121     1.607    tetris_inst/display_board_reg[4][5]
+                         net (fo=722, routed)         0.949     2.077    tetris_inst/clk_IBUF_BUFG
+    SLICE_X7Y100         FDCE                                         r  tetris_inst/display_board_reg[5][3]/C
+                         clock pessimism             -0.249     1.828    
+    SLICE_X7Y100         FDCE (Hold_fdce_C_D)         0.092     1.920    tetris_inst/display_board_reg[5][3]
   -------------------------------------------------------------------
-                         required time                         -1.607    
-                         arrival time                           1.725    
+                         required time                         -1.920    
+                         arrival time                           2.014    
   -------------------------------------------------------------------
-                         slack                                  0.118    
+                         slack                                  0.094    
 
 Slack (MET) :             0.118ns  (arrival time - required time)
-  Source:                 tetris_inst/current_board_reg[14][5]/C
+  Source:                 tetris_inst/current_board_reg[0][4]/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            tetris_inst/current_board_next_reg[14][5]/D
+  Destination:            tetris_inst/current_board_next_reg[0][4]/D
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
   Data Path Delay:        0.252ns  (logic 0.186ns (73.740%)  route 0.066ns (26.260%))
-  Logic Levels:           1  (LUT4=1)
+  Logic Levels:           1  (LUT6=1)
   Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.949ns
-    Source Clock Delay      (SCD):    1.437ns
+    Destination Clock Delay (DCD):    1.959ns
+    Source Clock Delay      (SCD):    1.445ns
+    Clock Pessimism Removal (CPR):    0.501ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     0.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=722, routed)         0.562     1.445    tetris_inst/clk_IBUF_BUFG
+    SLICE_X13Y89         FDCE                                         r  tetris_inst/current_board_reg[0][4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X13Y89         FDCE (Prop_fdce_C_Q)         0.141     1.586 r  tetris_inst/current_board_reg[0][4]/Q
+                         net (fo=2, routed)           0.066     1.652    tetris_inst/current_board[0][4]
+    SLICE_X12Y89         LUT6 (Prop_lut6_I1_O)        0.045     1.697 r  tetris_inst/current_board_next[0][4]_i_1/O
+                         net (fo=1, routed)           0.000     1.697    tetris_inst/current_board_next[0][4]_i_1_n_0
+    SLICE_X12Y89         FDCE                                         r  tetris_inst/current_board_next_reg[0][4]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     1.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
+                         net (fo=722, routed)         0.831     1.959    tetris_inst/clk_IBUF_BUFG
+    SLICE_X12Y89         FDCE                                         r  tetris_inst/current_board_next_reg[0][4]/C
+                         clock pessimism             -0.501     1.458    
+    SLICE_X12Y89         FDCE (Hold_fdce_C_D)         0.121     1.579    tetris_inst/current_board_next_reg[0][4]
+  -------------------------------------------------------------------
+                         required time                         -1.579    
+                         arrival time                           1.697    
+  -------------------------------------------------------------------
+                         slack                                  0.118    
+
+Slack (MET) :             0.118ns  (arrival time - required time)
+  Source:                 tetris_inst/player_board_reg[4][2]/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            tetris_inst/display_board_reg[4][2]/D
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.252ns  (logic 0.186ns (73.740%)  route 0.066ns (26.260%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.962ns
+    Source Clock Delay      (SCD):    1.448ns
+    Clock Pessimism Removal (CPR):    0.501ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     0.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=722, routed)         0.565     1.448    tetris_inst/clk_IBUF_BUFG
+    SLICE_X11Y98         FDCE                                         r  tetris_inst/player_board_reg[4][2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X11Y98         FDCE (Prop_fdce_C_Q)         0.141     1.589 r  tetris_inst/player_board_reg[4][2]/Q
+                         net (fo=3, routed)           0.066     1.655    tetris_inst/player_board[4][2]
+    SLICE_X10Y98         LUT2 (Prop_lut2_I0_O)        0.045     1.700 r  tetris_inst/display_board[4][2]_i_1/O
+                         net (fo=1, routed)           0.000     1.700    tetris_inst/display_board[4][2]_i_1_n_0
+    SLICE_X10Y98         FDCE                                         r  tetris_inst/display_board_reg[4][2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     1.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
+                         net (fo=722, routed)         0.834     1.962    tetris_inst/clk_IBUF_BUFG
+    SLICE_X10Y98         FDCE                                         r  tetris_inst/display_board_reg[4][2]/C
+                         clock pessimism             -0.501     1.461    
+    SLICE_X10Y98         FDCE (Hold_fdce_C_D)         0.121     1.582    tetris_inst/display_board_reg[4][2]
+  -------------------------------------------------------------------
+                         required time                         -1.582    
+                         arrival time                           1.700    
+  -------------------------------------------------------------------
+                         slack                                  0.118    
+
+Slack (MET) :             0.118ns  (arrival time - required time)
+  Source:                 tetris_inst/current_board_reg[15][7]/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            tetris_inst/current_board_next_reg[15][7]/D
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.252ns  (logic 0.186ns (73.740%)  route 0.066ns (26.260%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.954ns
+    Source Clock Delay      (SCD):    1.442ns
     Clock Pessimism Removal (CPR):    0.499ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -1086,14 +1144,14 @@ Slack (MET) :             0.118ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.631     0.858    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.554     1.437    tetris_inst/clk_IBUF_BUFG
-    SLICE_X11Y78         FDCE                                         r  tetris_inst/current_board_reg[14][5]/C
+                         net (fo=722, routed)         0.559     1.442    tetris_inst/clk_IBUF_BUFG
+    SLICE_X13Y83         FDCE                                         r  tetris_inst/current_board_reg[15][7]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X11Y78         FDCE (Prop_fdce_C_Q)         0.141     1.578 r  tetris_inst/current_board_reg[14][5]/Q
-                         net (fo=2, routed)           0.066     1.644    tetris_inst/out[5]
-    SLICE_X10Y78         LUT4 (Prop_lut4_I2_O)        0.045     1.689 r  tetris_inst/current_board_next[14][5]_i_1/O
-                         net (fo=1, routed)           0.000     1.689    tetris_inst/current_board_next[14][5]_i_1_n_0
-    SLICE_X10Y78         FDCE                                         r  tetris_inst/current_board_next_reg[14][5]/D
+    SLICE_X13Y83         FDCE (Prop_fdce_C_Q)         0.141     1.583 r  tetris_inst/current_board_reg[15][7]/Q
+                         net (fo=2, routed)           0.066     1.649    tetris_inst/current_board[15][7]
+    SLICE_X12Y83         LUT6 (Prop_lut6_I5_O)        0.045     1.694 r  tetris_inst/current_board_next[15][7]_i_2/O
+                         net (fo=1, routed)           0.000     1.694    tetris_inst/current_board_next[15][7]_i_2_n_0
+    SLICE_X12Y83         FDCE                                         r  tetris_inst/current_board_next_reg[15][7]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -1103,25 +1161,229 @@ Slack (MET) :             0.118ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.685     1.099    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.822     1.949    tetris_inst/clk_IBUF_BUFG
-    SLICE_X10Y78         FDCE                                         r  tetris_inst/current_board_next_reg[14][5]/C
-                         clock pessimism             -0.499     1.450    
-    SLICE_X10Y78         FDCE (Hold_fdce_C_D)         0.121     1.571    tetris_inst/current_board_next_reg[14][5]
+                         net (fo=722, routed)         0.826     1.954    tetris_inst/clk_IBUF_BUFG
+    SLICE_X12Y83         FDCE                                         r  tetris_inst/current_board_next_reg[15][7]/C
+                         clock pessimism             -0.499     1.455    
+    SLICE_X12Y83         FDCE (Hold_fdce_C_D)         0.121     1.576    tetris_inst/current_board_next_reg[15][7]
   -------------------------------------------------------------------
-                         required time                         -1.571    
-                         arrival time                           1.689    
+                         required time                         -1.576    
+                         arrival time                           1.694    
   -------------------------------------------------------------------
                          slack                                  0.118    
 
 Slack (MET) :             0.118ns  (arrival time - required time)
-  Source:                 tetris_inst/current_board_reg[13][7]/C
+  Source:                 tetris_inst/current_board_reg[4][0]/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            tetris_inst/current_board_next_reg[4][0]/D
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.252ns  (logic 0.186ns (73.721%)  route 0.066ns (26.279%))
+  Logic Levels:           1  (LUT4=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.962ns
+    Source Clock Delay      (SCD):    1.448ns
+    Clock Pessimism Removal (CPR):    0.501ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     0.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=722, routed)         0.565     1.448    tetris_inst/clk_IBUF_BUFG
+    SLICE_X9Y97          FDCE                                         r  tetris_inst/current_board_reg[4][0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X9Y97          FDCE (Prop_fdce_C_Q)         0.141     1.589 r  tetris_inst/current_board_reg[4][0]/Q
+                         net (fo=2, routed)           0.066     1.656    tetris_inst/current_board[4][0]
+    SLICE_X8Y97          LUT4 (Prop_lut4_I1_O)        0.045     1.701 r  tetris_inst/current_board_next[4][0]_i_1/O
+                         net (fo=1, routed)           0.000     1.701    tetris_inst/current_board_next[4][0]_i_1_n_0
+    SLICE_X8Y97          FDCE                                         r  tetris_inst/current_board_next_reg[4][0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     1.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
+                         net (fo=722, routed)         0.834     1.962    tetris_inst/clk_IBUF_BUFG
+    SLICE_X8Y97          FDCE                                         r  tetris_inst/current_board_next_reg[4][0]/C
+                         clock pessimism             -0.501     1.461    
+    SLICE_X8Y97          FDCE (Hold_fdce_C_D)         0.121     1.582    tetris_inst/current_board_next_reg[4][0]
+  -------------------------------------------------------------------
+                         required time                         -1.582    
+                         arrival time                           1.701    
+  -------------------------------------------------------------------
+                         slack                                  0.118    
+
+Slack (MET) :             0.121ns  (arrival time - required time)
+  Source:                 tetris_inst/current_board_reg[15][1]/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            tetris_inst/current_board_next_reg[15][1]/D
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.254ns  (logic 0.186ns (73.160%)  route 0.068ns (26.840%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.955ns
+    Source Clock Delay      (SCD):    1.443ns
+    Clock Pessimism Removal (CPR):    0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     0.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=722, routed)         0.560     1.443    tetris_inst/clk_IBUF_BUFG
+    SLICE_X13Y84         FDCE                                         r  tetris_inst/current_board_reg[15][1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X13Y84         FDCE (Prop_fdce_C_Q)         0.141     1.584 r  tetris_inst/current_board_reg[15][1]/Q
+                         net (fo=2, routed)           0.068     1.652    tetris_inst/current_board[15][1]
+    SLICE_X12Y84         LUT6 (Prop_lut6_I5_O)        0.045     1.697 r  tetris_inst/current_board_next[15][1]_i_1/O
+                         net (fo=1, routed)           0.000     1.697    tetris_inst/current_board_next[15][1]_i_1_n_0
+    SLICE_X12Y84         FDCE                                         r  tetris_inst/current_board_next_reg[15][1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     1.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
+                         net (fo=722, routed)         0.827     1.955    tetris_inst/clk_IBUF_BUFG
+    SLICE_X12Y84         FDCE                                         r  tetris_inst/current_board_next_reg[15][1]/C
+                         clock pessimism             -0.499     1.456    
+    SLICE_X12Y84         FDCE (Hold_fdce_C_D)         0.120     1.576    tetris_inst/current_board_next_reg[15][1]
+  -------------------------------------------------------------------
+                         required time                         -1.576    
+                         arrival time                           1.697    
+  -------------------------------------------------------------------
+                         slack                                  0.121    
+
+Slack (MET) :             0.146ns  (arrival time - required time)
+  Source:                 tetris_inst/current_board_reg[12][7]/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            tetris_inst/display_board_reg[12][7]/D
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.251ns  (logic 0.186ns (74.077%)  route 0.065ns (25.923%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.986ns
+    Source Clock Delay      (SCD):    1.472ns
+    Clock Pessimism Removal (CPR):    0.501ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     0.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=722, routed)         0.589     1.472    tetris_inst/clk_IBUF_BUFG
+    SLICE_X0Y85          FDCE                                         r  tetris_inst/current_board_reg[12][7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y85          FDCE (Prop_fdce_C_Q)         0.141     1.613 r  tetris_inst/current_board_reg[12][7]/Q
+                         net (fo=3, routed)           0.065     1.678    tetris_inst/current_board[12][7]
+    SLICE_X1Y85          LUT2 (Prop_lut2_I1_O)        0.045     1.723 r  tetris_inst/display_board[12][7]_i_1/O
+                         net (fo=1, routed)           0.000     1.723    tetris_inst/display_board[12][7]_i_1_n_0
+    SLICE_X1Y85          FDCE                                         r  tetris_inst/display_board_reg[12][7]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     1.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
+                         net (fo=722, routed)         0.858     1.986    tetris_inst/clk_IBUF_BUFG
+    SLICE_X1Y85          FDCE                                         r  tetris_inst/display_board_reg[12][7]/C
+                         clock pessimism             -0.501     1.485    
+    SLICE_X1Y85          FDCE (Hold_fdce_C_D)         0.092     1.577    tetris_inst/display_board_reg[12][7]
+  -------------------------------------------------------------------
+                         required time                         -1.577    
+                         arrival time                           1.723    
+  -------------------------------------------------------------------
+                         slack                                  0.146    
+
+Slack (MET) :             0.146ns  (arrival time - required time)
+  Source:                 tetris_inst/player_board_reg[13][7]/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            tetris_inst/display_board_reg[13][7]/D
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.252ns  (logic 0.186ns (73.740%)  route 0.066ns (26.260%))
+  Data Path Delay:        0.251ns  (logic 0.186ns (74.077%)  route 0.065ns (25.923%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.982ns
+    Source Clock Delay      (SCD):    1.469ns
+    Clock Pessimism Removal (CPR):    0.500ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     0.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=722, routed)         0.586     1.469    tetris_inst/clk_IBUF_BUFG
+    SLICE_X4Y83          FDCE                                         r  tetris_inst/player_board_reg[13][7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X4Y83          FDCE (Prop_fdce_C_Q)         0.141     1.610 r  tetris_inst/player_board_reg[13][7]/Q
+                         net (fo=2, routed)           0.065     1.675    tetris_inst/player_board[13][7]
+    SLICE_X5Y83          LUT2 (Prop_lut2_I0_O)        0.045     1.720 r  tetris_inst/display_board[13][7]_i_1/O
+                         net (fo=1, routed)           0.000     1.720    tetris_inst/display_board[13][7]_i_1_n_0
+    SLICE_X5Y83          FDCE                                         r  tetris_inst/display_board_reg[13][7]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     1.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
+                         net (fo=722, routed)         0.855     1.982    tetris_inst/clk_IBUF_BUFG
+    SLICE_X5Y83          FDCE                                         r  tetris_inst/display_board_reg[13][7]/C
+                         clock pessimism             -0.500     1.482    
+    SLICE_X5Y83          FDCE (Hold_fdce_C_D)         0.092     1.574    tetris_inst/display_board_reg[13][7]
+  -------------------------------------------------------------------
+                         required time                         -1.574    
+                         arrival time                           1.720    
+  -------------------------------------------------------------------
+                         slack                                  0.146    
+
+Slack (MET) :             0.152ns  (arrival time - required time)
+  Source:                 tetris_inst/current_board_reg[15][5]/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            tetris_inst/display_board_reg[15][5]/D
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.285ns  (logic 0.186ns (65.209%)  route 0.099ns (34.791%))
   Logic Levels:           1  (LUT2=1)
   Clock Path Skew:        0.013ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    1.950ns
@@ -1137,14 +1399,14 @@ Slack (MET) :             0.118ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.631     0.858    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.555     1.438    tetris_inst/clk_IBUF_BUFG
-    SLICE_X11Y79         FDCE                                         r  tetris_inst/current_board_reg[13][7]/C
+                         net (fo=722, routed)         0.555     1.438    tetris_inst/clk_IBUF_BUFG
+    SLICE_X13Y79         FDCE                                         r  tetris_inst/current_board_reg[15][5]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X11Y79         FDCE (Prop_fdce_C_Q)         0.141     1.579 r  tetris_inst/current_board_reg[13][7]/Q
-                         net (fo=2, routed)           0.066     1.645    tetris_inst/current_board[13][7]
-    SLICE_X10Y79         LUT2 (Prop_lut2_I0_O)        0.045     1.690 r  tetris_inst/display_board[13][7]_i_1/O
-                         net (fo=1, routed)           0.000     1.690    tetris_inst/display_board[13][7]_i_1_n_0
-    SLICE_X10Y79         FDCE                                         r  tetris_inst/display_board_reg[13][7]/D
+    SLICE_X13Y79         FDCE (Prop_fdce_C_Q)         0.141     1.579 r  tetris_inst/current_board_reg[15][5]/Q
+                         net (fo=2, routed)           0.099     1.678    tetris_inst/current_board[15][5]
+    SLICE_X12Y79         LUT2 (Prop_lut2_I1_O)        0.045     1.723 r  tetris_inst/display_board[15][5]_i_1/O
+                         net (fo=1, routed)           0.000     1.723    tetris_inst/display_board[15][5]_i_1_n_0
+    SLICE_X12Y79         FDCE                                         r  tetris_inst/display_board_reg[15][5]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -1154,335 +1416,29 @@ Slack (MET) :             0.118ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.685     1.099    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.822     1.950    tetris_inst/clk_IBUF_BUFG
-    SLICE_X10Y79         FDCE                                         r  tetris_inst/display_board_reg[13][7]/C
+                         net (fo=722, routed)         0.822     1.950    tetris_inst/clk_IBUF_BUFG
+    SLICE_X12Y79         FDCE                                         r  tetris_inst/display_board_reg[15][5]/C
                          clock pessimism             -0.499     1.451    
-    SLICE_X10Y79         FDCE (Hold_fdce_C_D)         0.121     1.572    tetris_inst/display_board_reg[13][7]
+    SLICE_X12Y79         FDCE (Hold_fdce_C_D)         0.120     1.571    tetris_inst/display_board_reg[15][5]
   -------------------------------------------------------------------
-                         required time                         -1.572    
-                         arrival time                           1.690    
-  -------------------------------------------------------------------
-                         slack                                  0.118    
-
-Slack (MET) :             0.118ns  (arrival time - required time)
-  Source:                 tetris_inst/current_board_reg[1][4]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            tetris_inst/display_board_reg[1][4]/D
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.252ns  (logic 0.186ns (73.721%)  route 0.066ns (26.279%))
-  Logic Levels:           1  (LUT2=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.984ns
-    Source Clock Delay      (SCD):    1.470ns
-    Clock Pessimism Removal (CPR):    0.501ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.587     1.470    tetris_inst/clk_IBUF_BUFG
-    SLICE_X7Y85          FDCE                                         r  tetris_inst/current_board_reg[1][4]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X7Y85          FDCE (Prop_fdce_C_Q)         0.141     1.611 r  tetris_inst/current_board_reg[1][4]/Q
-                         net (fo=2, routed)           0.066     1.678    tetris_inst/current_board[1][4]
-    SLICE_X6Y85          LUT2 (Prop_lut2_I0_O)        0.045     1.723 r  tetris_inst/display_board[1][4]_i_1/O
-                         net (fo=1, routed)           0.000     1.723    tetris_inst/display_board[1][4]_i_1_n_0
-    SLICE_X6Y85          FDCE                                         r  tetris_inst/display_board_reg[1][4]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.856     1.984    tetris_inst/clk_IBUF_BUFG
-    SLICE_X6Y85          FDCE                                         r  tetris_inst/display_board_reg[1][4]/C
-                         clock pessimism             -0.501     1.483    
-    SLICE_X6Y85          FDCE (Hold_fdce_C_D)         0.121     1.604    tetris_inst/display_board_reg[1][4]
-  -------------------------------------------------------------------
-                         required time                         -1.604    
+                         required time                         -1.571    
                          arrival time                           1.723    
-  -------------------------------------------------------------------
-                         slack                                  0.118    
-
-Slack (MET) :             0.118ns  (arrival time - required time)
-  Source:                 tetris_inst/current_board_reg[8][4]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            tetris_inst/display_board_reg[8][4]/D
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.252ns  (logic 0.186ns (73.721%)  route 0.066ns (26.279%))
-  Logic Levels:           1  (LUT2=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.980ns
-    Source Clock Delay      (SCD):    1.467ns
-    Clock Pessimism Removal (CPR):    0.500ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.584     1.467    tetris_inst/clk_IBUF_BUFG
-    SLICE_X3Y79          FDCE                                         r  tetris_inst/current_board_reg[8][4]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X3Y79          FDCE (Prop_fdce_C_Q)         0.141     1.608 r  tetris_inst/current_board_reg[8][4]/Q
-                         net (fo=2, routed)           0.066     1.675    tetris_inst/current_board[8][4]
-    SLICE_X2Y79          LUT2 (Prop_lut2_I0_O)        0.045     1.720 r  tetris_inst/display_board[8][4]_i_1/O
-                         net (fo=1, routed)           0.000     1.720    tetris_inst/display_board[8][4]_i_1_n_0
-    SLICE_X2Y79          FDCE                                         r  tetris_inst/display_board_reg[8][4]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.852     1.980    tetris_inst/clk_IBUF_BUFG
-    SLICE_X2Y79          FDCE                                         r  tetris_inst/display_board_reg[8][4]/C
-                         clock pessimism             -0.500     1.480    
-    SLICE_X2Y79          FDCE (Hold_fdce_C_D)         0.121     1.601    tetris_inst/display_board_reg[8][4]
-  -------------------------------------------------------------------
-                         required time                         -1.601    
-                         arrival time                           1.720    
-  -------------------------------------------------------------------
-                         slack                                  0.118    
-
-Slack (MET) :             0.121ns  (arrival time - required time)
-  Source:                 tetris_inst/player_board_reg[0][3]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            tetris_inst/player_board_next_reg[0][3]/D
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.254ns  (logic 0.186ns (73.160%)  route 0.068ns (26.840%))
-  Logic Levels:           1  (LUT4=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.983ns
-    Source Clock Delay      (SCD):    1.470ns
-    Clock Pessimism Removal (CPR):    0.500ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.587     1.470    tetris_inst/clk_IBUF_BUFG
-    SLICE_X7Y84          FDCE                                         r  tetris_inst/player_board_reg[0][3]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X7Y84          FDCE (Prop_fdce_C_Q)         0.141     1.611 r  tetris_inst/player_board_reg[0][3]/Q
-                         net (fo=2, routed)           0.068     1.679    tetris_inst/player_board[0][3]
-    SLICE_X6Y84          LUT4 (Prop_lut4_I3_O)        0.045     1.724 r  tetris_inst/player_board_next[0][3]_i_1/O
-                         net (fo=1, routed)           0.000     1.724    tetris_inst/player_board_next[0][3]_i_1_n_0
-    SLICE_X6Y84          FDCE                                         r  tetris_inst/player_board_next_reg[0][3]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.855     1.983    tetris_inst/clk_IBUF_BUFG
-    SLICE_X6Y84          FDCE                                         r  tetris_inst/player_board_next_reg[0][3]/C
-                         clock pessimism             -0.500     1.483    
-    SLICE_X6Y84          FDCE (Hold_fdce_C_D)         0.120     1.603    tetris_inst/player_board_next_reg[0][3]
-  -------------------------------------------------------------------
-                         required time                         -1.603    
-                         arrival time                           1.724    
-  -------------------------------------------------------------------
-                         slack                                  0.121    
-
-Slack (MET) :             0.144ns  (arrival time - required time)
-  Source:                 tetris_inst/current_board_reg[11][7]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            tetris_inst/display_board_reg[11][7]/D
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.278ns  (logic 0.186ns (66.849%)  route 0.092ns (33.151%))
-  Logic Levels:           1  (LUT2=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.955ns
-    Source Clock Delay      (SCD):    1.443ns
-    Clock Pessimism Removal (CPR):    0.499ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.560     1.443    tetris_inst/clk_IBUF_BUFG
-    SLICE_X15Y84         FDCE                                         r  tetris_inst/current_board_reg[11][7]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X15Y84         FDCE (Prop_fdce_C_Q)         0.141     1.584 r  tetris_inst/current_board_reg[11][7]/Q
-                         net (fo=2, routed)           0.092     1.676    tetris_inst/current_board[11][7]
-    SLICE_X14Y84         LUT2 (Prop_lut2_I0_O)        0.045     1.721 r  tetris_inst/display_board[11][7]_i_1/O
-                         net (fo=1, routed)           0.000     1.721    tetris_inst/display_board[11][7]_i_1_n_0
-    SLICE_X14Y84         FDCE                                         r  tetris_inst/display_board_reg[11][7]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.827     1.955    tetris_inst/clk_IBUF_BUFG
-    SLICE_X14Y84         FDCE                                         r  tetris_inst/display_board_reg[11][7]/C
-                         clock pessimism             -0.499     1.456    
-    SLICE_X14Y84         FDCE (Hold_fdce_C_D)         0.121     1.577    tetris_inst/display_board_reg[11][7]
-  -------------------------------------------------------------------
-                         required time                         -1.577    
-                         arrival time                           1.721    
-  -------------------------------------------------------------------
-                         slack                                  0.144    
-
-Slack (MET) :             0.151ns  (arrival time - required time)
-  Source:                 tetris_inst/current_board_reg[1][0]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            tetris_inst/display_board_reg[1][0]/D
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.256ns  (logic 0.186ns (72.764%)  route 0.070ns (27.236%))
-  Logic Levels:           1  (LUT2=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.987ns
-    Source Clock Delay      (SCD):    1.473ns
-    Clock Pessimism Removal (CPR):    0.501ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.590     1.473    tetris_inst/clk_IBUF_BUFG
-    SLICE_X1Y87          FDCE                                         r  tetris_inst/current_board_reg[1][0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y87          FDCE (Prop_fdce_C_Q)         0.141     1.614 r  tetris_inst/current_board_reg[1][0]/Q
-                         net (fo=2, routed)           0.070     1.684    tetris_inst/current_board[1][0]
-    SLICE_X0Y87          LUT2 (Prop_lut2_I0_O)        0.045     1.729 r  tetris_inst/display_board[1][0]_i_1/O
-                         net (fo=1, routed)           0.000     1.729    tetris_inst/display_board[1][0]_i_1_n_0
-    SLICE_X0Y87          FDCE                                         r  tetris_inst/display_board_reg[1][0]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.859     1.987    tetris_inst/clk_IBUF_BUFG
-    SLICE_X0Y87          FDCE                                         r  tetris_inst/display_board_reg[1][0]/C
-                         clock pessimism             -0.501     1.486    
-    SLICE_X0Y87          FDCE (Hold_fdce_C_D)         0.092     1.578    tetris_inst/display_board_reg[1][0]
-  -------------------------------------------------------------------
-                         required time                         -1.578    
-                         arrival time                           1.729    
-  -------------------------------------------------------------------
-                         slack                                  0.151    
-
-Slack (MET) :             0.152ns  (arrival time - required time)
-  Source:                 tetris_inst/current_board_reg[0][1]/C
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            tetris_inst/current_board_next_reg[0][1]/D
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.285ns  (logic 0.186ns (65.209%)  route 0.099ns (34.791%))
-  Logic Levels:           1  (LUT4=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.986ns
-    Source Clock Delay      (SCD):    1.472ns
-    Clock Pessimism Removal (CPR):    0.501ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.589     1.472    tetris_inst/clk_IBUF_BUFG
-    SLICE_X3Y86          FDCE                                         r  tetris_inst/current_board_reg[0][1]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X3Y86          FDCE (Prop_fdce_C_Q)         0.141     1.613 r  tetris_inst/current_board_reg[0][1]/Q
-                         net (fo=2, routed)           0.099     1.712    tetris_inst/current_board[0][1]
-    SLICE_X2Y86          LUT4 (Prop_lut4_I2_O)        0.045     1.757 r  tetris_inst/current_board_next[0][1]_i_1/O
-                         net (fo=1, routed)           0.000     1.757    tetris_inst/current_board_next[0][1]_i_1_n_0
-    SLICE_X2Y86          FDCE                                         r  tetris_inst/current_board_next_reg[0][1]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.858     1.986    tetris_inst/clk_IBUF_BUFG
-    SLICE_X2Y86          FDCE                                         r  tetris_inst/current_board_next_reg[0][1]/C
-                         clock pessimism             -0.501     1.485    
-    SLICE_X2Y86          FDCE (Hold_fdce_C_D)         0.120     1.605    tetris_inst/current_board_next_reg[0][1]
-  -------------------------------------------------------------------
-                         required time                         -1.605    
-                         arrival time                           1.757    
   -------------------------------------------------------------------
                          slack                                  0.152    
 
 Slack (MET) :             0.152ns  (arrival time - required time)
-  Source:                 tetris_inst/current_board_reg[0][2]/C
+  Source:                 tetris_inst/player_board_reg[4][7]/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            tetris_inst/current_board_next_reg[0][2]/D
+  Destination:            tetris_inst/display_board_reg[4][7]/D
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
   Data Path Delay:        0.285ns  (logic 0.186ns (65.209%)  route 0.099ns (34.791%))
-  Logic Levels:           1  (LUT4=1)
+  Logic Levels:           1  (LUT2=1)
   Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.986ns
-    Source Clock Delay      (SCD):    1.472ns
+    Destination Clock Delay (DCD):    1.961ns
+    Source Clock Delay      (SCD):    1.447ns
     Clock Pessimism Removal (CPR):    0.501ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -1494,14 +1450,14 @@ Slack (MET) :             0.152ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.631     0.858    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.589     1.472    tetris_inst/clk_IBUF_BUFG
-    SLICE_X3Y85          FDCE                                         r  tetris_inst/current_board_reg[0][2]/C
+                         net (fo=722, routed)         0.564     1.447    tetris_inst/clk_IBUF_BUFG
+    SLICE_X9Y93          FDCE                                         r  tetris_inst/player_board_reg[4][7]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X3Y85          FDCE (Prop_fdce_C_Q)         0.141     1.613 r  tetris_inst/current_board_reg[0][2]/Q
-                         net (fo=2, routed)           0.099     1.712    tetris_inst/current_board[0][2]
-    SLICE_X2Y85          LUT4 (Prop_lut4_I2_O)        0.045     1.757 r  tetris_inst/current_board_next[0][2]_i_1/O
-                         net (fo=1, routed)           0.000     1.757    tetris_inst/current_board_next[0][2]_i_1_n_0
-    SLICE_X2Y85          FDCE                                         r  tetris_inst/current_board_next_reg[0][2]/D
+    SLICE_X9Y93          FDCE (Prop_fdce_C_Q)         0.141     1.588 r  tetris_inst/player_board_reg[4][7]/Q
+                         net (fo=2, routed)           0.099     1.687    tetris_inst/player_board[4][7]
+    SLICE_X8Y93          LUT2 (Prop_lut2_I0_O)        0.045     1.732 r  tetris_inst/display_board[4][7]_i_1/O
+                         net (fo=1, routed)           0.000     1.732    tetris_inst/display_board[4][7]_i_1_n_0
+    SLICE_X8Y93          FDCE                                         r  tetris_inst/display_board_reg[4][7]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -1511,13 +1467,13 @@ Slack (MET) :             0.152ns  (arrival time - required time)
     W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.685     1.099    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=702, routed)         0.858     1.986    tetris_inst/clk_IBUF_BUFG
-    SLICE_X2Y85          FDCE                                         r  tetris_inst/current_board_next_reg[0][2]/C
-                         clock pessimism             -0.501     1.485    
-    SLICE_X2Y85          FDCE (Hold_fdce_C_D)         0.120     1.605    tetris_inst/current_board_next_reg[0][2]
+                         net (fo=722, routed)         0.833     1.961    tetris_inst/clk_IBUF_BUFG
+    SLICE_X8Y93          FDCE                                         r  tetris_inst/display_board_reg[4][7]/C
+                         clock pessimism             -0.501     1.460    
+    SLICE_X8Y93          FDCE (Hold_fdce_C_D)         0.120     1.580    tetris_inst/display_board_reg[4][7]
   -------------------------------------------------------------------
-                         required time                         -1.605    
-                         arrival time                           1.757    
+                         required time                         -1.580    
+                         arrival time                           1.732    
   -------------------------------------------------------------------
                          slack                                  0.152    
 
@@ -1534,35 +1490,35 @@ Sources:            { clk }
 
 Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location       Pin
 Min Period        n/a     BUFG/I   n/a            2.155         10.000      7.845      BUFGCTRL_X0Y0  clk_IBUF_BUFG_inst/I
-Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X2Y90    tetris_inst/current_board_next_reg[3][5]/C
-Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X4Y91    tetris_inst/current_board_next_reg[3][6]/C
-Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X3Y91    tetris_inst/current_board_next_reg[3][7]/C
-Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X8Y91    tetris_inst/current_board_next_reg[4][0]/C
-Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X8Y90    tetris_inst/current_board_next_reg[4][1]/C
-Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X9Y88    tetris_inst/current_board_next_reg[4][2]/C
-Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X7Y91    tetris_inst/current_board_next_reg[4][3]/C
-Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X9Y88    tetris_inst/current_board_next_reg[4][4]/C
-Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X8Y90    tetris_inst/current_board_next_reg[4][5]/C
-Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X4Y91    tetris_inst/current_board_next_reg[3][6]/C
-Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X7Y91    tetris_inst/current_board_next_reg[4][3]/C
-Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X4Y89    tetris_inst/current_board_next_reg[4][7]/C
-Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X0Y88    tetris_inst/current_board_next_reg[5][7]/C
-Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X3Y87    tetris_inst/current_board_reg[2][0]/C
-Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X3Y87    tetris_inst/current_board_reg[2][1]/C
-Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X3Y87    tetris_inst/current_board_reg[2][4]/C
-Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X3Y87    tetris_inst/current_board_reg[2][6]/C
-Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X3Y87    tetris_inst/current_board_reg[2][7]/C
-Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X6Y91    tetris_inst/current_board_reg[3][1]/C
-High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X3Y91    tetris_inst/current_board_next_reg[3][7]/C
-High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X8Y91    tetris_inst/current_board_next_reg[4][0]/C
-High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X8Y90    tetris_inst/current_board_next_reg[4][1]/C
-High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X9Y88    tetris_inst/current_board_next_reg[4][2]/C
-High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X9Y88    tetris_inst/current_board_next_reg[4][4]/C
-High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X8Y90    tetris_inst/current_board_next_reg[4][5]/C
-High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X8Y90    tetris_inst/current_board_next_reg[4][6]/C
-High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X1Y81    tetris_inst/current_board_next_reg[6][0]/C
-High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X5Y83    tetris_inst/current_board_next_reg[6][1]/C
-High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X8Y88    tetris_inst/current_board_reg[4][2]/C
+Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X4Y93    tetris_inst/current_board_next_reg[8][2]/C
+Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X2Y94    tetris_inst/current_board_next_reg[8][3]/C
+Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X2Y94    tetris_inst/current_board_next_reg[8][4]/C
+Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X3Y92    tetris_inst/current_board_next_reg[8][5]/C
+Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X2Y92    tetris_inst/current_board_next_reg[8][6]/C
+Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X2Y92    tetris_inst/current_board_next_reg[8][7]/C
+Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X3Y89    tetris_inst/current_board_next_reg[9][0]/C
+Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X4Y88    tetris_inst/current_board_next_reg[9][1]/C
+Min Period        n/a     FDCE/C   n/a            1.000         10.000      9.000      SLICE_X3Y89    tetris_inst/current_board_next_reg[9][2]/C
+Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X4Y90    tetris_inst/current_board_next_reg[9][6]/C
+Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X5Y89    tetris_inst/current_board_reg[9][0]/C
+Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X5Y89    tetris_inst/current_board_reg[9][1]/C
+Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X5Y89    tetris_inst/current_board_reg[9][5]/C
+Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X5Y90    tetris_inst/current_board_reg[9][6]/C
+Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X6Y89    tetris_inst/display_board_reg[5][7]/C
+Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X5Y92    tetris_inst/display_board_reg[6][4]/C
+Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X4Y91    tetris_inst/display_board_reg[6][7]/C
+Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X4Y92    tetris_inst/player_board_next_reg[7][7]/C
+Low Pulse Width   Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X4Y92    tetris_inst/player_board_next_reg[8][2]/C
+High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X2Y94    tetris_inst/current_board_next_reg[8][3]/C
+High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X2Y94    tetris_inst/current_board_next_reg[8][4]/C
+High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X3Y92    tetris_inst/current_board_next_reg[8][5]/C
+High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X2Y92    tetris_inst/current_board_next_reg[8][6]/C
+High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X2Y92    tetris_inst/current_board_next_reg[8][7]/C
+High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X10Y89   tetris_inst/current_board_reg[0][0]/C
+High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X13Y89   tetris_inst/current_board_reg[0][1]/C
+High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X10Y89   tetris_inst/current_board_reg[0][2]/C
+High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X10Y89   tetris_inst/current_board_reg[0][3]/C
+High Pulse Width  Slow    FDCE/C   n/a            0.500         5.000       4.500      SLICE_X13Y89   tetris_inst/current_board_reg[0][4]/C
 
 
 
