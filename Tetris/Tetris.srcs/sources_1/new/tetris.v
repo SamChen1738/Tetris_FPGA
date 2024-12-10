@@ -73,12 +73,12 @@ module tetris(
     integer i,j;
     
     reg refresh_tick;
-    reg [1:0] refresh_counter;
+    reg [3:0] refresh_counter;
     reg N_refreshes;
-    reg [2:0] refresh_counter_2;
+    reg [6:0] refresh_counter_2;
     reg N_refreshes_2;
     
-    parameter BLOCK_SIZE = 14;          
+    parameter BLOCK_SIZE = 20;          
 
     integer block_x;                
     integer block_y;                
@@ -239,17 +239,17 @@ module tetris(
                     if(game_over) begin
                         display_board[15] = 8'h00;
                         display_board[14] = 8'h7e;
-                        display_board[13] = 8'h40;
-                        display_board[12] = 8'h40;
-                        display_board[11] = 8'h4e;
+                        display_board[13] = 8'h02;
+                        display_board[12] = 8'h02;
+                        display_board[11] = 8'h72;
                         display_board[10] = 8'h42;
                         display_board[9] = 8'h7e;
                         display_board[8] = 8'h00;
                         display_board[7] = 8'h00;
                         display_board[6] = 8'h7e;
-                        display_board[5] = 8'h40;
-                        display_board[4] = 8'h40;
-                        display_board[3] = 8'h4e;
+                        display_board[5] = 8'h02;
+                        display_board[4] = 8'h02;
+                        display_board[3] = 8'h72;
                         display_board[2] = 8'h42;
                         display_board[1] = 8'h7e;
                         display_board[0] = 8'h00;
