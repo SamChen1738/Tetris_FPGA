@@ -106,10 +106,3 @@ This project was inspired by the classic Tetris game and serves as an educationa
 
 Enjoy playing Tetris on your Basys 3 FPGA!
 
-Citations:
-[1] https://data.research.cornell.edu/data-management/sharing/readme/
-[2] https://www.dhiwise.com/post/how-to-write-a-readme-that-stands-out-in-best-practices
-[3] https://github.com/matiassingers/awesome-readme
-[4] https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/
-[5] https://www.hatica.io/blog/best-practices-for-github-readme/
-[6] https://github.com/othneildrew/Best-README-Template
